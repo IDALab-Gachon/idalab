@@ -26,7 +26,7 @@ function App() {
         </div>
         <Media>
           <img
-            height={486}
+            width="50%"
             className="algin-self-center mr-3"
             src={home_img}
             alt="IDALab"
@@ -37,9 +37,9 @@ function App() {
             IDA Lab., Intelligent Data Analysis Laboratory, focuses on designing efficient algorithm or model to discover knowledge from big data. We research and solve the problems based on data mining, machine learning, and deep learning techniques across various fields with the aim of intelligent big data analysis in real-world data.
           </p>
           <p>
-            Our research directions are
-            (1) scaling up algorithms to cope with Big Data,
-            (2) improving the data analysis mechanism by auto-growing knowledge graph.
+            Our research directions are <br/>
+            (1) scaling up algorithms to cope with Big Data, <br/>
+            (2) improving the data analysis mechanism by auto-growing knowledge graph. <br/>
             In common, we first find a novel killer application for the emerging data types and then develop effective and efficient algorithms for the application. Overall, we are trying to go beyond traditional big data analysis approaches.
           </p>
           <p>
@@ -47,10 +47,11 @@ function App() {
           </p>
           <ul>
             <li>Intelligent data analysis technology for big data</li>
+            <li>Social media contents based sentiment analysis and prediction</li>
             <li>Real-time data crawling & data analysis and prediction</li>
             <li>Auto growing knowledge graph</li>
             <li>Conversational AI framework technology</li>
-            <li>Intelligent emotional chatbot system</li>
+            <li>Intelligent emotional chatbot</li>
             <li>Automatic framework deep learning-based prediction model</li>
             <li>Lifelong machine learning</li>
           </ul>
