@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './logo_typo_v1.svg';
 import './App.css';
 
 function App() {
