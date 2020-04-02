@@ -21,7 +21,7 @@ const Publications = () => {
   return (
     <PubContent>
       <PubTitle>
-        <h2>PUBLICATIONS</h2>
+        <h3>PUBLICATIONS</h3>
       </PubTitle>
       <a href="#int_journals_sci" target="_self" rel="noopener noreferrer">International Journals(SCI(E))</a> / <a href="#int_journals_non_sci" target="_self" rel="noopener noreferrer">International Journals(Non-SCI)</a> / <a href="#int_conf" target="_self" rel="noopener noreferrer">International Conferences</a> / <a href="#kor_journals" target="_self" rel="noopener noreferrer">Korean Journals</a> / <a href="#kor_conf" target="_self" rel="noopener noreferrer">Korean Conferences</a>
       <br />
