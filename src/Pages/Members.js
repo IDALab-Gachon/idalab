@@ -97,6 +97,46 @@ const Members = () => {
           </Media>
         </ul>
       </MemWrapper>   
+      <MemWrapper>
+        <h2>Researcher</h2>
+        <ul className="list-unstyled">
+          <li><h5>HeeSu Lee</h5></li>
+        </ul>
+      </MemWrapper>
+      <MemWrapper>
+        <h2>Alumni</h2>
+        <ul className="list-unstyled">
+          <li><h5>SungMin Yang</h5>, MS, 2020</li>
+          <li><h5>JeIn Song</h5>, MS, 2018 (Zum Internet)</li>
+          <li><h5>TaeSoo Park</h5>, MS, 2017 (Wisenut)</li>
+        </ul>
+        <br/>
+        <ul className="list-unstyled">
+          <li>ChongJae Yoo (LG Electronics)</li>
+          <li>Soojeong Choi (EMRO)</li>
+          <li>Seounhee Ma (Infobank)</li>
+          <li>Jinwoo Jo (Graduate student)</li>
+          <li>SangMoon Kang (EMRO)</li>
+          <li>YoungSook Seo (E4NET)</li>
+          <li>Woori Ko (DUZON)</li>
+          <li>SangMin Byun (EMRO)</li>
+          <li>YoungNam Woo (Irontrain)</li>
+          <li>YoungGeun Kim</li>
+          <li>HyunMin Kim (Wisenut)</li>
+          <li>SeungChul Park</li>
+          <li>JungHo Park (Cannon)</li>
+          <li>Kideok Kim (Coupang)</li>
+          <li>Jungkeun Ji (GIS)</li>
+          <li>Hyeji Shin (Douzone)</li>
+          <li>Jaesang Lim (Zum Internet)</li>
+          <li>Hyunjoong Kim</li>
+          <li>Jeongwook Kim</li>
+          <li>Hyunwoo Yoo</li>
+          <li>Youngyol Na</li>
+          <li>Hwankyoo Yeo</li>
+          <li>Sangwok Yoo</li>
+        </ul>
+      </MemWrapper>
     </MemContent>
   );  
 };
