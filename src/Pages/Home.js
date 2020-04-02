@@ -20,7 +20,7 @@ const Home = () => {
         </div>
         <Media>
           <img
-            width="50%"
+            width="30%"
             className="algin-self-center mr-3"
             src={home_img}
             alt="IDALab"
