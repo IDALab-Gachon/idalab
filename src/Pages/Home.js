@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo_typo_v1.png';
-import home_img from './home_img.png';
-import './App.css';
+import home_img from '../home_img.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Nav, Navbar, Media } from 'react-bootstrap';
+import { Media } from 'react-bootstrap';
+import styled from 'styled-components';
 
+const HomeContent = styled.div`
+  width: 100%;
+  margin-top: 100px;
+  text-align: justify;
+  padding: 25px;
+`;
 
-function App() {
+const Home = () => {
   return (
-    <div className="App">
-      <Navbar expand="lg">
-        <Navbar.Brand href="#home">
-          <img src={logo} height="80px" alt="logo"/>
-        </Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link href="#home">HOME</Nav.Link>
-          <Nav.Link href="#member">MEMBERS</Nav.Link>
-          <Nav.Link href="#pub">PUBLICATIONS</Nav.Link>
-          <Nav.Link href="#project">PROJECTS</Nav.Link>
-        </Nav>
-      </Navbar>
+    <HomeContent>
       <div className="App-body">
         <div className="App-body-title">
           <h3>HOME</h3>
@@ -57,11 +51,9 @@ function App() {
           </ul>
           </Media.Body>
         </Media>
-        
-        
       </div>
-    </div>
+    </HomeContent>
   );
-}
+};
 
-export default App;
+export default Home;
