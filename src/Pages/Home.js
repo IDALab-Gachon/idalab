@@ -11,16 +11,25 @@ const HomeContent = styled.div`
   padding: 25px;
 `;
 
+const HomeTitle = styled.div`
+  color: #003569;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  background-color: #FAFAFA;
+  padding: 10px;
+  margin-bottom: 10px;
+`;
+
 const Home = () => {
   return (
     <HomeContent>
       <div className="App-body">
-        <div className="App-body-title">
+        <HomeTitle>
           <h3>HOME</h3>
-        </div>
+        </HomeTitle>
         <Media>
           <img
-            width="30%"
+            width="33%"
             className="algin-self-center mr-3"
             src={home_img}
             alt="IDALab"

@@ -8,9 +8,21 @@ const PubContent = styled.div`
   padding: 25px;
 `;
 
+const PubTitle = styled.div`
+  color: #003569;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  background-color: #FAFAFA;
+  padding: 10px;
+  margin-bottom: 10px;
+`;
+
 const Publications = () => {
   return (
     <PubContent>
+      <PubTitle>
+        <h2>PUBLICATIONS</h2>
+      </PubTitle>
       <a href="#int_journals_sci" target="_self" rel="noopener noreferrer">International Journals(SCI(E))</a> / <a href="#int_journals_non_sci" target="_self" rel="noopener noreferrer">International Journals(Non-SCI)</a> / <a href="#int_conf" target="_self" rel="noopener noreferrer">International Conferences</a> / <a href="#kor_journals" target="_self" rel="noopener noreferrer">Korean Journals</a> / <a href="#kor_conf" target="_self" rel="noopener noreferrer">Korean Conferences</a>
       <br />
       <div className="int_journals_sci">

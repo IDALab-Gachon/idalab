@@ -8,7 +8,6 @@ import Menu from './Menu';
 
 const GlobalApp = styled.div`
   width: 100%;
-  min-height: 100vh;
   margin: auto;
   padding 25x;
 `;

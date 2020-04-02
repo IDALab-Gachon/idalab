@@ -13,11 +13,20 @@ const MemContent = styled.div`
   padding: 25px;
 `;
 
+const MemTitle = styled.div`
+  color: #003569;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  background-color: #FAFAFA;
+  padding: 10px;
+  margin-bottom: 10px;
+`;
+
 const MemWrapper = styled.div`
   color: #262626;
   border: 1px solid #e6e6e6;
   border-radius: 4px;
-  background-color: #FAFAFA;
+  background-color: #white;
   padding: 20px;
   margin: 5px;
 `;
@@ -25,6 +34,9 @@ const MemWrapper = styled.div`
 const Members = () => {
   return (
     <MemContent>
+      <MemTitle>
+        <h3>MEMBERS</h3>
+      </MemTitle>
       <MemWrapper>
         <h2>Professor</h2>
         <br/>
@@ -45,6 +57,7 @@ const Members = () => {
           </Media>
         </ul>
       </MemWrapper>
+      <br />
       <MemWrapper>
         <h2>Ph.D. Student</h2>
         <br/>
@@ -64,6 +77,7 @@ const Members = () => {
           </Media>
         </ul>
       </MemWrapper>
+      <br />
       <MemWrapper>
         <h2>M.S. Students</h2>
         <br/>
@@ -97,14 +111,18 @@ const Members = () => {
           </Media>
         </ul>
       </MemWrapper>   
+      <br />
       <MemWrapper>
         <h2>Researcher</h2>
+        <br />
         <ul className="list-unstyled">
           <li><h5>HeeSu Lee</h5></li>
         </ul>
       </MemWrapper>
+      <br />
       <MemWrapper>
         <h2>Alumni</h2>
+        <br />
         <ul className="list-unstyled">
           <li><h5>SungMin Yang</h5>MS, 2020</li>
           <li><h5>JeIn Song</h5>MS, 2018 (Zum Internet)</li>
