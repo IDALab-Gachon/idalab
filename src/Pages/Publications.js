@@ -124,6 +124,7 @@ const Publications = () => {
       </div>
       <hr />
       <div className="int_conf">
+        <h2>International Conferences</h2>
         <ul>
           <li>
             <p>SoYeop Yoo and OkRan Jeong, "Auto-growing Knowledge Graph-based Intelligent Chatbot using BERT," 14th International Conference on Innovative Computing, Information and Control (ICICIC2019), 2019.</p>

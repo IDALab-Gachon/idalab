@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import home_img from '../home_img.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Nav, Navbar, Media } from 'react-bootstrap';
-
-import styled, {ThemProvider} from "styled-components";
-import GlobalStyles from "../Styles/GlobalStyles";
-import Theme from "../Styles/Theme";
+import styled from "styled-components";
 
 import { Route } from 'react-router-dom';
 import { Home, Publications, Members } from '../Pages';
