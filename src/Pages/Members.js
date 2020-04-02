@@ -106,9 +106,9 @@ const Members = () => {
       <MemWrapper>
         <h2>Alumni</h2>
         <ul className="list-unstyled">
-          <li><h5>SungMin Yang</h5>, MS, 2020</li>
-          <li><h5>JeIn Song</h5>, MS, 2018 (Zum Internet)</li>
-          <li><h5>TaeSoo Park</h5>, MS, 2017 (Wisenut)</li>
+          <li><h5>SungMin Yang</h5>MS, 2020</li>
+          <li><h5>JeIn Song</h5>MS, 2018 (Zum Internet)</li>
+          <li><h5>TaeSoo Park</h5>MS, 2017 (Wisenut)</li>
         </ul>
         <br/>
         <ul className="list-unstyled">
