@@ -3,22 +3,26 @@ import reset from "styled-reset";
 
 export default createGlobalStyle`
     ${reset};
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+    @import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
     * {
         box-sizing:border-box;
     }
     body {
         background-color:${props => props.theme.bgColor};
         color:${props => props.theme.blackColor};
-        font-size:14px;
-        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        padding-top: 140px;
+        width: 80%;
+        margin: auto;
+        font-size:16px;
+        line-height: 160%;
+        font-family: 'Manrope', sans-serif;
+        padding: 5px;
     }
     a {
-        color:${props => props.theme.blueColor};
-        text-decoration:none;
+        color:${props => props.theme.darkBlueColor};
+        text-decoration: none;
     }
     input:focus{
-        outline:none;
+        outline: none;
     }
 `;

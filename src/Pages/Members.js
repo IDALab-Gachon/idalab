@@ -1,161 +1,218 @@
 import React from 'react';
 import styled from 'styled-components';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Media } from 'react-bootstrap';
 
-import jihye_img from '../members_jihye.jpg';
-import yeonsun_img from '../members_yeonsun.jpg';
+import jihye_img from '../images/members_jihye.jpg';
+import yeonsun_img from '../images/members_yeonsun.jpg';
 
-const MemContent = styled.div`
+const MemberContainer = styled.div`
   width: 100%;
-  margin-top: 100px;
+  margin-top: 5px;
   text-align: justify;
-  padding: 25px;
 `;
 
-const MemTitle = styled.div`
-  color: #003569;
-  border: 1px solid #e6e6e6;
-  border-radius: 4px;
-  background-color: #FAFAFA;
+const MemberTitle = styled.div`
+  border-bottom: 2px solid ${props => props.theme.redColor};
+`;
+
+const TitleText = styled.p`
+  font-size: 24px;
+  font-weight: 600;
+  color: ${props => props.theme.redColor};
   padding: 10px;
+`;
+
+const ListContainer = styled.div`
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+`;
+
+const ListTitle = styled.p`
+  font-size: 20px;
+  font-weight: 600;
+  color: ${props => props.theme.darkBlueColor};
+  padding-bottom: 10px;
+  padding-top: 5px;
+`;
+
+const MemberWrapper = styled.div`
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+`;
+
+const MemberCard = styled.div`
+  justify-content: center;
+  align-self: center;
+  vertical-align: middle;
+  ${props => props.theme.whiteBox};
+  width: 280px;
+  height: 400px;
+  text-align: center;
+  padding: 15px;
+  margin-right: 15px;
   margin-bottom: 10px;
 `;
 
-const MemWrapper = styled.div`
-  color: #262626;
-  border: 1px solid #e6e6e6;
-  border-radius: 4px;
-  background-color: #white;
-  padding: 20px;
-  margin: 5px;
+const MemberImg = styled.img`
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin-top: 10px;
+`;
+
+const MemberName = styled.p`
+  padding-top: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: ${props => props.theme.darkBlueColor};
+`;
+
+const MemberInfo = styled.p`
+  padding-top: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  color: ${props => props.theme.darkGreyColor};
+`;
+
+const GraduateAlumni = styled.ul`
+  list-style: none;
+  color: ${props => props.theme.darkBlueColor};
+  font-size: 16px;
+  font-weight: 500;
+`;
+
+const AlumniList = styled.ul`
+  list-style: none;
+  color: ${props => props.theme.darkGreyColor};
+  font-size: 16px;
+`;
+
+const AlumniListItem = styled.li`
+  ::before {
+    content: "•";
+    color: ${props => props.theme.redColor};
+    display: inline-block;
+    width: 1em;
+  }
 `;
 
 const Members = () => {
   return (
-    <MemContent>
-      <MemTitle>
-        <h3>MEMBERS</h3>
-      </MemTitle>
-      <MemWrapper>
-        <h2>Professor</h2>
-        <br/>
-        <ul className = "list-unstyled">
-          <Media as="li">
-            <img
-              width={150}
-              height={150}
-              className="mr-3"
-              src="http://sclab.gachon.ac.kr/wp-content/uploads/2016/02/OkranJeong-150x150.jpg"
+    <MemberContainer>
+      <MemberTitle>
+        <TitleText>MEMBERS</TitleText>
+      </MemberTitle>
+      <ListContainer>
+        <ListTitle>Professor</ListTitle>
+        <MemberWrapper>
+          <MemberCard>
+            <MemberImg
+              src="http://sclab.gachon.ac.kr/wp-content/uploads/2016/02/OkranJeong.jpg"
               alt="OkRan Jeong"
             />
-            <Media.Body>
-              <h5>OkRan Jeong</h5>
-              <p>Associate Professor <br/> Dept. of Software, Gachon University</p>
-              <p>Email: orjeong@gachon.ac.kr</p>
-            </Media.Body>
-          </Media>
-        </ul>
-      </MemWrapper>
-      <br />
-      <MemWrapper>
-        <h2>Ph.D. Student</h2>
-        <br/>
-        <ul className="list-unstyled">
-          <Media as="li">
-            <img
-              width={150}
-              height={150}
-              className="mr-3"
-              src="http://sclab.gachon.ac.kr/wp-content/uploads/2016/02/so_yeop_yoo-150x150.jpg"
+            <MemberName>Prof. OkRan Jeong</MemberName>
+            <MemberInfo>
+              Associate Professor <br/>
+              Dept. of AI & Sotware <br/>
+              Gachon University <br/>
+              📧 orjeong@gachon.ac.kr
+            </MemberInfo>
+          </MemberCard>
+        </MemberWrapper>
+        <ListTitle>Ph.D. Student</ListTitle>
+        <MemberWrapper>
+          <MemberCard>
+            <MemberImg
+              src="http://sclab.gachon.ac.kr/wp-content/uploads/2016/02/so_yeop_yoo.jpg"
               alt="SoYeop Yoo"
             />
-            <Media.Body>
-              <h5>SoYeop Yoo</h5>
-              <p>Email: bbusso90@gmail.com</p>
-            </Media.Body>
-          </Media>
-        </ul>
-      </MemWrapper>
-      <br />
-      <MemWrapper>
-        <h2>M.S. Students</h2>
-        <br/>
-        <ul className="list-unstyled">
-          <Media as="li">
-            <img
-              width={150}
-              height={200}
-              className="mr-3"
+            <MemberName>SoYeop Yoo</MemberName>
+            <MemberInfo>
+              Dept. of AI & Sotware <br/>
+              Gachon University <br/>
+              📧 bbusso90@gmail.com
+            </MemberInfo>
+          </MemberCard>
+        </MemberWrapper>
+        <ListTitle>M.S. Student</ListTitle>
+        <MemberWrapper>
+          <MemberCard>
+            <MemberImg
               src={jihye_img}
               alt="JiHye Kim"
             />
-            <Media.Body>
-              <h5>JiHye Kim</h5>
-              <p>Email: kimjihae28@naver.com</p>
-            </Media.Body>
-          </Media>
-          <br/>
-          <Media as="li">
-            <img
-              width={150}
-              height={200}
-              className="mr-3"
+            <MemberName>JiHye Kim</MemberName>
+            <MemberInfo>
+              Dept. of AI & Sotware <br/>
+              Gachon University <br/>
+              📧 kimjihae28@naver.com
+            </MemberInfo>
+          </MemberCard>
+          <MemberCard>
+            <MemberImg
               src={yeonsun_img}
               alt="YeonSun Ahn"
             />
-            <Media.Body>
-              <h5>YeonSun Ahn</h5>
-              <p>Email: yeonsun0517@gmail.com</p>
-            </Media.Body>
-          </Media>
-        </ul>
-      </MemWrapper>   
-      <br />
-      <MemWrapper>
-        <h2>Researcher</h2>
-        <br />
-        <ul className="list-unstyled">
-          <li><h5>HeeSu Lee</h5></li>
-        </ul>
-      </MemWrapper>
-      <br />
-      <MemWrapper>
-        <h2>Alumni</h2>
-        <br />
-        <ul className="list-unstyled">
-          <li><h5>SungMin Yang</h5>MS, 2020</li>
-          <li><h5>JeIn Song</h5>MS, 2018 (Zum Internet)</li>
-          <li><h5>TaeSoo Park</h5>MS, 2017 (Wisenut)</li>
-        </ul>
-        <br/>
-        <ul className="list-unstyled">
-          <li>ChongJae Yoo (LG Electronics)</li>
-          <li>Soojeong Choi (EMRO)</li>
-          <li>Seounhee Ma (Infobank)</li>
-          <li>Jinwoo Jo (Graduate student)</li>
-          <li>SangMoon Kang (EMRO)</li>
-          <li>YoungSook Seo (E4NET)</li>
-          <li>Woori Ko (DUZON)</li>
-          <li>SangMin Byun (EMRO)</li>
-          <li>YoungNam Woo (Irontrain)</li>
-          <li>YoungGeun Kim</li>
-          <li>HyunMin Kim (Wisenut)</li>
-          <li>SeungChul Park</li>
-          <li>JungHo Park (Cannon)</li>
-          <li>Kideok Kim (Coupang)</li>
-          <li>Jungkeun Ji (GIS)</li>
-          <li>Hyeji Shin (Douzone)</li>
-          <li>Jaesang Lim (Zum Internet)</li>
-          <li>Hyunjoong Kim</li>
-          <li>Jeongwook Kim</li>
-          <li>Hyunwoo Yoo</li>
-          <li>Youngyol Na</li>
-          <li>Hwankyoo Yeo</li>
-          <li>Sangwok Yoo</li>
-        </ul>
-      </MemWrapper>
-    </MemContent>
+            <MemberName>YeonSun Ahn</MemberName>
+            <MemberInfo>
+              Dept. of AI & Sotware <br/>
+              Gachon University <br/>
+              📧 yeonsun0517@gmail.com
+            </MemberInfo>
+          </MemberCard>
+        </MemberWrapper>
+        <ListTitle>Researcher</ListTitle>
+        <MemberWrapper>
+          <MemberCard>
+            <MemberImg
+              src="http://sclab.gachon.ac.kr/wp-content/uploads/2018/07/empty_person.png"
+              alt="HeeSu Lee"
+            />
+            <MemberName>HeeSu Lee</MemberName>
+            <MemberInfo>
+              Researcher <br/>
+              📧 hesue615@gmail.com
+            </MemberInfo>
+          </MemberCard>
+        </MemberWrapper>
+        <ListTitle>Alumni</ListTitle>
+        <GraduateAlumni>
+          <AlumniList>SungMin Yang, MS, 2020</AlumniList>
+          <AlumniList>DaeHo Kim, MS, 2019 (NHN 다이퀘스트)</AlumniList>
+          <AlumniList>JeIn Song, MS, 2018 (Zum Internet)</AlumniList>
+          <AlumniList>TaeSoo Park, MS, 2017 (Wisenut)</AlumniList>
+        </GraduateAlumni>
+        <AlumniList>
+          <AlumniListItem>ChongJae Yoo (LG Electronics)</AlumniListItem>
+          <AlumniListItem>Soojeong Choi (EMRO)</AlumniListItem>
+          <AlumniListItem>Seounhee Ma (Infobank)</AlumniListItem>
+          <AlumniListItem>Jinwoo Jo (Vueno)</AlumniListItem>
+          <AlumniListItem>SangMoon Kang (EMRO)</AlumniListItem>
+          <AlumniListItem>YoungSook Seo (E4NET)</AlumniListItem>
+          <AlumniListItem>Woori Ko (DUZON)</AlumniListItem>
+          <AlumniListItem>SangMin Byun (EMRO)</AlumniListItem>
+          <AlumniListItem>YoungNam Woo (Irontrain)</AlumniListItem>
+          <AlumniListItem>YoungGeun Kim</AlumniListItem>
+          <AlumniListItem>HyunMin Kim (Wisenut)</AlumniListItem>
+          <AlumniListItem>SeungChul Park</AlumniListItem>
+          <AlumniListItem>JungHo Park (Cannon)</AlumniListItem>
+          <AlumniListItem>Kideok Kim (Coupang)</AlumniListItem>
+          <AlumniListItem>Jungkeun Ji (GIS)</AlumniListItem>
+          <AlumniListItem>Hyeji Shin (Douzone)</AlumniListItem>
+          <AlumniListItem>Jaesang Lim (Zum Internet)</AlumniListItem>
+          <AlumniListItem>Hyunjoong Kim</AlumniListItem>
+          <AlumniListItem>Jeongwook Kim</AlumniListItem>
+          <AlumniListItem>Hyunwoo Yoo</AlumniListItem>
+          <AlumniListItem>Youngyol Na</AlumniListItem>
+          <AlumniListItem>Hwankyoo Yeo</AlumniListItem>
+          <AlumniListItem>Sangwok Yoo</AlumniListItem>
+        </AlumniList>
+      </ListContainer>
+    </MemberContainer>
   );  
 };
 
