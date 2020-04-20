@@ -181,11 +181,12 @@ const Members = () => {
         </MemberWrapper>
         <ListTitle>Alumni</ListTitle>
         <GraduateAlumni>
-          <AlumniList>SungMin Yang, MS, 2020</AlumniList>
-          <AlumniList>DaeHo Kim, MS, 2019 (NHN 다이퀘스트)</AlumniList>
-          <AlumniList>JeIn Song, MS, 2018 (Zum Internet)</AlumniList>
-          <AlumniList>TaeSoo Park, MS, 2017 (Wisenut)</AlumniList>
+          <AlumniListItem>SungMin Yang, MS, 2020</AlumniListItem>
+          <AlumniListItem>DaeHo Kim, MS, 2019 (NHN 다이퀘스트)</AlumniListItem>
+          <AlumniListItem>JeIn Song, MS, 2018 (Zum Internet)</AlumniListItem>
+          <AlumniListItem>TaeSoo Park, MS, 2017 (Wisenut)</AlumniListItem>
         </GraduateAlumni>
+        <br/>
         <AlumniList>
           <AlumniListItem>ChongJae Yoo (LG Electronics)</AlumniListItem>
           <AlumniListItem>Soojeong Choi (EMRO)</AlumniListItem>
