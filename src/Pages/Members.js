@@ -194,7 +194,7 @@ const Members = () => {
         </MemberWrapper>
         <ListTitle>Alumni</ListTitle>
         <GraduateAlumni>
-          <AlumniListItem>SungMin Yang, MS, 2020</AlumniListItem>
+          <AlumniListItem>SungMin Yang, MS, 2020 (ODK)</AlumniListItem>
           <AlumniListItem>DaeHo Kim, MS, 2019 (NHN 다이퀘스트)</AlumniListItem>
           <AlumniListItem>JeIn Song, MS, 2018 (Zum Internet)</AlumniListItem>
           <AlumniListItem>TaeSoo Park, MS, 2017 (Wisenut)</AlumniListItem>
