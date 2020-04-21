@@ -178,6 +178,17 @@ const Members = () => {
               📧 hesue615@gmail.com
             </MemberInfo>
           </MemberCard>
+          <MemberCard>
+            <MemberImg
+              src="http://sclab.gachon.ac.kr/wp-content/uploads/2018/07/empty_person.png"
+              alt="SeHoon Ahn"
+            />
+            <MemberName>SeHoon Ahn</MemberName>
+            <MemberInfo>
+              Undergraduate RA<br/>
+              📧 ansehoon1999@gmail.com
+            </MemberInfo>
+          </MemberCard>
         </MemberWrapper>
         <ListTitle>Alumni</ListTitle>
         <GraduateAlumni>
