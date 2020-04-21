@@ -7,6 +7,7 @@ import Theme from "../Styles/Theme";
 import { Route } from 'react-router-dom';
 import { Home, Publications, Members, Projects } from '../Pages';
 import Menu from './Menu';
+import Footer from './Footer';
 class App extends Component {
   render() {
     return (
@@ -18,6 +19,7 @@ class App extends Component {
           <Route path="/publications" component={ Publications } />
           <Route path="/members" component={ Members } />
           <Route path="/projects" component={ Projects } />
+          <Footer theme={Theme} />
         </>
       </ThemeProvider>
     )
