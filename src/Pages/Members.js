@@ -165,7 +165,7 @@ const Members = () => {
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
-        <ListTitle>Researcher</ListTitle>
+        <ListTitle>Researchers</ListTitle>
         <MemberWrapper>
           <MemberCard>
             <MemberImg
