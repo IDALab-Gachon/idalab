@@ -186,6 +186,8 @@ const Members = () => {
             <MemberName>SeHoon Ahn</MemberName>
             <MemberInfo>
               Undergraduate RA<br/>
+              Dept. of AI & Software<br/>
+              Gachon University<br/>
               📧 ansehoon1999@gmail.com
             </MemberInfo>
           </MemberCard>
