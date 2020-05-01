@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import jihye_img from '../images/members_jihye.jpg';
-import yeonsun_img from '../images/members_yeonsun.jpg';
+import empty_img from '../images/members/members_empty.png';
+import orjeong_img from '../images/members/members_orjeong.jpg';
+import soyeop_img from '../images/members/members_soyeop.jpeg';
+import jihye_img from '../images/members/members_jihye.jpg';
+import yeonsun_img from '../images/members/members_yeonsun.jpg';
 
 const MemberContainer = styled.div`
   width: 100%;
@@ -111,7 +114,7 @@ const Members = () => {
         <MemberWrapper>
           <MemberCard>
             <MemberImg
-              src="http://sclab.gachon.ac.kr/wp-content/uploads/2016/02/OkranJeong.jpg"
+              src={orjeong_img}
               alt="OkRan Jeong"
             />
             <MemberName>Prof. OkRan Jeong</MemberName>
@@ -127,7 +130,7 @@ const Members = () => {
         <MemberWrapper>
           <MemberCard>
             <MemberImg
-              src="http://sclab.gachon.ac.kr/wp-content/uploads/2016/02/so_yeop_yoo.jpg"
+              src={soyeop_img}
               alt="SoYeop Yoo"
             />
             <MemberName>SoYeop Yoo</MemberName>
@@ -169,7 +172,7 @@ const Members = () => {
         <MemberWrapper>
           <MemberCard>
             <MemberImg
-              src="http://sclab.gachon.ac.kr/wp-content/uploads/2018/07/empty_person.png"
+              src={empty_img}
               alt="HeeSu Lee"
             />
             <MemberName>HeeSu Lee</MemberName>
@@ -180,7 +183,7 @@ const Members = () => {
           </MemberCard>
           <MemberCard>
             <MemberImg
-              src="http://sclab.gachon.ac.kr/wp-content/uploads/2018/07/empty_person.png"
+              src={empty_img}
               alt="SeHoon Ahn"
             />
             <MemberName>SeHoon Ahn</MemberName>
