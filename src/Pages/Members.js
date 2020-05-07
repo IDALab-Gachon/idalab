@@ -6,6 +6,8 @@ import orjeong_img from '../images/members/members_orjeong.jpg';
 import soyeop_img from '../images/members/members_soyeop.jpeg';
 import jihye_img from '../images/members/members_jihye.jpg';
 import yeonsun_img from '../images/members/members_yeonsun.jpg';
+import heesue_img from '../images/members/members_heesue.jpg';
+import sehoon_img from '../images/members/members_sehoon.jpg';
 
 const MemberContainer = styled.div`
   width: 100%;
@@ -172,10 +174,10 @@ const Members = () => {
         <MemberWrapper>
           <MemberCard>
             <MemberImg
-              src={empty_img}
-              alt="HeeSu Lee"
+              src={heesue_img}
+              alt="HeeSue Lee"
             />
-            <MemberName>HeeSu Lee</MemberName>
+            <MemberName>HeeSue Lee</MemberName>
             <MemberInfo>
               Researcher <br/>
               📧 hesue615@gmail.com
@@ -183,7 +185,7 @@ const Members = () => {
           </MemberCard>
           <MemberCard>
             <MemberImg
-              src={empty_img}
+              src={sehoon_img}
               alt="SeHoon Ahn"
             />
             <MemberName>SeHoon Ahn</MemberName>
