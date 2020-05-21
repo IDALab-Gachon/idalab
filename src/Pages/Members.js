@@ -124,7 +124,7 @@ const Members = () => {
               Associate Professor <br/>
               Dept. of AI & Sotware <br/>
               Gachon University <br/>
-              🌐 <a href="orjeong.gachon.ac.kr">orjeong.gachon.ac.kr</a> <br/>
+              🌐 <a href="https://orjeong.gachon.ac.kr">orjeong.gachon.ac.kr</a> <br/>
               📧 orjeong@gachon.ac.kr
             </MemberInfo>
           </MemberCard>
