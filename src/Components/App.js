@@ -5,7 +5,7 @@ import GlobalStyles from "../Styles/GlobalStyles";
 import Theme from "../Styles/Theme";
 
 import { Route } from 'react-router-dom';
-import { Home, Publications, Members, Projects } from '../Pages';
+import { Home, Publications, Members, Projects, Photo } from '../Pages';
 import Menu from './Menu';
 import Footer from './Footer';
 class App extends Component {
@@ -19,6 +19,7 @@ class App extends Component {
           <Route path="/publications" component={ Publications } />
           <Route path="/members" component={ Members } />
           <Route path="/projects" component={ Projects } />
+          <Route path="/photo" component={ Photo } />
           <Footer theme={Theme} />
         </>
       </ThemeProvider>

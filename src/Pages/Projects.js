@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import polaris_project from "../files/PolarisProject_190725.pdf";
+
 const ProjContainer = styled.div`
   width: 100%;
   margin-top: 5px;
@@ -66,7 +68,7 @@ const Projects = () => {
         <ListTitle>Polaris Project</ListTitle>
         <ProjList>
           <ProjListItem>
-            <a href="http://polaris.gachon.ac.kr/">"Polaris"</a>
+            <a href={polaris_project} target="_blank" rel="noopener noreferrer">"Polaris"</a>
           </ProjListItem>
           <ProjListItem>Social media analysis system</ProjListItem>
         </ProjList>

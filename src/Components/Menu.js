@@ -47,7 +47,8 @@ const Menu = (props) => {
         <HeaderLink exact to="/" activeStyle={activeStyle}>HOME</HeaderLink>
         <HeaderLink exact to="/members" activeStyle={activeStyle}>MEMBERS</HeaderLink>
         <HeaderLink exact to="/publications" activeStyle={activeStyle}>PUBLICATIONS</HeaderLink>
-        <HeaderLink exact to="/projects" activeStyle={activeStyle}>PROJECTS</HeaderLink>      
+        <HeaderLink exact to="/projects" activeStyle={activeStyle}>PROJECTS</HeaderLink>
+        <HeaderLink exact to="/photo" activeStyle={activeStyle}>PHOTO</HeaderLink>   
       </HeaderMenu>
     </HeaderContainer>
     </>

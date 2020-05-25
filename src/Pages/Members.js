@@ -105,6 +105,10 @@ const AlumniListItem = styled.li`
   }
 `;
 
+const Link = styled.a`
+  color: ${props => props.theme.darkBlueColor};
+`;
+
 const Members = () => {
   return (
     <MemberContainer>
@@ -124,8 +128,8 @@ const Members = () => {
               Associate Professor <br/>
               Dept. of AI & Sotware <br/>
               Gachon University <br/>
-              🌐 <a href="http://cs.gachon.ac.kr/orjeong/" target="_blank">orjeong.gachon.ac.kr</a> <br/>
-              📧 orjeong@gachon.ac.kr
+              🌐 <Link href="http://cs.gachon.ac.kr/orjeong/" target="_blank" rel="noopener noreferrer">orjeong.gachon.ac.kr</Link> <br/>
+              📧 <Link href="mailto:orjeong@gachon.ac.kr">orjeong@gachon.ac.kr</Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
@@ -140,7 +144,7 @@ const Members = () => {
             <MemberInfo>
               Dept. of AI & Sotware <br/>
               Gachon University <br/>
-              📧 bbusso90@gmail.com
+              📧 <Link href="mailto:bbusso90@gmail.com">bbusso90@gmail.com</Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
@@ -155,7 +159,7 @@ const Members = () => {
             <MemberInfo>
               Dept. of AI & Sotware <br/>
               Gachon University <br/>
-              📧 kimjihae28@naver.com
+              📧 <Link href="mailto:kimjihae28@naver.com">kimjihae28@naver.com</Link>
             </MemberInfo>
           </MemberCard>
           <MemberCard>
@@ -167,7 +171,7 @@ const Members = () => {
             <MemberInfo>
               Dept. of AI & Sotware <br/>
               Gachon University <br/>
-              📧 yeonsun0517@gmail.com
+              📧 <Link href="mailto:yeonsun0517@gmail.com">yeonsun0517@gmail.com</Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
@@ -181,7 +185,7 @@ const Members = () => {
             <MemberName>HeeSue Lee</MemberName>
             <MemberInfo>
               Researcher <br/>
-              📧 hesue615@gmail.com
+              📧 <Link href="mailto:hesue615@gmail.com">hesue615@gmail.com</Link>
             </MemberInfo>
           </MemberCard>
           <MemberCard>
@@ -194,7 +198,7 @@ const Members = () => {
               Undergraduate RA<br/>
               Dept. of AI & Software<br/>
               Gachon University<br/>
-              📧 ansehoon1999@gmail.com
+              📧 <Link href="mailto:ansehoon1999@gmail.com">ansehoon1999@gmail.com</Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
@@ -213,23 +217,24 @@ const Members = () => {
           <AlumniListItem>Jinwoo Jo (Vueno)</AlumniListItem>
           <AlumniListItem>SangMoon Kang (EMRO)</AlumniListItem>
           <AlumniListItem>YoungSook Seo (E4NET)</AlumniListItem>
-          <AlumniListItem>Woori Ko (DUZON)</AlumniListItem>
+          <AlumniListItem>Woori Ko (Douzone)</AlumniListItem>
           <AlumniListItem>SangMin Byun (EMRO)</AlumniListItem>
           <AlumniListItem>YoungNam Woo (Irontrain)</AlumniListItem>
-          <AlumniListItem>YoungGeun Kim</AlumniListItem>
+          <AlumniListItem>YoungGeun Kim (GNC Network)</AlumniListItem>
           <AlumniListItem>HyunMin Kim (Wisenut)</AlumniListItem>
-          <AlumniListItem>SeungChul Park</AlumniListItem>
+          <AlumniListItem>SeungChul Park (R.O.K.A.)</AlumniListItem>
           <AlumniListItem>JungHo Park (Cannon)</AlumniListItem>
           <AlumniListItem>Kideok Kim (Coupang)</AlumniListItem>
           <AlumniListItem>Jungkeun Ji (GIS)</AlumniListItem>
           <AlumniListItem>Hyeji Shin (Douzone)</AlumniListItem>
-          <AlumniListItem>Jaesang Lim (Zum Internet)</AlumniListItem>
-          <AlumniListItem>Hyunjoong Kim</AlumniListItem>
-          <AlumniListItem>Jeongwook Kim</AlumniListItem>
-          <AlumniListItem>Hyunwoo Yoo</AlumniListItem>
-          <AlumniListItem>Youngyol Na</AlumniListItem>
-          <AlumniListItem>Hwankyoo Yeo</AlumniListItem>
-          <AlumniListItem>Sangwok Yoo</AlumniListItem>
+          <AlumniListItem>Jaesang Lim (Kakao Bank)</AlumniListItem>
+          <AlumniListItem>Hyunjoong Kim (Samsung Electronics)</AlumniListItem>
+          <AlumniListItem>Jeongwook Kim (Wisenut)</AlumniListItem>
+          <AlumniListItem>Hyunwoo Yoo (HP)</AlumniListItem>
+          <AlumniListItem>Youngyol Na (Midas IT)</AlumniListItem>
+          <AlumniListItem>Hwankyoo Yeo (TMaxSoft)</AlumniListItem>
+          <AlumniListItem>Sangwok Yoo (Keon-A IT)</AlumniListItem>
+          <AlumniListItem>Jimin Seok (Douzone)</AlumniListItem>
         </AlumniList>
       </ListContainer>
     </MemberContainer>

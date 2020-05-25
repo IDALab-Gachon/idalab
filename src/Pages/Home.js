@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import home_img from '../images/home_img.png';
-import home_banner from '../images/ai_3.png';
+import home_banner from '../images/home_ai.png';
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -98,6 +98,10 @@ const AboutListItem = styled.li`
   }
 `;
 
+const Link = styled.a`
+  color: ${props => props.theme.darkBlueColor};
+`;
+
 const Home = () => {
   return (
     <HomeContainer>
@@ -159,6 +163,12 @@ const Home = () => {
             <AboutListItem>Automatic framework deep learning-based prediction model</AboutListItem>
             <AboutListItem>Lifelong machine learning</AboutListItem>
           </AboutList>
+          <br/>
+          <AboutContent>
+            If you have any question, <Link href="mailto:ida.gachon@gmail.com">CONTACT US!</Link>
+            <br/>📧 <Link href="mailto:ida.gachon@gmail.com">ida.gachon@gmail.com</Link>
+            <br/>📞 (+82)031-750-4765
+          </AboutContent>
         </AboutText>
       </AboutContainer>
     </HomeContainer>

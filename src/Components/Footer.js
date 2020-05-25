@@ -16,6 +16,7 @@ const Footer = styled.footer`
 
 const List = styled.ul`
   display: flex;
+  margin-right: 20px;
 `;
 
 const ListItem = styled.li`
@@ -34,6 +35,9 @@ const Copyright = styled.span`
 
 export default () => (
   <Footer>
+    <List>
+      <ListItem><Link href="mailto:ida.gachon@gmail.com">CONTACT</Link></ListItem>
+    </List>
     <Copyright>IDA Lab. {new Date().getFullYear()} &copy;</Copyright>
   </Footer>
 );
