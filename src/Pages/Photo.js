@@ -132,7 +132,7 @@ const Photo = () => {
             <PhotoImg src={img_201909_1} />
             <PhotoImg src={img_201909_2} />
         </PhotoWrapper>
-        <PhotoName>2019.09.25</PhotoName>
+        <PhotoName>2019.09.25 AI & 빅데이터 학술제</PhotoName>
         <PhotoWrapper>            
             <PhotoImg src={img_201909_3} />
             <PhotoImg src={img_201909_4} />
