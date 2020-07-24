@@ -179,17 +179,6 @@ const Members = () => {
         <MemberWrapper>
           <MemberCard>
             <MemberImg
-              src={heesue_img}
-              alt="HeeSue Lee"
-            />
-            <MemberName>HeeSue Lee</MemberName>
-            <MemberInfo>
-              Researcher <br/>
-              📧 <Link href="mailto:hesue615@gmail.com">hesue615@gmail.com</Link>
-            </MemberInfo>
-          </MemberCard>
-          <MemberCard>
-            <MemberImg
               src={sehoon_img}
               alt="SeHoon Ahn"
             />
@@ -235,6 +224,7 @@ const Members = () => {
           <AlumniListItem>Hwankyoo Yeo (TMaxSoft)</AlumniListItem>
           <AlumniListItem>Sangwok Yoo (Keon-A IT)</AlumniListItem>
           <AlumniListItem>Jimin Seok (Douzone)</AlumniListItem>
+          <AlumniListItem>HeeSue Lee (WEMAKEPRICE)</AlumniListItem>
         </AlumniList>
       </ListContainer>
     </MemberContainer>

@@ -60,16 +60,16 @@ const Publications = () => {
         <ListTitle>International Journals (SCI(E))</ListTitle>
         <PubList>
           <PubListItem>
-            SoYeop Yoo, and Ok-Ran Jeong, "Automating the Expansion of a Knowledge Graph," Expert Systems with Applications, Vol. 141, 2020. (SCIE, <b>Impact Factor(2018): 4.292</b>)
+            SoYeop Yoo, and Ok-Ran Jeong, "Automating the Expansion of a Knowledge Graph," Expert Systems with Applications, Vol. 141, 2020. (SCIE, <b>Impact Factor: 5.452</b>)
           </PubListItem>
           <PubListItem>
-            DaeHo Kim and OkRan Jeong, "Cooperative Trafffic Signal Control with Traffic Flow Prediction in Multi-Intersection," Sensors, Vol. 20, No. 1, Jan. 2020 (SCIE, <b>Impact Factor(2018): 3.031</b>)
+            DaeHo Kim and OkRan Jeong, "Cooperative Trafffic Signal Control with Traffic Flow Prediction in Multi-Intersection," Sensors, Vol. 20, No. 1, Jan. 2020 (SCIE, <b>Impact Factor: 3.275</b>)
           </PubListItem>
           <PubListItem>
-            SoYeop Yoo, DaeHo Kim, SungMin Yang, and Ok-Ran Jeong, "Real-time disease detection and analysis system using social media contents," Internation Journal of Web and Grid Services, 2020.
+            SoYeop Yoo, DaeHo Kim, SungMin Yang, and Ok-Ran Jeong, "Real-time disease detection and analysis system using social media contents," Internation Journal of Web and Grid Services, 2020. (SCIE, <b>Impact Factor: 2.750</b>)
           </PubListItem>
           <PubListItem>
-            SoYeop Yoo, JeIn Song, and Ok-Ran Jeong, “Social media contents based sentiment analysis and prediction system,” Expert Systems with Applications, Vol. 105, pp. 102-111, 2018. (SCIE, <b>Impact Factor(2017): 3.928</b>)
+            SoYeop Yoo, JeIn Song, and Ok-Ran Jeong, “Social media contents based sentiment analysis and prediction system,” Expert Systems with Applications, Vol. 105, pp. 102-111, 2018. (SCIE, <b>Impact Factor: 3.928</b>)
           </PubListItem>
           <PubListItem>
             Won&nbsp;Kim, Ok-Ran Jeong&nbsp;&nbsp;"Online and Mobile Korea: Status and Challenges,"&nbsp; International Journal of Web and Grid Service, Vol. 12, No. 4, pp. 370-387, 2016.
@@ -143,7 +143,13 @@ const Publications = () => {
         <ListTitle>International Journals (non-SCI)</ListTitle>
         <PubList>
           <PubListItem>
-            SoYeop Yoo and OkRan Jeong, "Auto-growing Knowledge Graph-based Intelligent Chatbot using BERT," ICIC Express Letters, Vol. 14, No. 1, pp. 67-73, Jan 2020.
+            DaeHo Kim, JiHye Kim and OkRan Jeong, “A Study on the Traffic Signal Control using the Extended Deep Q Network,” ICIC Express Letters Part B: Applications, 2020. (SCOPUS)
+          </PubListItem>
+          <PubListItem>
+            SungMin Yang, SoYeop Yoo, YeonSun Ahn, and OkRan Jeong, "Person-Relation Extraction using BERT based Knowledge Graph," ICIC Express Letters Part B: Applications, Vol. 11, No. 6, 2020. (SCOPUS)
+          </PubListItem>
+          <PubListItem>
+            SoYeop Yoo and OkRan Jeong, "Auto-growing Knowledge Graph-based Intelligent Chatbot using BERT," ICIC Express Letters, Vol. 14, No. 1, pp. 67-73, Jan 2020. (SCOPUS)
           </PubListItem>
           <PubListItem>
             Ok-Ran Jeong,&nbsp;&nbsp;Jehwan Oh, "Social community Based Blog Search Framework", Database Systems for Advanced Applications, LNCS 7240, April,&nbsp;2012
@@ -285,6 +291,15 @@ const Publications = () => {
       <div className="kor_journals">
         <ListTitle>Korean Journals</ListTitle>
         <PubList>
+          <PubListItem>
+            SoYeop Yoo and OkRan Jeong, "Korean Contextual Information Extraction System using BERT and Knowledge Graph," Journal of Internet Computing and Services(JICS), Vol. 21, No. 3, pp. 123-131, 2020.
+          </PubListItem>
+          <PubListItem>
+            SungMin Yang and OkRan Jeong, "DeNERT: Named Entity Recognition Model using DQN and BERT," Journal of the Korea Society of Computer and Information(JKSCI), Vol. 25, No. 4, pp. 29-35, 2020.
+          </PubListItem>
+          <PubListItem>
+            JiHye Kim and OkRan Jeong, "Knowledge Graph-based Korean New Words Detection Mechanism for Spam Filtering," Journal of Internet Computing and Services(JICS), Vol. 21, No. 1, pp. 79-85, 2020.
+          </PubListItem>
           <PubListItem>
             DaeHo, Kim., and OkRan, Jeong., “A Study on Cooperative Traffic Signal Control at multi-intersection,” Journal of IKEEE, Vol. 23, No. 4, pp.1381-1386, 2019.
           </PubListItem>
