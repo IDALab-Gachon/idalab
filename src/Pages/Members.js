@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import empty_img from '../images/members/members_empty.png';
+//import empty_img from '../images/members/members_empty.png';
 import orjeong_img from '../images/members/members_orjeong.jpg';
 import soyeop_img from '../images/members/members_soyeop.jpeg';
 import jihye_img from '../images/members/members_jihye.jpg';
 import yeonsun_img from '../images/members/members_yeonsun.jpg';
-import heesue_img from '../images/members/members_heesue.jpg';
+//import heesue_img from '../images/members/members_heesue.jpg';
 import sehoon_img from '../images/members/members_sehoon.jpg';
 
 const MemberContainer = styled.div`
