@@ -8,6 +8,7 @@ import jihye_img from '../images/members/members_jihye.jpg';
 import yeonsun_img from '../images/members/members_yeonsun.jpg';
 //import heesue_img from '../images/members/members_heesue.jpg';
 import sehoon_img from '../images/members/members_sehoon.jpg';
+import hyungkyu_img from '../images/members/members_hyungkyu.jpg';
 
 const MemberContainer = styled.div`
   width: 100%;
@@ -188,6 +189,19 @@ const Members = () => {
               Dept. of AI & Software<br/>
               Gachon University<br/>
               📧 <Link href="mailto:ansehoon1999@gmail.com">ansehoon1999@gmail.com</Link>
+            </MemberInfo>
+          </MemberCard>
+          <MemberCard>
+            <MemberImg
+              src={hyungkyu_img}
+              alt="HyungKyu Choi"
+            />
+            <MemberName>HyungKyu Choi</MemberName>
+            <MemberInfo>
+              Undergraduate RA<br/>
+              Dept. of AI & Software<br/>
+              Gachon University<br/>
+              📧 <Link href="mailto:fab@kakao.com">fab@kakao.com</Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
