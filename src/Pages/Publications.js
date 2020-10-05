@@ -54,19 +54,11 @@ const Publications = () => {
       </PubTitle>
       <ListContainer>
         <a href="#int_journals_sci" target="_self" rel="noopener noreferrer">
-          International Journals(SCI(E))
-        </a>{" "}
-        /{" "}
-        <a
-          href="#int_journals_non_sci"
-          target="_self"
-          rel="noopener noreferrer"
-        >
-          International Journals(Non-SCI)
+          International Journals(SCI(E), SCOPUS)
         </a>{" "}
         /{" "}
         <a href="#int_conf" target="_self" rel="noopener noreferrer">
-          International Conferences
+          International Journals & Conferences
         </a>{" "}
         /{" "}
         <a href="#kor_journals" target="_self" rel="noopener noreferrer">
@@ -79,7 +71,7 @@ const Publications = () => {
         <br />
         <br />
         <div className="int_journals_sci">
-          <ListTitle>International Journals (SCI(E))</ListTitle>
+          <ListTitle>International Journals (SCI(E), SCOPUS)</ListTitle>
           <PubList>
             <PubListItem>
               SungMin Yang, SoYeop Yoo, and OkRan Jeong, "DeNERT-KG: Named
@@ -102,6 +94,22 @@ const Publications = () => {
               disease detection and analysis system using social media
               contents," Internation Journal of Web and Grid Services, 2020.
               (SCIE, <b>Impact Factor: 2.750</b>)
+            </PubListItem>
+            <PubListItem>
+              DaeHo Kim, JiHye Kim and OkRan Jeong, “A Study on the Traffic
+              Signal Control using the Extended Deep Q Network,” ICIC Express
+              Letters Part B: Applications, 2020. (SCOPUS)
+            </PubListItem>
+            <PubListItem>
+              SungMin Yang, SoYeop Yoo, YeonSun Ahn, and OkRan Jeong,
+              "Person-Relation Extraction using BERT based Knowledge Graph,"
+              ICIC Express Letters Part B: Applications, Vol. 11, No. 6, 2020.
+              (SCOPUS)
+            </PubListItem>
+            <PubListItem>
+              SoYeop Yoo and OkRan Jeong, "Auto-growing Knowledge Graph-based
+              Intelligent Chatbot using BERT," ICIC Express Letters, Vol. 14,
+              No. 1, pp. 67-73, Jan 2020. (SCOPUS)
             </PubListItem>
             <PubListItem>
               SoYeop Yoo, JeIn Song, and Ok-Ran Jeong, “Social media contents
@@ -244,62 +252,8 @@ const Publications = () => {
           </details>
         </div>
         <hr />
-        <div className="int_journals_non_sci">
-          <ListTitle>International Journals (non-SCI)</ListTitle>
-          <PubList>
-            <PubListItem>
-              DaeHo Kim, JiHye Kim and OkRan Jeong, “A Study on the Traffic
-              Signal Control using the Extended Deep Q Network,” ICIC Express
-              Letters Part B: Applications, 2020. (SCOPUS)
-            </PubListItem>
-            <PubListItem>
-              SungMin Yang, SoYeop Yoo, YeonSun Ahn, and OkRan Jeong,
-              "Person-Relation Extraction using BERT based Knowledge Graph,"
-              ICIC Express Letters Part B: Applications, Vol. 11, No. 6, 2020.
-              (SCOPUS)
-            </PubListItem>
-            <PubListItem>
-              SoYeop Yoo and OkRan Jeong, "Auto-growing Knowledge Graph-based
-              Intelligent Chatbot using BERT," ICIC Express Letters, Vol. 14,
-              No. 1, pp. 67-73, Jan 2020. (SCOPUS)
-            </PubListItem>
-            <PubListItem>
-              Ok-Ran Jeong,&nbsp;&nbsp;Jehwan Oh, "Social community Based Blog
-              Search Framework", Database Systems for Advanced Applications,
-              LNCS 7240, April,&nbsp;2012
-            </PubListItem>
-            <PubListItem>
-              Ok-Ran Jeong,&nbsp;&nbsp;chulyun Kim, Won Kim, Jungmin So,
-              "Botnets: threats and response", International Journal of Web
-              Information Systems, Vol.7, No. 1, pp.6-17, &nbsp;April, 2011
-            </PubListItem>
-            <PubListItem>
-              Ok-Ran Jeong,&nbsp;Jiawei Han, Won Kim, Eunseok Lee, "On Having
-              Search Engines Deliver Hierarchies of Web Pages", Journal of
-              Object Technology, Vol.7, No. 4, pp.33-41, May-June 2008
-            </PubListItem>
-            <PubListItem>
-              Won Kim, Ok-Ran Jeong, Hyungsuk Ji, Sang-Won Lee, "On Web Search:
-              Some Activities and Challenges", Journal of Object Technology,
-              Vol. 7, No. 3, pp.49-54, March-April 2008
-            </PubListItem>
-            <PubListItem>
-              Ok-Ran Jeong,&nbsp;Taehee Lee, Sang-goo Lee, "Optimizing the
-              pre-processing phase of Automatic e-Document
-              Classification",Studies in Computational Intelligence (Academic
-              Book), Springer-Verlag, 2009
-            </PubListItem>
-            <PubListItem>
-              Ok-Ran Jeong,&nbsp;Dong-Sub Cho, "Preprocessing Algorithm for the
-              Efficient Management of E-Mail System",&nbsp;International Journal
-              of Computer and Information Science, Volume 5, number 4, DEC.
-              2004. [INSPEC]
-            </PubListItem>
-          </PubList>
-        </div>
-        <hr />
         <div className="int_conf">
-          <ListTitle>International Conferences</ListTitle>
+          <ListTitle>International Journals & Conferences</ListTitle>
           <PubList>
             <PubListItem>
               SoYeop Yoo and OkRan Jeong, "Auto-growing Knowledge Graph-based
@@ -393,10 +347,25 @@ const Publications = () => {
                 2012, Paris, France
               </PubListItem>
               <PubListItem>
+                Ok-Ran Jeong,&nbsp;Jiawei Han, Won Kim, Eunseok Lee, "On Having
+                Search Engines Deliver Hierarchies of Web Pages", Journal of
+                Object Technology, Vol.7, No. 4, pp.33-41, May-June 2008
+              </PubListItem>
+              <PubListItem>
                 Ok-Ran Jeong, Jehwan Oh, "Social Community Based Blog Search
                 Framework" SNSM 2012 (Third international Workshop on Social
                 Networks and Social Web Mining) LNCS 7240, April, 2012, Busan,
                 Korea
+              </PubListItem>
+              <PubListItem>
+                Ok-Ran Jeong,&nbsp;&nbsp;Jehwan Oh, "Social community Based Blog
+                Search Framework", Database Systems for Advanced Applications,
+                LNCS 7240, April,&nbsp;2012
+              </PubListItem>
+              <PubListItem>
+                Ok-Ran Jeong,&nbsp;&nbsp;chulyun Kim, Won Kim, Jungmin So,
+                "Botnets: threats and response", International Journal of Web
+                Information Systems, Vol.7, No. 1, pp.6-17, &nbsp;April, 2011
               </PubListItem>
               <PubListItem>
                 Won Kim,&nbsp;Ok-Ran Jeong, Chulyun Kim, Jungmin So, "On
@@ -424,6 +393,13 @@ const Publications = () => {
                 Learning), Aug. 2009, Aachen, Germany
               </PubListItem>
               <PubListItem>
+                Ok-Ran Jeong,&nbsp;Taehee Lee, Sang-goo Lee, "Optimizing the
+                pre-processing phase of Automatic e-Document
+                Classification",Studies in Computational Intelligence (Academic
+                Book), Springer-Verlag, 2009
+              </PubListItem>
+
+              <PubListItem>
                 Ok-Ran Jeong, Seunghwa Lee, Eunseok Lee, "A Framework for
                 Automatic Topic Discovery on SubWebs", &nbsp;FSKD'08( the 5
                 <sup>th</sup>&nbsp;International Conference on Fuzzy Systems and
@@ -436,6 +412,12 @@ const Publications = () => {
                 International Conference on Web base Learning), Aug. 2008,
                 Jinhua, China.
               </PubListItem>
+              <PubListItem>
+                Won Kim, Ok-Ran Jeong, Hyungsuk Ji, Sang-Won Lee, "On Web
+                Search: Some Activities and Challenges", Journal of Object
+                Technology, Vol. 7, No. 3, pp.49-54, March-April 2008
+              </PubListItem>
+
               <PubListItem>
                 Dongjoo Lee,&nbsp;Ok-Ran Jeong, Sang-goo Lee, "Opinion Mining of
                 Customer Feedback Data on the Web", ICUIMC2008(International
@@ -476,6 +458,12 @@ const Publications = () => {
                 e-Document&nbsp;Classification", IEEE PRIWEC (The First Pacific
                 Rim International Workshop on Electronic Commerce),
                 March&nbsp;2006, Tokyo, Japan.
+              </PubListItem>
+              <PubListItem>
+                Ok-Ran Jeong,&nbsp;Dong-Sub Cho, "Preprocessing Algorithm for
+                the Efficient Management of E-Mail System",&nbsp;International
+                Journal of Computer and Information Science, Volume 5, number 4,
+                DEC. 2004. [INSPEC]
               </PubListItem>
               <PubListItem>
                 Ok-Ran Jeong,&nbsp;Dong-Sub Cho, "A Personalized Recommendation
