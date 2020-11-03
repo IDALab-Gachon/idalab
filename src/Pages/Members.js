@@ -1,14 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 //import empty_img from '../images/members/members_empty.png';
-import orjeong_img from '../images/members/members_orjeong.jpg';
-import soyeop_img from '../images/members/members_soyeop.jpeg';
-import jihye_img from '../images/members/members_jihye.jpg';
-import yeonsun_img from '../images/members/members_yeonsun.jpg';
+import orjeong_img from "../images/members/members_orjeong.jpg";
+import soyeop_img from "../images/members/members_soyeop.jpeg";
+import jihye_img from "../images/members/members_jihye.jpg";
+import yeonsun_img from "../images/members/members_yeonsun.jpg";
 //import heesue_img from '../images/members/members_heesue.jpg';
-import sehoon_img from '../images/members/members_sehoon.jpg';
-import hyungkyu_img from '../images/members/members_hyungkyu.jpg';
+import sehoon_img from "../images/members/members_sehoon.jpg";
+import hyungkyu_img from "../images/members/members_hyungkyu.jpg";
+import hayeong_img from "../images/members/members_hayeong.jpg";
 
 const MemberContainer = styled.div`
   width: 100%;
@@ -17,13 +18,13 @@ const MemberContainer = styled.div`
 `;
 
 const MemberTitle = styled.div`
-  border-bottom: 2px solid ${props => props.theme.redColor};
+  border-bottom: 2px solid ${(props) => props.theme.redColor};
 `;
 
 const TitleText = styled.p`
   font-size: 24px;
   font-weight: 600;
-  color: ${props => props.theme.redColor};
+  color: ${(props) => props.theme.redColor};
   padding: 10px;
 `;
 
@@ -36,7 +37,7 @@ const ListContainer = styled.div`
 const ListTitle = styled.p`
   font-size: 20px;
   font-weight: 600;
-  color: ${props => props.theme.darkBlueColor};
+  color: ${(props) => props.theme.darkBlueColor};
   padding-bottom: 10px;
   padding-top: 5px;
 `;
@@ -54,7 +55,7 @@ const MemberCard = styled.div`
   justify-content: center;
   align-self: center;
   vertical-align: middle;
-  ${props => props.theme.whiteBox};
+  ${(props) => props.theme.whiteBox};
   width: 280px;
   height: 400px;
   text-align: center;
@@ -74,40 +75,40 @@ const MemberName = styled.p`
   padding-top: 15px;
   font-size: 18px;
   font-weight: 600;
-  color: ${props => props.theme.darkBlueColor};
+  color: ${(props) => props.theme.darkBlueColor};
 `;
 
 const MemberInfo = styled.p`
   padding-top: 15px;
   font-size: 16px;
   font-weight: 400;
-  color: ${props => props.theme.darkGreyColor};
+  color: ${(props) => props.theme.darkGreyColor};
 `;
 
 const GraduateAlumni = styled.ul`
   list-style: none;
-  color: ${props => props.theme.darkBlueColor};
+  color: ${(props) => props.theme.darkBlueColor};
   font-size: 16px;
   font-weight: 500;
 `;
 
 const AlumniList = styled.ul`
   list-style: none;
-  color: ${props => props.theme.darkGreyColor};
+  color: ${(props) => props.theme.darkGreyColor};
   font-size: 16px;
 `;
 
 const AlumniListItem = styled.li`
   ::before {
     content: "•";
-    color: ${props => props.theme.redColor};
+    color: ${(props) => props.theme.redColor};
     display: inline-block;
     width: 1em;
   }
 `;
 
 const Link = styled.a`
-  color: ${props => props.theme.darkBlueColor};
+  color: ${(props) => props.theme.darkBlueColor};
 `;
 
 const Members = () => {
@@ -120,88 +121,111 @@ const Members = () => {
         <ListTitle>Professor</ListTitle>
         <MemberWrapper>
           <MemberCard>
-            <MemberImg
-              src={orjeong_img}
-              alt="OkRan Jeong"
-            />
+            <MemberImg src={orjeong_img} alt="OkRan Jeong" />
             <MemberName>Prof. OkRan Jeong</MemberName>
             <MemberInfo>
-              Associate Professor <br/>
-              Dept. of AI & Sotware <br/>
-              Gachon University <br/>
-              🌐 <Link href="http://cs.gachon.ac.kr/orjeong/" target="_blank" rel="noopener noreferrer">orjeong.gachon.ac.kr</Link> <br/>
-              📧 <Link href="mailto:orjeong@gachon.ac.kr">orjeong@gachon.ac.kr</Link>
+              Associate Professor <br />
+              Dept. of AI & Sotware <br />
+              Gachon University <br />
+              🌐{" "}
+              <Link
+                href="http://cs.gachon.ac.kr/orjeong/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                orjeong.gachon.ac.kr
+              </Link>{" "}
+              <br />
+              📧{" "}
+              <Link href="mailto:orjeong@gachon.ac.kr">
+                orjeong@gachon.ac.kr
+              </Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
         <ListTitle>Ph.D. Student</ListTitle>
         <MemberWrapper>
           <MemberCard>
-            <MemberImg
-              src={soyeop_img}
-              alt="SoYeop Yoo"
-            />
+            <MemberImg src={soyeop_img} alt="SoYeop Yoo" />
             <MemberName>SoYeop Yoo</MemberName>
             <MemberInfo>
-              Dept. of AI & Sotware <br/>
-              Gachon University <br/>
-              📧 <Link href="mailto:bbusso90@gmail.com">bbusso90@gmail.com</Link>
+              Dept. of AI & Sotware <br />
+              Gachon University <br />
+              📧{" "}
+              <Link href="mailto:bbusso90@gmail.com">bbusso90@gmail.com</Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
         <ListTitle>M.S. Students</ListTitle>
         <MemberWrapper>
           <MemberCard>
-            <MemberImg
-              src={jihye_img}
-              alt="JiHye Kim"
-            />
+            <MemberImg src={jihye_img} alt="JiHye Kim" />
             <MemberName>JiHye Kim</MemberName>
             <MemberInfo>
-              Dept. of AI & Sotware <br/>
-              Gachon University <br/>
-              📧 <Link href="mailto:kimjihae28@naver.com">kimjihae28@naver.com</Link>
+              Dept. of AI & Sotware <br />
+              Gachon University <br />
+              📧{" "}
+              <Link href="mailto:kimjihae28@naver.com">
+                kimjihae28@naver.com
+              </Link>
             </MemberInfo>
           </MemberCard>
           <MemberCard>
-            <MemberImg
-              src={yeonsun_img}
-              alt="YeonSun Ahn"
-            />
+            <MemberImg src={yeonsun_img} alt="YeonSun Ahn" />
             <MemberName>YeonSun Ahn</MemberName>
             <MemberInfo>
-              Dept. of AI & Sotware <br/>
-              Gachon University <br/>
-              📧 <Link href="mailto:yeonsun0517@gmail.com">yeonsun0517@gmail.com</Link>
+              Dept. of AI & Sotware <br />
+              Gachon University <br />
+              📧{" "}
+              <Link href="mailto:yeonsun0517@gmail.com">
+                yeonsun0517@gmail.com
+              </Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
         <ListTitle>Researchers</ListTitle>
         <MemberWrapper>
           <MemberCard>
-            <MemberImg
-              src={sehoon_img}
-              alt="SeHoon Ahn"
-            />
+            <MemberImg src={sehoon_img} alt="SeHoon Ahn" />
             <MemberName>SeHoon Ahn</MemberName>
             <MemberInfo>
-              Undergraduate RA<br/>
-              Dept. of AI & Software<br/>
-              Gachon University<br/>
-              📧 <Link href="mailto:ansehoon1999@gmail.com">ansehoon1999@gmail.com</Link>
+              Undergraduate RA
+              <br />
+              Dept. of AI & Software
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:ansehoon1999@gmail.com">
+                ansehoon1999@gmail.com
+              </Link>
             </MemberInfo>
           </MemberCard>
           <MemberCard>
-            <MemberImg
-              src={hyungkyu_img}
-              alt="HyungKyu Choi"
-            />
+            <MemberImg src={hyungkyu_img} alt="HyungKyu Choi" />
             <MemberName>HyungKyu Choi</MemberName>
             <MemberInfo>
-              Undergraduate RA<br/>
-              Dept. of AI & Software<br/>
-              Gachon University<br/>
+              Undergraduate RA
+              <br />
+              Dept. of AI & Software
+              <br />
+              Gachon University
+              <br />
               📧 <Link href="mailto:fab@kakao.com">fab@kakao.com</Link>
+            </MemberInfo>
+          </MemberCard>
+          <MemberCard>
+            <MemberImg src={hayeong_img} alt="HaYoung Lee" />
+            <MemberName>HaYoung Lee</MemberName>
+            <MemberInfo>
+              Undergraduate RA
+              <br />
+              Dept. of AI & Software
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:hyl980911@naver.com">hyl980911@naver.com</Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
@@ -212,7 +236,7 @@ const Members = () => {
           <AlumniListItem>JeIn Song, MS, 2018 (Zum Internet)</AlumniListItem>
           <AlumniListItem>TaeSoo Park, MS, 2017 (Wisenut)</AlumniListItem>
         </GraduateAlumni>
-        <br/>
+        <br />
         <AlumniList>
           <AlumniListItem>ChongJae Yoo (LG Electronics)</AlumniListItem>
           <AlumniListItem>Soojeong Choi (EMRO)</AlumniListItem>
@@ -242,7 +266,7 @@ const Members = () => {
         </AlumniList>
       </ListContainer>
     </MemberContainer>
-  );  
+  );
 };
 
 export default Members;
