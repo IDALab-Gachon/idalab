@@ -74,6 +74,16 @@ const Publications = () => {
           <ListTitle>International Journals (SCI(E), SCOPUS)</ListTitle>
           <PubList>
             <PubListItem>
+              SoYeop Yoo, and OkRan Jeong, "EP-Bot: Empathetic Chatbot using
+              Auto-growing Knowledge Graph," CMC-Computers, Materials, &
+              Continua, 2021. (SCIE, <b>Impact Factor: 4.89</b>)(Accepted)
+            </PubListItem>
+            <PubListItem>
+              YeonSun Ahn, and OkRan Jeong, "Time-Aware PolarisX: Auto-Growing
+              Knowledge Graph," CMC-Computers, Materials, & Continua, 2021.
+              (SCIE, <b>Impact Factor: 4.89</b>)(Accepted)
+            </PubListItem>
+            <PubListItem>
               SungMin Yang, SoYeop Yoo, and OkRan Jeong, "DeNERT-KG: Named
               Entity and Relation Extraction Model Using DQN, Knowledge Graph,
               and BERT," Applied Sciences, Vol. 10, No. 8, 2020. (SCIE,{" "}
