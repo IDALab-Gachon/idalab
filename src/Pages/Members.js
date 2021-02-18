@@ -10,7 +10,7 @@ import yeonsun_img from "../images/members/members_yeonsun.jpg";
 import sehoon_img from "../images/members/members_sehoon.jpg";
 // import hyungkyu_img from "../images/members/members_hyungkyu.jpg";
 import hayeong_img from "../images/members/members_hayeong.jpg";
-import sehun_img from "../images/members/members_sehun.png";
+import sehun_img from "../images/members/members_sehun.jpg";
 
 const MemberContainer = styled.div`
   width: 100%;
