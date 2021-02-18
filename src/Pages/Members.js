@@ -8,8 +8,9 @@ import jihye_img from "../images/members/members_jihye.jpg";
 import yeonsun_img from "../images/members/members_yeonsun.jpg";
 //import heesue_img from '../images/members/members_heesue.jpg';
 import sehoon_img from "../images/members/members_sehoon.jpg";
-import hyungkyu_img from "../images/members/members_hyungkyu.jpg";
+// import hyungkyu_img from "../images/members/members_hyungkyu.jpg";
 import hayeong_img from "../images/members/members_hayeong.jpg";
+import sehun_img from "../images/members/members_sehun.jpg";
 
 const MemberContainer = styled.div`
   width: 100%;
@@ -201,19 +202,7 @@ const Members = () => {
               </Link>
             </MemberInfo>
           </MemberCard>
-          <MemberCard>
-            <MemberImg src={hyungkyu_img} alt="HyungKyu Choi" />
-            <MemberName>HyungKyu Choi</MemberName>
-            <MemberInfo>
-              Undergraduate RA
-              <br />
-              Dept. of AI & Software
-              <br />
-              Gachon University
-              <br />
-              📧 <Link href="mailto:fab@kakao.com">fab@kakao.com</Link>
-            </MemberInfo>
-          </MemberCard>
+
           <MemberCard>
             <MemberImg src={hayeong_img} alt="HaYoung Lee" />
             <MemberName>HaYoung Lee</MemberName>
@@ -226,6 +215,22 @@ const Members = () => {
               <br />
               📧{" "}
               <Link href="mailto:hyl980911@naver.com">hyl980911@naver.com</Link>
+            </MemberInfo>
+          </MemberCard>
+          <MemberCard>
+            <MemberImg src={sehun_img} alt="SeHun Ahn" />
+            <MemberName>SeHun Ahn</MemberName>
+            <MemberInfo>
+              Undergraduate RA
+              <br />
+              Dept. of AI & Software
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:ashpurple9@gmail.com">
+                ashpurple9@gmail.com
+              </Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
