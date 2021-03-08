@@ -76,12 +76,13 @@ const Publications = () => {
             <PubListItem>
               SoYeop Yoo, and OkRan Jeong, "EP-Bot: Empathetic Chatbot using
               Auto-growing Knowledge Graph," CMC-Computers, Materials, &
-              Continua, 2021. (SCIE, <b>Impact Factor: 4.89</b>)(Accepted)
+              Continua, Vol. 67, No. 3, pp.2807-2817, 2021. (SCIE,{" "}
+              <b>Impact Factor: 4.89</b>)
             </PubListItem>
             <PubListItem>
               YeonSun Ahn, and OkRan Jeong, "Time-Aware PolarisX: Auto-Growing
-              Knowledge Graph," CMC-Computers, Materials, & Continua, 2021.
-              (SCIE, <b>Impact Factor: 4.89</b>)(Accepted)
+              Knowledge Graph," CMC-Computers, Materials, & Continua, Vol. 67,
+              No. 3, pp.2695-2708, 2021. (SCIE, <b>Impact Factor: 4.89</b>)
             </PubListItem>
             <PubListItem>
               SungMin Yang, SoYeop Yoo, and OkRan Jeong, "DeNERT-KG: Named
