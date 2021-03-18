@@ -11,6 +11,7 @@ import sehoon_img from "../images/members/members_sehoon.jpg";
 // import hyungkyu_img from "../images/members/members_hyungkyu.jpg";
 import hayeong_img from "../images/members/members_hayeong.jpg";
 import sehun_img from "../images/members/members_sehun.jpg";
+import doowon_img from "../images/members/members_doowon.jpg";
 
 const MemberContainer = styled.div`
   width: 100%;
@@ -231,6 +232,20 @@ const Members = () => {
               <Link href="mailto:ashpurple9@gmail.com">
                 ashpurple9@gmail.com
               </Link>
+            </MemberInfo>
+          </MemberCard>
+          <MemberCard>
+            <MemberImg src={doowon_img} alt="DooWon Kang" />
+            <MemberName>DooWon Kang</MemberName>
+            <MemberInfo>
+              Undergraduate RA
+              <br />
+              Dept. of AI & Software
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:pch14545@gmail.com">pch14545@gmail.com</Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
