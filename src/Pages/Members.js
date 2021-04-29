@@ -4,7 +4,7 @@ import styled from "styled-components";
 //import empty_img from '../images/members/members_empty.png';
 import orjeong_img from "../images/members/members_orjeong.jpg";
 import soyeop_img from "../images/members/members_soyeop.jpeg";
-import jihye_img from "../images/members/members_jihye.jpg";
+// import jihye_img from "../images/members/members_jihye.jpg";
 import yeonsun_img from "../images/members/members_yeonsun.jpg";
 //import heesue_img from '../images/members/members_heesue.jpg';
 import sehoon_img from "../images/members/members_sehoon.jpg";
@@ -12,6 +12,8 @@ import sehoon_img from "../images/members/members_sehoon.jpg";
 import hayeong_img from "../images/members/members_hayeong.jpg";
 import sehun_img from "../images/members/members_sehun.jpg";
 import doowon_img from "../images/members/members_doowon.jpg";
+import hyojin_img from "../images/members/members_hyojin.jpg";
+import minji_img from "../images/members/members_minji.jpg";
 
 const MemberContainer = styled.div`
   width: 100%;
@@ -49,6 +51,7 @@ const MemberWrapper = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
 `;
@@ -58,8 +61,8 @@ const MemberCard = styled.div`
   align-self: center;
   vertical-align: middle;
   ${(props) => props.theme.whiteBox};
-  width: 280px;
-  height: 400px;
+  width: 330px;
+  height: 430px;
   text-align: center;
   padding: 15px;
   margin-right: 15px;
@@ -151,7 +154,8 @@ const Members = () => {
             <MemberImg src={soyeop_img} alt="SoYeop Yoo" />
             <MemberName>SoYeop Yoo</MemberName>
             <MemberInfo>
-              Dept. of AI & Sotware <br />
+              Ph.D. Student
+              <br /> Dept. of AI & Sotware <br />
               Gachon University <br />
               📧{" "}
               <Link href="mailto:bbusso90@gmail.com">bbusso90@gmail.com</Link>
@@ -161,22 +165,11 @@ const Members = () => {
         <ListTitle>M.S. Students</ListTitle>
         <MemberWrapper>
           <MemberCard>
-            <MemberImg src={jihye_img} alt="JiHye Kim" />
-            <MemberName>JiHye Kim</MemberName>
-            <MemberInfo>
-              Dept. of AI & Sotware <br />
-              Gachon University <br />
-              📧{" "}
-              <Link href="mailto:kimjihae28@naver.com">
-                kimjihae28@naver.com
-              </Link>
-            </MemberInfo>
-          </MemberCard>
-          <MemberCard>
             <MemberImg src={yeonsun_img} alt="YeonSun Ahn" />
             <MemberName>YeonSun Ahn</MemberName>
             <MemberInfo>
-              Dept. of AI & Sotware <br />
+              M.S. Student
+              <br /> Dept. of AI & Sotware <br />
               Gachon University <br />
               📧{" "}
               <Link href="mailto:yeonsun0517@gmail.com">
@@ -248,13 +241,44 @@ const Members = () => {
               <Link href="mailto:pch14545@gmail.com">pch14545@gmail.com</Link>
             </MemberInfo>
           </MemberCard>
+          <MemberCard>
+            <MemberImg src={hyojin_img} alt="HyoJin Ko" />
+            <MemberName>HyoJin Ko</MemberName>
+            <MemberInfo>
+              Undergraduate RA
+              <br />
+              Dept. of AI & Software
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:2rhgywls@naver.com">2rhgywls@naver.com</Link>
+            </MemberInfo>
+          </MemberCard>
+          <MemberCard>
+            <MemberImg src={minji_img} alt="MinJi Kim" />
+            <MemberName>MinJi Kim</MemberName>
+            <MemberInfo>
+              Undergraduate RA
+              <br />
+              Dept. of AI & Software
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:rang5000@gachon.ac.kr">
+                rang5000@gachon.ac.kr
+              </Link>
+            </MemberInfo>
+          </MemberCard>
         </MemberWrapper>
         <ListTitle>Alumni</ListTitle>
         <GraduateAlumni>
+          <AlumniListItem>JiHye Kim, MS, 2021</AlumniListItem>
           <AlumniListItem>SungMin Yang, MS, 2020 (ODK)</AlumniListItem>
           <AlumniListItem>DaeHo Kim, MS, 2019 (NHN 다이퀘스트)</AlumniListItem>
           <AlumniListItem>JeIn Song, MS, 2018 (Zum Internet)</AlumniListItem>
-          <AlumniListItem>TaeSoo Park, MS, 2017 (Wisenut)</AlumniListItem>
+          <AlumniListItem>TaeSoo Park, MS, 2017 (Zigzag)</AlumniListItem>
         </GraduateAlumni>
         <br />
         <AlumniList>
