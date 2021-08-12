@@ -74,6 +74,11 @@ const Publications = () => {
           <ListTitle>International Journals (SCI(E), SCOPUS)</ListTitle>
           <PubList>
             <PubListItem>
+              Jihye Kim, and Ok-Ran Jeong “Mirroring Vector Space Embedding for
+              New Words,” IEEE Access, Vol.9, 2021. (SCIE,{" "}
+              <b>Impact Factor: 3.367</b>)
+            </PubListItem>
+            <PubListItem>
               Shah, A.M, Naqvi, R.A, and Ok-Ran Jeong “Detecting Topic and
               Sentiment Trends in Physician Rating Websites: Analysis of Online
               Reviews Using 3-Wave Datasets,” International Journal of
@@ -86,11 +91,6 @@ const Publications = () => {
               An Econometric Analysis of Secondary Datasets,” International
               Journal of Environmental Research and Public, Vol.18(10), 2021.
               (SSCI, <b>Impact Factor: 2.849</b>)
-            </PubListItem>
-            <PubListItem>
-              Jihye Kim, and Ok-Ran Jeong “Mirroring Vector Space Embedding for
-              New Words,” IEEE Access, Vol.9, 2021. (SCIE,{" "}
-              <b>Impact Factor: 3.367</b>)
             </PubListItem>
             <PubListItem>
               SoYeop Yoo, and OkRan Jeong, "EP-Bot: Empathetic Chatbot using
