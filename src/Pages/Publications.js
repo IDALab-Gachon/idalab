@@ -74,6 +74,25 @@ const Publications = () => {
           <ListTitle>International Journals (SCI(E), SCOPUS)</ListTitle>
           <PubList>
             <PubListItem>
+              Shah, A.M, Naqvi, R.A, and Ok-Ran Jeong “Detecting Topic and
+              Sentiment Trends in Physician Rating Websites: Analysis of Online
+              Reviews Using 3-Wave Datasets,” International Journal of
+              Environmental Research and Public, Vol.18(9), 2021. (SSCI,{" "}
+              <b>Impact Factor: 2.849</b>)
+            </PubListItem>
+            <PubListItem>
+              Shah, A.M, Naqvi, R.A, and Ok-Ran Jeong “The Impact of Signals
+              Transmission on Patients' Choice through E-Consultation Websites:
+              An Econometric Analysis of Secondary Datasets,” International
+              Journal of Environmental Research and Public, Vol.18(10), 2021.
+              (SSCI, <b>Impact Factor: 2.849</b>)
+            </PubListItem>
+            <PubListItem>
+              Jihye Kim, and Ok-Ran Jeong “Mirroring Vector Space Embedding for
+              New Words,” IEEE Access, Vol.9, 2021. (SCIE,{" "}
+              <b>Impact Factor: 3.367</b>)
+            </PubListItem>
+            <PubListItem>
               SoYeop Yoo, and OkRan Jeong, "EP-Bot: Empathetic Chatbot using
               Auto-growing Knowledge Graph," CMC-Computers, Materials, &
               Continua, Vol. 67, No. 3, pp.2807-2817, 2021. (SCIE,{" "}
@@ -523,6 +542,17 @@ const Publications = () => {
         <div className="kor_journals">
           <ListTitle>Korean Journals</ListTitle>
           <PubList>
+            <PubListItem>
+              Ha-Young Lee, and Ok-Ran Jeong, "A personalized exercise
+              recommendation system using dimension reduction algorithms,"
+              Journal of The Korea Society of Computer and information, Vol.
+              26(6), 2021.
+            </PubListItem>
+            <PubListItem>
+              Se-Hun An, and Ok-Ran Jeong, "A Study on the Psychological
+              Counseling AI Chatbot System based on Sentiment Analysis," Journal
+              of Information Technology, Vol. 20(3), 2021.
+            </PubListItem>
             <PubListItem>
               SoYeop Yoo and OkRan Jeong, "Korean Contextual Information
               Extraction System using BERT and Knowledge Graph," Journal of
