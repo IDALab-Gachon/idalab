@@ -4,13 +4,7 @@ import styled from "styled-components";
 //import empty_img from '../images/members/members_empty.png';
 import orjeong_img from "../images/members/members_orjeong.jpg";
 import soyeop_img from "../images/members/members_soyeop.jpeg";
-// import jihye_img from "../images/members/members_jihye.jpg";
-import yeonsun_img from "../images/members/members_yeonsun.jpg";
-//import heesue_img from '../images/members/members_heesue.jpg';
-import sehoon_img from "../images/members/members_sehoon.jpg";
-// import hyungkyu_img from "../images/members/members_hyungkyu.jpg";
 import hayeong_img from "../images/members/members_hayeong.jpg";
-import sehun_img from "../images/members/members_sehun.jpg";
 import doowon_img from "../images/members/members_doowon.jpg";
 import hyojin_img from "../images/members/members_hyojin.jpg";
 import minji_img from "../images/members/members_minji.jpg";
@@ -130,7 +124,7 @@ const Members = () => {
             <MemberName>Prof. OkRan Jeong</MemberName>
             <MemberInfo>
               Associate Professor <br />
-              Dept. of AI & Sotware <br />
+              Dept. of AI & Software <br />
               Gachon University <br />
               🌐{" "}
               <Link
@@ -148,14 +142,14 @@ const Members = () => {
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
-        <ListTitle>Ph.D. Student</ListTitle>
+        <ListTitle>Ph.D.</ListTitle>
         <MemberWrapper>
           <MemberCard>
             <MemberImg src={soyeop_img} alt="SoYeop Yoo" />
             <MemberName>SoYeop Yoo</MemberName>
             <MemberInfo>
-              Ph.D. Student
-              <br /> Dept. of AI & Sotware <br />
+              Visiting Professor
+              <br /> Dept. of AI & Software <br />
               Gachon University <br />
               📧{" "}
               <Link href="mailto:bbusso90@gmail.com">bbusso90@gmail.com</Link>
@@ -165,68 +159,19 @@ const Members = () => {
         <ListTitle>M.S. Students</ListTitle>
         <MemberWrapper>
           <MemberCard>
-            <MemberImg src={yeonsun_img} alt="YeonSun Ahn" />
-            <MemberName>YeonSun Ahn</MemberName>
+            <MemberImg src={hayeong_img} alt="HaYoung Lee" />
+            <MemberName>HaYoung Lee</MemberName>
             <MemberInfo>
               M.S. Student
-              <br /> Dept. of AI & Sotware <br />
+              <br /> Dept. of AI & Software <br />
               Gachon University <br />
               📧{" "}
-              <Link href="mailto:yeonsun0517@gmail.com">
-                yeonsun0517@gmail.com
-              </Link>
+              <Link href="mailto:hyl980911@naver.com">hyl980911@naver.com</Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
         <ListTitle>Researchers</ListTitle>
         <MemberWrapper>
-          <MemberCard>
-            <MemberImg src={sehoon_img} alt="SeHoon Ahn" />
-            <MemberName>SeHoon Ahn</MemberName>
-            <MemberInfo>
-              Undergraduate RA
-              <br />
-              Dept. of AI & Software
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:ansehoon1999@gmail.com">
-                ansehoon1999@gmail.com
-              </Link>
-            </MemberInfo>
-          </MemberCard>
-
-          <MemberCard>
-            <MemberImg src={hayeong_img} alt="HaYoung Lee" />
-            <MemberName>HaYoung Lee</MemberName>
-            <MemberInfo>
-              Undergraduate RA
-              <br />
-              Dept. of AI & Software
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:hyl980911@naver.com">hyl980911@naver.com</Link>
-            </MemberInfo>
-          </MemberCard>
-          <MemberCard>
-            <MemberImg src={sehun_img} alt="SeHun Ahn" />
-            <MemberName>SeHun Ahn</MemberName>
-            <MemberInfo>
-              Undergraduate RA
-              <br />
-              Dept. of AI & Software
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:ashpurple9@gmail.com">
-                ashpurple9@gmail.com
-              </Link>
-            </MemberInfo>
-          </MemberCard>
           <MemberCard>
             <MemberImg src={doowon_img} alt="DooWon Kang" />
             <MemberName>DooWon Kang</MemberName>
@@ -274,10 +219,13 @@ const Members = () => {
         </MemberWrapper>
         <ListTitle>Alumni</ListTitle>
         <GraduateAlumni>
-          <AlumniListItem>JiHye Kim, MS, 2021</AlumniListItem>
-          <AlumniListItem>SungMin Yang, MS, 2020 (ODK)</AlumniListItem>
+          <AlumniListItem>YeonSun Ahn, MS, 2021 (Line)</AlumniListItem>
+          <AlumniListItem>JiHye Kim, MS, 2021 (Seegene)</AlumniListItem>
+          <AlumniListItem>
+            SungMin Yang, MS, 2020 (Toss Payments)
+          </AlumniListItem>
           <AlumniListItem>DaeHo Kim, MS, 2019 (NHN 다이퀘스트)</AlumniListItem>
-          <AlumniListItem>JeIn Song, MS, 2018 (Zum Internet)</AlumniListItem>
+          <AlumniListItem>JeIn Song, MS, 2018 (Scatter Lab)</AlumniListItem>
           <AlumniListItem>TaeSoo Park, MS, 2017 (Zigzag)</AlumniListItem>
         </GraduateAlumni>
         <br />
