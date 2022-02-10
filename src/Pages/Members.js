@@ -8,6 +8,8 @@ import hayeong_img from "../images/members/members_hayeong.jpg";
 import doowon_img from "../images/members/members_doowon.jpg";
 import hyojin_img from "../images/members/members_hyojin.jpg";
 import minji_img from "../images/members/members_minji.jpg";
+import minkyung_img from "../images/members/members_minkyung.jpeg";
+import chaerim_img from "../images/members/members_chaerim.jpeg";
 
 const MemberContainer = styled.div`
   width: 100%;
@@ -213,6 +215,38 @@ const Members = () => {
               📧{" "}
               <Link href="mailto:rang5000@gachon.ac.kr">
                 rang5000@gachon.ac.kr
+              </Link>
+            </MemberInfo>
+          </MemberCard>
+          <MemberCard>
+            <MemberImg src={minkyung_img} alt="MinKyung Kim" />
+            <MemberName>MinKyung Kim</MemberName>
+            <MemberInfo>
+              Undergraduate RA
+              <br />
+              Dept. of AI & Software
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:minkyung7365@gmail.com">
+                minkyung7365@gmail.com
+              </Link>
+            </MemberInfo>
+          </MemberCard>
+          <MemberCard>
+            <MemberImg src={chaerim_img} alt="ChaeRim Park" />
+            <MemberName>ChaeRim Park</MemberName>
+            <MemberInfo>
+              Undergraduate RA
+              <br />
+              Dept. of Applied Statistics
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:rkwhr928@gachon.ac.kr">
+                rkwhr928@gachon.ac.kr
               </Link>
             </MemberInfo>
           </MemberCard>
