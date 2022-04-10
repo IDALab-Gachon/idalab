@@ -10,6 +10,8 @@ import hyojin_img from "../images/members/members_hyojin.jpg";
 import minji_img from "../images/members/members_minji.jpg";
 import minkyung_img from "../images/members/members_minkyung.jpeg";
 import chaerim_img from "../images/members/members_chaerim.jpeg";
+import hyunjung_img from "../images/members/members_hyunjung.jpeg";
+import gina_img from "../images/members/members_gina.jpeg";
 
 const MemberContainer = styled.div`
   width: 100%;
@@ -125,8 +127,8 @@ const Members = () => {
             <MemberImg src={orjeong_img} alt="OkRan Jeong" />
             <MemberName>Prof. OkRan Jeong</MemberName>
             <MemberInfo>
-              Associate Professor <br />
-              Dept. of AI & Software <br />
+              Professor <br />
+              School of Computing <br />
               Gachon University <br />
               🌐{" "}
               <Link
@@ -151,7 +153,7 @@ const Members = () => {
             <MemberName>SoYeop Yoo</MemberName>
             <MemberInfo>
               Visiting Professor
-              <br /> Dept. of AI & Software <br />
+              <br /> School of Computing <br />
               Gachon University <br />
               📧{" "}
               <Link href="mailto:bbusso90@gmail.com">bbusso90@gmail.com</Link>
@@ -165,36 +167,22 @@ const Members = () => {
             <MemberName>HaYoung Lee</MemberName>
             <MemberInfo>
               M.S. Student
-              <br /> Dept. of AI & Software <br />
+              <br /> School of Computing <br />
               Gachon University <br />
               📧{" "}
               <Link href="mailto:hyl980911@naver.com">hyl980911@naver.com</Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
-        <ListTitle>Researchers</ListTitle>
+        <ListTitle>M.S. - B.S. Students</ListTitle>
         <MemberWrapper>
-          <MemberCard>
-            <MemberImg src={doowon_img} alt="DooWon Kang" />
-            <MemberName>DooWon Kang</MemberName>
-            <MemberInfo>
-              Undergraduate RA
-              <br />
-              Dept. of AI & Software
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:pch14545@gmail.com">pch14545@gmail.com</Link>
-            </MemberInfo>
-          </MemberCard>
           <MemberCard>
             <MemberImg src={hyojin_img} alt="HyoJin Ko" />
             <MemberName>HyoJin Ko</MemberName>
             <MemberInfo>
               Undergraduate RA
               <br />
-              Dept. of AI & Software
+              School of Computing
               <br />
               Gachon University
               <br />
@@ -208,7 +196,7 @@ const Members = () => {
             <MemberInfo>
               Undergraduate RA
               <br />
-              Dept. of AI & Software
+              School of Computing
               <br />
               Gachon University
               <br />
@@ -218,13 +206,30 @@ const Members = () => {
               </Link>
             </MemberInfo>
           </MemberCard>
+        </MemberWrapper>
+        <ListTitle>Researchers</ListTitle>
+        <MemberWrapper>
+          <MemberCard>
+            <MemberImg src={doowon_img} alt="DooWon Kang" />
+            <MemberName>DooWon Kang</MemberName>
+            <MemberInfo>
+              Undergraduate RA
+              <br />
+              School of Computing
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:pch14545@gmail.com">pch14545@gmail.com</Link>
+            </MemberInfo>
+          </MemberCard>
           <MemberCard>
             <MemberImg src={minkyung_img} alt="MinKyung Kim" />
             <MemberName>MinKyung Kim</MemberName>
             <MemberInfo>
               Undergraduate RA
               <br />
-              Dept. of AI & Software
+              School of Computing
               <br />
               Gachon University
               <br />
@@ -250,10 +255,36 @@ const Members = () => {
               </Link>
             </MemberInfo>
           </MemberCard>
+          <MemberCard>
+            <MemberImg src={hyunjung_img} alt="HyunJung Baek" />
+            <MemberName>HyunJung Baek</MemberName>
+            <MemberInfo>
+              Undergraduate RA
+              <br />
+              School of Computing
+              <br />
+              Gachon University
+              <br />
+              📧 <Link href="mailto:hmuy913@naver.com">hmuy913@naver.com</Link>
+            </MemberInfo>
+          </MemberCard>
+          <MemberCard>
+            <MemberImg src={gina_img} alt="Gina Ryu" />
+            <MemberName>Gina Ryu</MemberName>
+            <MemberInfo>
+              Undergraduate RA
+              <br />
+              School of Computing
+              <br />
+              Gachon University
+              <br />
+              📧 <Link href="mailto:gnnryu@gmail.com">gnnryu@gmail.com</Link>
+            </MemberInfo>
+          </MemberCard>
         </MemberWrapper>
         <ListTitle>Alumni</ListTitle>
         <GraduateAlumni>
-          <AlumniListItem>YeonSun Ahn, MS, 2021 (Line)</AlumniListItem>
+          <AlumniListItem>YeonSun Ahn, MS, 2021 (LINE Plus)</AlumniListItem>
           <AlumniListItem>JiHye Kim, MS, 2021 (Seegene)</AlumniListItem>
           <AlumniListItem>
             SungMin Yang, MS, 2020 (Toss Payments)
