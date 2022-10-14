@@ -173,6 +173,22 @@ const Members = () => {
               <Link href="mailto:hyl980911@naver.com">hyl980911@naver.com</Link>
             </MemberInfo>
           </MemberCard>
+          <MemberCard>
+            <MemberImg src={chaerim_img} alt="ChaeRim Park" />
+            <MemberName>ChaeRim Park</MemberName>
+            <MemberInfo>
+              Undergraduate RA
+              <br />
+              Dept. of Applied Statistics
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:rkwhr928@gachon.ac.kr">
+                rkwhr928@gachon.ac.kr
+              </Link>
+            </MemberInfo>
+          </MemberCard>
         </MemberWrapper>
         <ListTitle>M.S. - B.S. Students</ListTitle>
         <MemberWrapper>
@@ -239,22 +255,7 @@ const Members = () => {
               </Link>
             </MemberInfo>
           </MemberCard>
-          <MemberCard>
-            <MemberImg src={chaerim_img} alt="ChaeRim Park" />
-            <MemberName>ChaeRim Park</MemberName>
-            <MemberInfo>
-              Undergraduate RA
-              <br />
-              Dept. of Applied Statistics
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:rkwhr928@gachon.ac.kr">
-                rkwhr928@gachon.ac.kr
-              </Link>
-            </MemberInfo>
-          </MemberCard>
+
           <MemberCard>
             <MemberImg src={hyunjung_img} alt="HyunJung Baek" />
             <MemberName>HyunJung Baek</MemberName>
