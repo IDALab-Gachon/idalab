@@ -74,6 +74,11 @@ const Publications = () => {
           <ListTitle>International Journals (SCI(E), SCOPUS)</ListTitle>
           <PubList>
             <PubListItem>
+              HaYoung Lee, and OkRan Jeong, "Sentiment Analysis and Counseling
+              for COVID-19 Pandemic based on Social Media," International
+              Journal of Web and Grid Services (accepted)
+            </PubListItem>
+            <PubListItem>
               Jihye Kim, and Ok-Ran Jeong “Mirroring Vector Space Embedding for
               New Words,” IEEE Access, Vol.9, 2021. (SCIE,{" "}
               <b>Impact Factor: 3.367</b>)
@@ -542,6 +547,12 @@ const Publications = () => {
         <div className="kor_journals">
           <ListTitle>Korean Journals</ListTitle>
           <PubList>
+            <PubListItem>
+              DooWon Kang, SoYeop Yoo, HaYoung Lee and OkRan Jeong, "A study on
+              Deep Learning-based Stock Price Prediction using News Sentiment
+              Analysis", Journal of The Korea Society of Computer and
+              information, Vol.27(8), 2022.
+            </PubListItem>
             <PubListItem>
               Ha-Young Lee, and Ok-Ran Jeong, "A personalized exercise
               recommendation system using dimension reduction algorithms,"
