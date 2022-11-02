@@ -79,6 +79,11 @@ const Publications = () => {
               Journal of Web and Grid Services (accepted)
             </PubListItem>
             <PubListItem>
+              YeonSun Ahn, SoYeop Yoo, and OkRan Jeong, "PolarisX2: Auto-Growing
+              Context-Aware Knowledge Graph ," International Journal of Web and
+              Grid Services (accepted)
+            </PubListItem>
+            <PubListItem>
               Jihye Kim, and Ok-Ran Jeong “Mirroring Vector Space Embedding for
               New Words,” IEEE Access, Vol.9, 2021. (SCIE,{" "}
               <b>Impact Factor: 3.367</b>)
