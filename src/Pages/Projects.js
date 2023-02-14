@@ -68,7 +68,9 @@ const Projects = () => {
         <ListTitle>Polaris Project</ListTitle>
         <ProjList>
           <ProjListItem>
-            <a href={polaris_project} target="_blank" rel="noopener noreferrer">"Polaris"</a>
+            <a href={polaris_project} target="_blank" rel="noopener noreferrer">
+              "Polaris"
+            </a>
           </ProjListItem>
           <ProjListItem>Social media analysis system</ProjListItem>
         </ProjList>
@@ -76,8 +78,13 @@ const Projects = () => {
         <ListTitle>Research Projects</ListTitle>
         <ProjList>
           <ProjListItem>
+            "Research on Deeper Conversational AI Platform based on Continual
+            Learning," National Research Foundation of Korea (NRF) (Sep. 2022 –
+            )
+          </ProjListItem>
+          <ProjListItem>
             "Conversational AI Framework based on Auto Growing Knowledge Graph,"
-            National Research Foundation of Korea (NRF) (Mar. 2019 – )
+            National Research Foundation of Korea (NRF) (Mar. 2019 – Feb. 2022)
           </ProjListItem>
           <ProjListItem>
             "Research and Development of a Social Context-awareness based

@@ -74,6 +74,12 @@ const Publications = () => {
           <ListTitle>International Journals (SCI(E), SCOPUS)</ListTitle>
           <PubList>
             <PubListItem>
+              Hayoung Lee and Ok-Ran Jeong, “A Knowledge-Grounded Task-Oriented
+              Dialogue System with Hierarchical Structure for Enhancing
+              Knowledge Selection,” Sensors, Vol. 23, No. 20, 2023 (SCIE,{" "}
+              <b>Impact Factor: 3.874</b>, JCR 2021)
+            </PubListItem>
+            <PubListItem>
               HaYoung Lee, and OkRan Jeong, "Sentiment Analysis and Counseling
               for COVID-19 Pandemic based on Social Media," International
               Journal of Web and Grid Services (accepted)
@@ -552,6 +558,11 @@ const Publications = () => {
         <div className="kor_journals">
           <ListTitle>Korean Journals</ListTitle>
           <PubList>
+            <PubListItem>
+              ChaeLim Park, SoYeop Yoo, and OkRan Jeong, "A Study on
+              Conversational AI Agent based on Continual Learning", Journal of
+              The Korea Society of Computer and information, Vol.28(1), 2023.
+            </PubListItem>
             <PubListItem>
               DooWon Kang, SoYeop Yoo, HaYoung Lee and OkRan Jeong, "A study on
               Deep Learning-based Stock Price Prediction using News Sentiment

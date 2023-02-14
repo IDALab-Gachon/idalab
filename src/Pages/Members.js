@@ -1,17 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-//import empty_img from '../images/members/members_empty.png';
+import empty_img from "../images/members/members_empty.png";
 import orjeong_img from "../images/members/members_orjeong.jpg";
 import soyeop_img from "../images/members/members_soyeop.jpeg";
 import hayeong_img from "../images/members/members_hayeong.jpg";
-import doowon_img from "../images/members/members_doowon.jpg";
 import hyojin_img from "../images/members/members_hyojin.jpg";
 import minji_img from "../images/members/members_minji.jpg";
 import minkyung_img from "../images/members/members_minkyung.jpeg";
 import chaerim_img from "../images/members/members_chaerim.jpeg";
 import hyunjung_img from "../images/members/members_hyunjung.jpeg";
-import gina_img from "../images/members/members_gina.jpeg";
 
 const MemberContainer = styled.div`
   width: 100%;
@@ -160,6 +158,20 @@ const Members = () => {
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
+        <ListTitle>Ph.D. Students</ListTitle>
+        <MemberWrapper>
+          <MemberCard>
+            <MemberImg src={empty_img} alt="DaeHo Kim" />
+            <MemberName>DaeHo Kim</MemberName>
+            <MemberInfo>
+              Ph.D. Student
+              <br /> School of Computing <br />
+              Gachon University <br />
+              📧{" "}
+              <Link href="mailto:ikimdh91@gmail.com">ikimdh91@gmail.com</Link>
+            </MemberInfo>
+          </MemberCard>
+        </MemberWrapper>
         <ListTitle>M.S. Students</ListTitle>
         <MemberWrapper>
           <MemberCard>
@@ -177,7 +189,7 @@ const Members = () => {
             <MemberImg src={chaerim_img} alt="ChaeRim Park" />
             <MemberName>ChaeRim Park</MemberName>
             <MemberInfo>
-              Undergraduate RA
+              M.S. Student
               <br />
               Dept. of Applied Statistics
               <br />
@@ -189,14 +201,11 @@ const Members = () => {
               </Link>
             </MemberInfo>
           </MemberCard>
-        </MemberWrapper>
-        <ListTitle>M.S. - B.S. Students</ListTitle>
-        <MemberWrapper>
           <MemberCard>
             <MemberImg src={hyojin_img} alt="HyoJin Ko" />
             <MemberName>HyoJin Ko</MemberName>
             <MemberInfo>
-              Undergraduate RA
+              M.S. Student
               <br />
               School of Computing
               <br />
@@ -210,7 +219,7 @@ const Members = () => {
             <MemberImg src={minji_img} alt="MinJi Kim" />
             <MemberName>MinJi Kim</MemberName>
             <MemberInfo>
-              Undergraduate RA
+              M.S. Student
               <br />
               School of Computing
               <br />
@@ -223,22 +232,10 @@ const Members = () => {
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
+        {/* <ListTitle>M.S. - B.S. Students</ListTitle>
+        <MemberWrapper></MemberWrapper> */}
         <ListTitle>Researchers</ListTitle>
         <MemberWrapper>
-          <MemberCard>
-            <MemberImg src={doowon_img} alt="DooWon Kang" />
-            <MemberName>DooWon Kang</MemberName>
-            <MemberInfo>
-              Undergraduate RA
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:pch14545@gmail.com">pch14545@gmail.com</Link>
-            </MemberInfo>
-          </MemberCard>
           <MemberCard>
             <MemberImg src={minkyung_img} alt="MinKyung Kim" />
             <MemberName>MinKyung Kim</MemberName>
@@ -267,19 +264,6 @@ const Members = () => {
               Gachon University
               <br />
               📧 <Link href="mailto:hmuy913@naver.com">hmuy913@naver.com</Link>
-            </MemberInfo>
-          </MemberCard>
-          <MemberCard>
-            <MemberImg src={gina_img} alt="Gina Ryu" />
-            <MemberName>Gina Ryu</MemberName>
-            <MemberInfo>
-              Undergraduate RA
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧 <Link href="mailto:gnnryu@gmail.com">gnnryu@gmail.com</Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
