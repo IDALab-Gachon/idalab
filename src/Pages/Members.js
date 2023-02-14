@@ -191,7 +191,7 @@ const Members = () => {
             <MemberInfo>
               M.S. Student
               <br />
-              Dept. of Applied Statistics
+              School of Computing
               <br />
               Gachon University
               <br />
