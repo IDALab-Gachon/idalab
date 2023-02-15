@@ -77,7 +77,7 @@ const Publications = () => {
               Hayoung Lee and Ok-Ran Jeong, “A Knowledge-Grounded Task-Oriented
               Dialogue System with Hierarchical Structure for Enhancing
               Knowledge Selection,” Sensors, Vol. 23, No. 20, 2023 (SCIE,{" "}
-              <b>Impact Factor: 3.874</b>, JCR 2021)
+              <b>Impact Factor: 3.847</b>, JCR 2021)
             </PubListItem>
             <PubListItem>
               HaYoung Lee, and OkRan Jeong, "Sentiment Analysis and Counseling
