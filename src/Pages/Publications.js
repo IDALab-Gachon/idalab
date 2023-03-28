@@ -74,15 +74,21 @@ const Publications = () => {
           <ListTitle>International Journals (SCI(E), SCOPUS)</ListTitle>
           <PubList>
             <PubListItem>
+              SoYeop Yoo and Ok-Ran Jeong, “A Token Classification-Based
+              Attention Model for Extracting Multiple Emotion–Cause Pairs in
+              Conversations,” Sensors, Vol. 23, No. 6, 2023 (SCIE,{" "}
+              <b>Impact Factor: 3.847</b>, JCR 2021)
+            </PubListItem>
+            <PubListItem>
               Hayoung Lee and Ok-Ran Jeong, “A Knowledge-Grounded Task-Oriented
               Dialogue System with Hierarchical Structure for Enhancing
-              Knowledge Selection,” Sensors, Vol. 23, No. 20, 2023 (SCIE,{" "}
+              Knowledge Selection,” Sensors, Vol. 23, No. 2, 2023 (SCIE,{" "}
               <b>Impact Factor: 3.847</b>, JCR 2021)
             </PubListItem>
             <PubListItem>
               HaYoung Lee, and OkRan Jeong, "Sentiment Analysis and Counseling
               for COVID-19 Pandemic based on Social Media," International
-              Journal of Web and Grid Services (accepted)
+              Journal of Web and Grid Services, Vol. 19, No. 1, 2023.
             </PubListItem>
             <PubListItem>
               YeonSun Ahn, SoYeop Yoo, and OkRan Jeong, "PolarisX2: Auto-Growing
