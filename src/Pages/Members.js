@@ -144,13 +144,13 @@ const Members = () => {
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
-        <ListTitle>Ph.D.</ListTitle>
+        <ListTitle>Research Professor</ListTitle>
         <MemberWrapper>
           <MemberCard>
             <MemberImg src={soyeop_img} alt="SoYeop Yoo" />
             <MemberName>SoYeop Yoo</MemberName>
             <MemberInfo>
-              Visiting Professor
+              Research Professor
               <br /> School of Computing <br />
               Gachon University <br />
               📧{" "}

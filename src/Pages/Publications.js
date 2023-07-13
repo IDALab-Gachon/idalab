@@ -74,26 +74,32 @@ const Publications = () => {
           <ListTitle>International Journals (SCI(E), SCOPUS)</ListTitle>
           <PubList>
             <PubListItem>
+              Prince Waqas Khan, Yung Cheol Byun, and Ok-Ran Jeong, “A Stacking
+              Ensemble Classifier-Based Machine Learning Model for Classifying
+              Pollution Sources on Photovoltaic Panels,” Scientific Reports,
+              Vol. 13(1), 2023.
+            </PubListItem>
+            <PubListItem>
               SoYeop Yoo and Ok-Ran Jeong, “A Token Classification-Based
               Attention Model for Extracting Multiple Emotion–Cause Pairs in
               Conversations,” Sensors, Vol. 23, No. 6, 2023 (SCIE,{" "}
-              <b>Impact Factor: 3.847</b>, JCR 2021)
+              <b>Impact Factor: 3.9</b>, JCR 2022)
             </PubListItem>
             <PubListItem>
               Hayoung Lee and Ok-Ran Jeong, “A Knowledge-Grounded Task-Oriented
               Dialogue System with Hierarchical Structure for Enhancing
               Knowledge Selection,” Sensors, Vol. 23, No. 2, 2023 (SCIE,{" "}
-              <b>Impact Factor: 3.847</b>, JCR 2021)
+              <b>Impact Factor: 3.9</b>, JCR 2022)
+            </PubListItem>
+            <PubListItem>
+              YeonSun Ahn, SoYeop Yoo, and OkRan Jeong, "PolarisX2: Auto-Growing
+              Context-Aware Knowledge Graph ," International Journal of Web and
+              Grid Services, Vol. 19, No. 2, 2023.
             </PubListItem>
             <PubListItem>
               HaYoung Lee, and OkRan Jeong, "Sentiment Analysis and Counseling
               for COVID-19 Pandemic based on Social Media," International
               Journal of Web and Grid Services, Vol. 19, No. 1, 2023.
-            </PubListItem>
-            <PubListItem>
-              YeonSun Ahn, SoYeop Yoo, and OkRan Jeong, "PolarisX2: Auto-Growing
-              Context-Aware Knowledge Graph ," International Journal of Web and
-              Grid Services (accepted)
             </PubListItem>
             <PubListItem>
               Jihye Kim, and Ok-Ran Jeong “Mirroring Vector Space Embedding for
@@ -129,12 +135,12 @@ const Publications = () => {
               SungMin Yang, SoYeop Yoo, and OkRan Jeong, "DeNERT-KG: Named
               Entity and Relation Extraction Model Using DQN, Knowledge Graph,
               and BERT," Applied Sciences, Vol. 10, No. 8, 2020. (SCIE,{" "}
-              <b>Impact Factor: 2.474</b>)
+              <b>Impact Factor: 2.7</b>, JCR 2022)
             </PubListItem>
             <PubListItem>
               SoYeop Yoo, and Ok-Ran Jeong, "Automating the Expansion of a
               Knowledge Graph," Expert Systems with Applications, Vol. 141,
-              2020. (SCIE, <b>Impact Factor: 5.452</b>)
+              2020. (SCIE, <b>Impact Factor: 8.5</b>, JCR 2022)
             </PubListItem>
             <PubListItem>
               DaeHo Kim and OkRan Jeong, "Cooperative Trafffic Signal Control

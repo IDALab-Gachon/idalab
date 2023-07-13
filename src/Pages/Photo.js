@@ -1,6 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
+import img_2022_1 from "../images/gallery/2022/2022_1.jpeg";
+import img_2022_2 from "../images/gallery/2022/2022_2.jpeg";
+import img_2022_3 from "../images/gallery/2022/2022_3.jpeg";
+import img_2022_4 from "../images/gallery/2022/2022_4.jpeg";
+
 import img_201904_1 from "../images/gallery/2019/20190426_1.jpg";
 import img_201904_2 from "../images/gallery/2019/20190426_2.jpg";
 import img_201904_3 from "../images/gallery/2019/20190426_3.jpg";
@@ -70,7 +75,7 @@ const PhotoWrapper = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  ${props => props.theme.whiteBox};
+  ${(props) => props.theme.whiteBox};
   margin-bottom: 5px;
 `;
 
@@ -98,9 +103,8 @@ const PhotoName = styled.p`
   padding-top: 15px;
   font-size: 16px;
   font-weight: 600;
-  color: ${props => props.theme.darkBlueColor};
+  color: ${(props) => props.theme.darkBlueColor};
 `;
-
 
 const Photo = () => {
   return (
@@ -109,64 +113,71 @@ const Photo = () => {
         <TitleText>PHOTO</TitleText>
       </PhotoTitle>
       <ListContainer>
+        <ListTitle>2020 ~ Present</ListTitle>
+        <PhotoWrapper>
+          <PhotoImg src={img_2022_1} />
+          <PhotoImg src={img_2022_2} />
+          <PhotoImg src={img_2022_3} />
+          <PhotoImg src={img_2022_4} />
+        </PhotoWrapper>
         <ListTitle>2019</ListTitle>
         <PhotoName>2019.04 KISM&SEBS 춘계학술대회</PhotoName>
-        <PhotoWrapper>            
-            <PhotoImg src={img_201904_1} />
-            <PhotoImg src={img_201904_2} />
-            <PhotoImg src={img_201904_3} />
-            <PhotoImg src={img_201904_4} />
+        <PhotoWrapper>
+          <PhotoImg src={img_201904_1} />
+          <PhotoImg src={img_201904_2} />
+          <PhotoImg src={img_201904_3} />
+          <PhotoImg src={img_201904_4} />
         </PhotoWrapper>
         <PhotoName>2019.07 </PhotoName>
-        <PhotoWrapper>            
-            <PhotoImg src={img_201907_1} />
-            <PhotoImg src={img_201907_2} />
+        <PhotoWrapper>
+          <PhotoImg src={img_201907_1} />
+          <PhotoImg src={img_201907_2} />
         </PhotoWrapper>
         <PhotoName>2019.08 ICICIC2019</PhotoName>
-        <PhotoWrapper>            
-            <PhotoImg src={img_201908_1} />
-            <PhotoImg src={img_201908_2} />
+        <PhotoWrapper>
+          <PhotoImg src={img_201908_1} />
+          <PhotoImg src={img_201908_2} />
         </PhotoWrapper>
         <PhotoName>2019.09.20</PhotoName>
-        <PhotoWrapper>            
-            <PhotoImg src={img_201909_1} />
-            <PhotoImg src={img_201909_2} />
+        <PhotoWrapper>
+          <PhotoImg src={img_201909_1} />
+          <PhotoImg src={img_201909_2} />
         </PhotoWrapper>
         <PhotoName>2019.09.25 AI & 빅데이터 학술제</PhotoName>
-        <PhotoWrapper>            
-            <PhotoImg src={img_201909_3} />
-            <PhotoImg src={img_201909_4} />
+        <PhotoWrapper>
+          <PhotoImg src={img_201909_3} />
+          <PhotoImg src={img_201909_4} />
         </PhotoWrapper>
         <PhotoName>2019.12 ASRU2019</PhotoName>
-        <PhotoWrapper>            
-            <PhotoImg src={img_201912_1} />
-            <PhotoImg src={img_201912_2} />
-            <PhotoImg src={img_201912_3} />
+        <PhotoWrapper>
+          <PhotoImg src={img_201912_1} />
+          <PhotoImg src={img_201912_2} />
+          <PhotoImg src={img_201912_3} />
         </PhotoWrapper>
         <hr />
         <ListTitle>2018</ListTitle>
         <PhotoName>2018.07 UCI 방문 및 공동연구</PhotoName>
-        <PhotoWrapper>            
-            <PhotoImg src={img_2018_uci_1} />
-            <PhotoImg src={img_2018_uci_2} />
-            <PhotoImg src={img_2018_uci_3} />
-            <PhotoImg src={img_2018_uci_4} />
-            <PhotoImg src={img_2018_uci_5} />
-            <PhotoImg src={img_2018_uci_6} />
-            <PhotoImg src={img_2018_uci_7} />
+        <PhotoWrapper>
+          <PhotoImg src={img_2018_uci_1} />
+          <PhotoImg src={img_2018_uci_2} />
+          <PhotoImg src={img_2018_uci_3} />
+          <PhotoImg src={img_2018_uci_4} />
+          <PhotoImg src={img_2018_uci_5} />
+          <PhotoImg src={img_2018_uci_6} />
+          <PhotoImg src={img_2018_uci_7} />
         </PhotoWrapper>
         <PhotoName>2018.07 미국소프트웨어센터 방문</PhotoName>
-        <PhotoWrapper>            
-            <PhotoImg src={img_2018_usw_1} />
-            <PhotoImg src={img_2018_usw_2} />
-            <PhotoImg src={img_2018_usw_3} />
-            <PhotoImg src={img_2018_usw_4} />
-            <PhotoImg src={img_2018_usw_5} />
+        <PhotoWrapper>
+          <PhotoImg src={img_2018_usw_1} />
+          <PhotoImg src={img_2018_usw_2} />
+          <PhotoImg src={img_2018_usw_3} />
+          <PhotoImg src={img_2018_usw_4} />
+          <PhotoImg src={img_2018_usw_5} />
         </PhotoWrapper>
         <PhotoName>2018.12</PhotoName>
-        <PhotoWrapper>            
-            <PhotoImg src={img_201812_1} />
-            <PhotoImg src={img_201812_2} />
+        <PhotoWrapper>
+          <PhotoImg src={img_201812_1} />
+          <PhotoImg src={img_201812_2} />
         </PhotoWrapper>
       </ListContainer>
     </PhotoContainer>
