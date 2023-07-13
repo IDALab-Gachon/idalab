@@ -77,7 +77,7 @@ const Publications = () => {
               Prince Waqas Khan, Yung Cheol Byun, and Ok-Ran Jeong, “A Stacking
               Ensemble Classifier-Based Machine Learning Model for Classifying
               Pollution Sources on Photovoltaic Panels,” Scientific Reports,
-              Vol. 13(1), 2023.
+              Vol. 13(1), 2023. (SCIE, <b>Impact Factor: 4.997</b>, JCR 2022)
             </PubListItem>
             <PubListItem>
               SoYeop Yoo and Ok-Ran Jeong, “A Token Classification-Based
