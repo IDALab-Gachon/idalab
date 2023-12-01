@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import empty_img from "../images/members/members_empty.png";
 import orjeong_img from "../images/members/members_orjeong.jpg";
+import daeho_img from "../images/members/members_daeho.jpeg";
 import soyeop_img from "../images/members/members_soyeop.jpeg";
 import hayeong_img from "../images/members/members_hayeong.jpg";
 import hyojin_img from "../images/members/members_hyojin.jpg";
@@ -161,7 +162,7 @@ const Members = () => {
         <ListTitle>Ph.D. Students</ListTitle>
         <MemberWrapper>
           <MemberCard>
-            <MemberImg src={empty_img} alt="DaeHo Kim" />
+            <MemberImg src={daeho_img} alt="DaeHo Kim" />
             <MemberName>DaeHo Kim</MemberName>
             <MemberInfo>
               Ph.D. Student
@@ -234,7 +235,7 @@ const Members = () => {
         </MemberWrapper>
         {/* <ListTitle>M.S. - B.S. Students</ListTitle>
         <MemberWrapper></MemberWrapper> */}
-        <ListTitle>Researchers</ListTitle>
+        <ListTitle>B.S. Students</ListTitle>
         <MemberWrapper>
           <MemberCard>
             <MemberImg src={minkyung_img} alt="MinKyung Kim" />

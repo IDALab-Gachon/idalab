@@ -74,6 +74,12 @@ const Publications = () => {
           <ListTitle>International Journals (SCI(E), SCOPUS)</ListTitle>
           <PubList>
             <PubListItem>
+              SoYeop Yoo, HaYeong Lee, JeIn Song, and Ok-Ran Jeong, "A Korean
+              emotion-factor dataset for extracting emotion and factors in
+              Korean conversations ", Scientific Reports, Vol. 13, 2023. (SCIE,{" "}
+              <b>Impact Factor: 4.6</b>, JCR 2022)
+            </PubListItem>
+            <PubListItem>
               Prince Waqas Khan, Yung Cheol Byun, and Ok-Ran Jeong, “A Stacking
               Ensemble Classifier-Based Machine Learning Model for Classifying
               Pollution Sources on Photovoltaic Panels,” Scientific Reports,
@@ -727,6 +733,16 @@ const Publications = () => {
         <div className="kor_conf">
           <ListTitle>Korean Conferences</ListTitle>
           <PubList>
+            <PubListItem>
+              HyoJin Ko, MinJi Kim, HaYoung Lee, and Ok-Ran Jeong, "No-code AI
+              based personalized healthcare framework", The 25th Korean Database
+              Conference, 2023.
+            </PubListItem>
+            <PubListItem>
+              SeYoung Kim, DaeHo Kim, and Ok-Ran Jeong, "A study on a Deep
+              Learning based Nursing Surveillance Decision-making System using
+              EMR data", The 25th Korean Database Conference, 2023.
+            </PubListItem>
             <PubListItem>
               SoYeop, Yoo., and OkRan, Jeong., “Auto-growing Knowledge Graph
               based Intelligent Chatbot,” 2019 Spring Conference of KISM &amp;
