@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import empty_img from "../images/members/members_empty.png";
+// import empty_img from "../images/members/members_empty.png";
 import orjeong_img from "../images/members/members_orjeong.jpg";
 import daeho_img from "../images/members/members_daeho.jpeg";
 import soyeop_img from "../images/members/members_soyeop.jpeg";
