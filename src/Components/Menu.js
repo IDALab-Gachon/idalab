@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-import logo from "../images/logo_typo_v1.png";
+import logo from "../images/logo_typo.png";
 
 const HeaderContainer = styled.header`
   height: 100px;

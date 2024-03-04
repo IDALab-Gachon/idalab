@@ -10,7 +10,10 @@ import hyojin_img from "../images/members/members_hyojin.jpg";
 import minji_img from "../images/members/members_minji.jpg";
 import minkyung_img from "../images/members/members_minkyung.jpeg";
 import chaerim_img from "../images/members/members_chaerim.jpeg";
-import hyunjung_img from "../images/members/members_hyunjung.jpeg";
+import taehyeong_img from "../images/members/members_taehyeong.jpeg";
+import donghyeon_kim_img from "../images/members/members_donghyeon_kim.jpeg";
+import donghyeon_lim_img from "../images/members/members_donghyeon_lim.jpeg";
+import taeheon_img from "../images/members/members_taeheon.jpeg";
 
 const MemberContainer = styled.div`
   width: 100%;
@@ -155,7 +158,7 @@ const Members = () => {
               <br /> School of Computing <br />
               Gachon University <br />
               📧{" "}
-              <Link href="mailto:bbusso90@gmail.com">bbusso90@gmail.com</Link>
+              <Link href="mailto:bbusso@gachon.ac.kr">bbusso@gachon.ac.kr</Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
@@ -232,14 +235,44 @@ const Members = () => {
               </Link>
             </MemberInfo>
           </MemberCard>
+          <MemberCard>
+            <MemberImg src={taehyeong_img} alt="TaeHyeong Kwon" />
+            <MemberName>TaeHyeong Kwon</MemberName>
+            <MemberInfo>
+              M.S. Student
+              <br />
+              School of Computing
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:kth05090@gmail.com">kth05090@gmail.com</Link>
+            </MemberInfo>
+          </MemberCard>
+          <MemberCard>
+            <MemberImg src={donghyeon_kim_img} alt="DongHyeon Kim" />
+            <MemberName>DongHyeon Kim</MemberName>
+            <MemberInfo>
+              M.S. Student
+              <br />
+              School of Computing
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:eastlighting1@gachon.ac.kr">
+                eastlighting1@gachon.ac.kr
+              </Link>
+            </MemberInfo>
+          </MemberCard>
         </MemberWrapper>
         {/* <ListTitle>M.S. - B.S. Students</ListTitle>
         <MemberWrapper></MemberWrapper> */}
         <ListTitle>B.S. Students</ListTitle>
         <MemberWrapper>
           <MemberCard>
-            <MemberImg src={minkyung_img} alt="MinKyung Kim" />
-            <MemberName>MinKyung Kim</MemberName>
+            <MemberImg src={taeheon_img} alt="TaeHeon Seong" />
+            <MemberName>TaeHeon Seong</MemberName>
             <MemberInfo>
               Undergraduate RA
               <br />
@@ -248,15 +281,15 @@ const Members = () => {
               Gachon University
               <br />
               📧{" "}
-              <Link href="mailto:minkyung7365@gmail.com">
-                minkyung7365@gmail.com
+              <Link href="mailto:seongth0319@gachon.ac.kr">
+                seongth0319@gachon.ac.kr
               </Link>
             </MemberInfo>
           </MemberCard>
 
           <MemberCard>
-            <MemberImg src={hyunjung_img} alt="HyunJung Baek" />
-            <MemberName>HyunJung Baek</MemberName>
+            <MemberImg src={donghyeon_lim_img} alt="DongHyun Lim" />
+            <MemberName>DongHyun Lim</MemberName>
             <MemberInfo>
               Undergraduate RA
               <br />
@@ -264,7 +297,10 @@ const Members = () => {
               <br />
               Gachon University
               <br />
-              📧 <Link href="mailto:hmuy913@naver.com">hmuy913@naver.com</Link>
+              📧{" "}
+              <Link href="mailto:donghyun7640@gmail.com">
+                donghyun7640@gmail.com
+              </Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
