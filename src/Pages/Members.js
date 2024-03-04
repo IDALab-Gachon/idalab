@@ -10,7 +10,7 @@ import hyojin_img from "../images/members/members_hyojin.jpg";
 import minji_img from "../images/members/members_minji.jpg";
 import chaerim_img from "../images/members/members_chaerim.jpeg";
 import taehyeong_img from "../images/members/members_taehyeong.jpeg";
-import donghyeon_kim_img from "../images/members/members_donghyeon_kim.jpeg";
+import donghyeon_kim_img from "../images/members/members_donghyeon_kim.jpg";
 import donghyeon_lim_img from "../images/members/members_donghyeon_lim.jpeg";
 import taeheon_img from "../images/members/members_taeheon.jpeg";
 
