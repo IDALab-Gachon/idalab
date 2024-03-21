@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import polaris_project from "../files/PolarisProject_2403_v3.pdf";
+import polaris_project from "../files/PolarisProject_2403_v6.pdf";
 
 const ProjContainer = styled.div`
   width: 100%;
