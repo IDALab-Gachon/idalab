@@ -1,5 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import Modal from "../Components/Modal.js"
+
+import img_2024_1 from "../images/gallery/2024/2024_1.jpeg";
+import img_2024_2 from "../images/gallery/2024/2024_2.jpeg";
+
+import img_2023_1 from "../images/gallery/2023/2023_1.jpeg";
+import img_2023_2 from "../images/gallery/2023/2023_2.jpeg";
+import img_2023_3 from "../images/gallery/2023/2023_3.jpeg";
 
 import img_2022_1 from "../images/gallery/2022/2022_1.jpeg";
 import img_2022_2 from "../images/gallery/2022/2022_2.jpeg";
@@ -107,80 +115,133 @@ const PhotoName = styled.p`
 `;
 
 const Photo = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [currentImg, setCurrentImg] = useState('');
+
+  const handleImageClick = (imgSrc) => {
+    setCurrentImg(imgSrc);
+    setShowModal(true);
+  };
+
+  const handleClose = () => {
+    setShowModal(false);
+    setCurrentImg('');
+  };
+
   return (
     <PhotoContainer>
       <PhotoTitle>
         <TitleText>PHOTO</TitleText>
       </PhotoTitle>
+
       <ListContainer>
-        <ListTitle>2020 ~ Present</ListTitle>
-        <PhotoWrapper>
-          <PhotoImg src={img_2022_1} />
-          <PhotoImg src={img_2022_2} />
-          <PhotoImg src={img_2022_3} />
-          <PhotoImg src={img_2022_4} />
-        </PhotoWrapper>
-        <ListTitle>2019</ListTitle>
-        <PhotoName>2019.04 KISM&SEBS 춘계학술대회</PhotoName>
-        <PhotoWrapper>
-          <PhotoImg src={img_201904_1} />
-          <PhotoImg src={img_201904_2} />
-          <PhotoImg src={img_201904_3} />
-          <PhotoImg src={img_201904_4} />
-        </PhotoWrapper>
-        <PhotoName>2019.07 </PhotoName>
-        <PhotoWrapper>
-          <PhotoImg src={img_201907_1} />
-          <PhotoImg src={img_201907_2} />
-        </PhotoWrapper>
-        <PhotoName>2019.08 ICICIC2019</PhotoName>
-        <PhotoWrapper>
-          <PhotoImg src={img_201908_1} />
-          <PhotoImg src={img_201908_2} />
-        </PhotoWrapper>
-        <PhotoName>2019.09.20</PhotoName>
-        <PhotoWrapper>
-          <PhotoImg src={img_201909_1} />
-          <PhotoImg src={img_201909_2} />
-        </PhotoWrapper>
-        <PhotoName>2019.09.25 AI & 빅데이터 학술제</PhotoName>
-        <PhotoWrapper>
-          <PhotoImg src={img_201909_3} />
-          <PhotoImg src={img_201909_4} />
-        </PhotoWrapper>
-        <PhotoName>2019.12 ASRU2019</PhotoName>
-        <PhotoWrapper>
-          <PhotoImg src={img_201912_1} />
-          <PhotoImg src={img_201912_2} />
-          <PhotoImg src={img_201912_3} />
-        </PhotoWrapper>
-        <hr />
-        <ListTitle>2018</ListTitle>
-        <PhotoName>2018.07 UCI 방문 및 공동연구</PhotoName>
-        <PhotoWrapper>
-          <PhotoImg src={img_2018_uci_1} />
-          <PhotoImg src={img_2018_uci_2} />
-          <PhotoImg src={img_2018_uci_3} />
-          <PhotoImg src={img_2018_uci_4} />
-          <PhotoImg src={img_2018_uci_5} />
-          <PhotoImg src={img_2018_uci_6} />
-          <PhotoImg src={img_2018_uci_7} />
-        </PhotoWrapper>
-        <PhotoName>2018.07 미국소프트웨어센터 방문</PhotoName>
-        <PhotoWrapper>
-          <PhotoImg src={img_2018_usw_1} />
-          <PhotoImg src={img_2018_usw_2} />
-          <PhotoImg src={img_2018_usw_3} />
-          <PhotoImg src={img_2018_usw_4} />
-          <PhotoImg src={img_2018_usw_5} />
-        </PhotoWrapper>
-        <PhotoName>2018.12</PhotoName>
-        <PhotoWrapper>
-          <PhotoImg src={img_201812_1} />
-          <PhotoImg src={img_201812_2} />
-        </PhotoWrapper>
+        <details open>
+        <summary>More Photos After 2020</summary>
+          <div id = "2024">
+            <ListTitle>2024</ListTitle>
+            <PhotoWrapper>
+              <PhotoImg src={img_2024_1} onClick={() => handleImageClick(img_2024_1)}/>
+              <PhotoImg src={img_2024_2} onClick={() => handleImageClick(img_2024_2)}/>
+            </PhotoWrapper>
+            </div>
+          <hr /> 
+
+          <div id = "2023">
+            <ListTitle>2023</ListTitle>
+            <PhotoName>2023.11 KDBC</PhotoName>
+            <PhotoWrapper>
+              <PhotoImg src={img_2023_1} onClick={() => handleImageClick(img_2023_1)}/>
+              <PhotoImg src={img_2023_2} onClick={() => handleImageClick(img_2023_2)}/>
+              <PhotoImg src={img_2023_3} onClick={() => handleImageClick(img_2023_3)}/>
+            </PhotoWrapper>
+            <hr />
+          </div>
+          <div id = "2020-2022">
+            <ListTitle>2020 - 2022</ListTitle>
+            <PhotoWrapper>
+              <PhotoImg src={img_2022_1} onClick={() => handleImageClick(img_2022_1)}/>
+              <PhotoImg src={img_2022_2} onClick={() => handleImageClick(img_2022_2)}/>
+              <PhotoImg src={img_2022_3} onClick={() => handleImageClick(img_2022_3)}/>
+              <PhotoImg src={img_2022_4} onClick={() => handleImageClick(img_2022_4)}/>
+            </PhotoWrapper>
+          </div>
+          <hr />
+        </details>
+
+        <details>
+        <summary>More Photos before 2020</summary>
+
+          <div id = "2019">
+            <ListTitle>2019</ListTitle>
+            <PhotoName>2019.04 KISM&SEBS 춘계학술대회</PhotoName>
+            <PhotoWrapper>
+              <PhotoImg src={img_201904_1} onClick={() => handleImageClick(img_201904_1)}/>
+              <PhotoImg src={img_201904_2} onClick={() => handleImageClick(img_201904_2)}/>
+              <PhotoImg src={img_201904_3} onClick={() => handleImageClick(img_201904_3)}/>
+              <PhotoImg src={img_201904_4} onClick={() => handleImageClick(img_201904_4)}/>
+            </PhotoWrapper>
+            <PhotoName>2019.07 </PhotoName>
+            <PhotoWrapper>
+              <PhotoImg src={img_201907_1} onClick={() => handleImageClick(img_201907_1)}/>
+              <PhotoImg src={img_201907_2} onClick={() => handleImageClick(img_201907_2)}/>
+            </PhotoWrapper>
+            <PhotoName>2019.08 ICICIC2019</PhotoName>
+            <PhotoWrapper>
+              <PhotoImg src={img_201908_1} onClick={() => handleImageClick(img_201908_1)}/>
+              <PhotoImg src={img_201908_2} onClick={() => handleImageClick(img_201908_2)}/>
+            </PhotoWrapper>
+            <PhotoName>2019.09.20</PhotoName>
+            <PhotoWrapper>
+              <PhotoImg src={img_201909_1} onClick={() => handleImageClick(img_201909_1)}/>
+              <PhotoImg src={img_201909_2} onClick={() => handleImageClick(img_201909_2)}/>
+            </PhotoWrapper>
+            <PhotoName>2019.09.25 AI & 빅데이터 학술제</PhotoName>
+            <PhotoWrapper>
+              <PhotoImg src={img_201909_3} onClick={() => handleImageClick(img_201909_3)}/>
+              <PhotoImg src={img_201909_4} onClick={() => handleImageClick(img_201909_4)}/>
+            </PhotoWrapper>
+            <PhotoName>2019.12 ASRU2019</PhotoName>
+            <PhotoWrapper>
+              <PhotoImg src={img_201912_1} onClick={() => handleImageClick(img_201912_1)}/>
+              <PhotoImg src={img_201912_2} onClick={() => handleImageClick(img_201912_2)}/>
+              <PhotoImg src={img_201912_3} onClick={() => handleImageClick(img_201912_3)}/>
+            </PhotoWrapper>
+          </div>
+          <hr />
+
+          <div id = "2018">
+            <ListTitle>2018</ListTitle>
+            <PhotoName>2018.07 UCI 방문 및 공동연구</PhotoName>
+            <PhotoWrapper>
+              <PhotoImg src={img_2018_uci_1} onClick={() => handleImageClick(img_2018_uci_1)}/>
+              <PhotoImg src={img_2018_uci_2} onClick={() => handleImageClick(img_2018_uci_2)}/>
+              <PhotoImg src={img_2018_uci_3} onClick={() => handleImageClick(img_2018_uci_3)}/>
+              <PhotoImg src={img_2018_uci_4} onClick={() => handleImageClick(img_2018_uci_4)}/>
+              <PhotoImg src={img_2018_uci_5} onClick={() => handleImageClick(img_2018_uci_5)}/>
+              <PhotoImg src={img_2018_uci_6} onClick={() => handleImageClick(img_2018_uci_6)}/>
+              <PhotoImg src={img_2018_uci_7} onClick={() => handleImageClick(img_2018_uci_7)}/>
+            </PhotoWrapper>
+            <PhotoName>2018.07 미국소프트웨어센터 방문</PhotoName>
+            <PhotoWrapper>
+              <PhotoImg src={img_2018_usw_1} onClick={() => handleImageClick(img_2018_usw_1)}/>
+              <PhotoImg src={img_2018_usw_2} onClick={() => handleImageClick(img_2018_usw_2)}/>
+              <PhotoImg src={img_2018_usw_3} onClick={() => handleImageClick(img_2018_usw_3)}/>
+              <PhotoImg src={img_2018_usw_4} onClick={() => handleImageClick(img_2018_usw_4)}/>
+              <PhotoImg src={img_2018_usw_5} onClick={() => handleImageClick(img_2018_usw_5)}/>
+            </PhotoWrapper>
+            <PhotoName>2018.12</PhotoName>
+            <PhotoWrapper>
+              <PhotoImg src={img_201812_1} onClick={() => handleImageClick(img_201812_1)}/>
+              <PhotoImg src={img_201812_2} onClick={() => handleImageClick(img_201812_2)}/>
+            </PhotoWrapper>
+          </div>
+        </details>
+
       </ListContainer>
+      <Modal show={showModal} onClose={handleClose} imgSrc={currentImg} />
+    
     </PhotoContainer>
+    
   );
 };
 

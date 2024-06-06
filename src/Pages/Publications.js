@@ -70,7 +70,7 @@ const Publications = () => {
         </a>
         <br />
         <br />
-        <div className="int_journals_sci">
+        <div id="int_journals_sci">
           <ListTitle>International Journals (SCI(E), SCOPUS)</ListTitle>
           <PubList>
             <PubListItem>
@@ -316,7 +316,7 @@ const Publications = () => {
           </details>
         </div>
         <hr />
-        <div className="int_conf">
+        <div id ="int_conf">
           <ListTitle>International Journals & Conferences</ListTitle>
           <PubList>
             <PubListItem>
@@ -573,7 +573,7 @@ const Publications = () => {
           </details>
         </div>
         <hr />
-        <div className="kor_journals">
+        <div id="kor_journals">
           <ListTitle>Korean Journals</ListTitle>
           <PubList>
             <PubListItem>
@@ -730,7 +730,7 @@ const Publications = () => {
           </details>
         </div>
         <hr />
-        <div className="kor_conf">
+        <div id="kor_conf">
           <ListTitle>Korean Conferences</ListTitle>
           <PubList>
             <PubListItem>
