@@ -33,16 +33,17 @@ const ListTitle = styled.p`
 `;
 
 const PubList = styled.ul`
-  list-style: none;
+  list-style: circle;
   color: ${(props) => props.theme.darkGreyColor};
+  padding-left: 1em;
 `;
 
 const PubListItem = styled.li`
   ::before {
-    content: "•";
+    content: "‣";
     color: ${(props) => props.theme.redColor};
     display: inline-block;
-    width: 1em;
+    width: 0.7em;
   }
 `;
 
@@ -316,7 +317,7 @@ const Publications = () => {
           </details>
         </div>
         <hr />
-        <div id ="int_conf">
+        <div id="int_conf">
           <ListTitle>International Journals & Conferences</ListTitle>
           <PubList>
             <PubListItem>

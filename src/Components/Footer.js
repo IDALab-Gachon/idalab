@@ -11,7 +11,7 @@ const Footer = styled.footer`
   font-size: 12px;
   margin-top: 50px;
   padding: 10px 15px;
-  border-top: 2px solid ${props => props.theme.lightVioletColor};
+  border-top: 2px solid ${(props) => props.theme.lightVioletColor};
 `;
 
 const List = styled.ul`
@@ -26,18 +26,22 @@ const ListItem = styled.li`
 `;
 
 const Link = styled.a`
-  color: ${props => props.theme.darkBlueColor};
+  color: ${(props) => props.theme.darkBlueColor};
 `;
 
 const Copyright = styled.span`
-  color: ${props => props.theme.darkGreyColor};
+  color: ${(props) => props.theme.darkGreyColor};
 `;
 
-export default () => (
+const FooterDefault = () => (
   <Footer>
     <List>
-      <ListItem><Link href="mailto:ida.gachon@gmail.com">CONTACT</Link></ListItem>
+      <ListItem>
+        <Link href="mailto:ida.gachon@gmail.com">CONTACT</Link>
+      </ListItem>
     </List>
     <Copyright>IDA Lab. {new Date().getFullYear()} &copy;</Copyright>
   </Footer>
 );
+
+export default FooterDefault;
