@@ -75,6 +75,12 @@ const Publications = () => {
           <ListTitle>International Journals (SCI(E), SCOPUS)</ListTitle>
           <PubList>
             <PubListItem>
+              SeYoung Kim, DaeHo Kim, MinJi Kim, HyoJin Ko, and Ok-Ran Jeong,
+              "XAI-Based Clinical Decision Support Systems: A Systematic
+              Review", Applied Sciences, Vol. 14, 2024. (SCIE,{" "}
+              <b>Impact Factor: 2.5</b>, JCR 2023)
+            </PubListItem>
+            <PubListItem>
               SoYeop Yoo, HaYeong Lee, JeIn Song, and Ok-Ran Jeong, "A Korean
               emotion-factor dataset for extracting emotion and factors in
               Korean conversations ", Scientific Reports, Vol. 13, 2023. (SCIE,{" "}
