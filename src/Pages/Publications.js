@@ -84,6 +84,7 @@ const Publications = () => {
               ChaeLim Park, HaYoung Lee, and Ok-Ran Jeong, "Leveraging Medical
               Knowledge Graphs and Large Language Models for Enhanced Mental
               Disorder Information Extraction", Future Internet, Vol. 16, 2024.
+              (ESCI, <b>Impact Factor: 2.8</b>, JCR 2023)
             </PubListItem>
             <PubListItem>
               SoYeop Yoo, HaYeong Lee, JeIn Song, and Ok-Ran Jeong, "A Korean
