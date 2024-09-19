@@ -75,6 +75,27 @@ const Publications = () => {
           <ListTitle>International Journals (SCI(E), SCOPUS)</ListTitle>
           <PubList>
             <PubListItem>
+              "MeDi-TODER: Medical Domain-Incremental Task-Oriented Dialogue
+              Generator using Experience Replay," under revision
+            </PubListItem>
+            <PubListItem>
+              "MDCKE: Multimodal Deep-Context Knowledge Extractor using
+              integration of contextual information," under revision
+            </PubListItem>
+            <PubListItem>
+              “Target-guided Dialog Generation with Dynamic Knowledge Path by
+              Commonsense Knowledge Graph and Relation Prediction,” under review
+            </PubListItem>
+            <PubListItem>
+              “AbuseChat: a knowledge-based abusive chatbot system for
+              evaluating the abusiveness of generative AI,” under review
+            </PubListItem>
+            <PubListItem>
+              “A Synergistic Joint Model of Knowledge graph and LLM for
+              enhancing XAI-based Clinical Decision Support Systems and its
+              applications,” under review
+            </PubListItem>
+            <PubListItem>
               SeYoung Kim, DaeHo Kim, MinJi Kim, HyoJin Ko, and Ok-Ran Jeong,
               "XAI-Based Clinical Decision Support Systems: A Systematic
               Review", Applied Sciences, Vol. 14, 2024. (SCIE,{" "}
