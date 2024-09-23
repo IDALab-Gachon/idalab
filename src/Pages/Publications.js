@@ -76,7 +76,7 @@ const Publications = () => {
           <PubList>
             <PubListItem>
               "MeDi-TODER: Medical Domain-Incremental Task-Oriented Dialogue
-              Generator using Experience Replay," under revision
+              Generator using Experience Replay," under revision.
             </PubListItem>
             <PubListItem>
               "MDCKE: Multimodal Deep-Context Knowledge Extractor using
