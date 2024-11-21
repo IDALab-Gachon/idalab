@@ -84,10 +84,13 @@ const Publications = () => {
               “Target-guided Dialog Generation with Dynamic Knowledge Path by Commonsens Knowledge Graph and Relation Prediction,” under review
             </PubListItem>
             <PubListItem>
-              "MeDi-TODER: Medical Domain-Incremental Task-Oriented Dialogue Generator using Experience Replay," under revision.
+              "MDCKE: A multimodal deep-context knowledge extractor that integrates contextual information," under revision.
             </PubListItem>
             <PubListItem>
-              "MDCKE: A multimodal deep-context knowledge extractor that integrates contextual information," under revision.
+              MinJi Kim, Joon Yoo, Ok-Ran Jeong,
+              "MeDi-TODER: Medical Domain-Incremental Task-Oriented Dialogue Generator using Experience Replay,", 
+              Expert Systems, 2024. (SCIE,{" "}
+                <b>Impact Factor: 3.0</b>, JCR 2023)
             </PubListItem>
             <PubListItem>
               SeYoung Kim, DaeHo Kim, MinJi Kim, HyoJin Ko, and Ok-Ran Jeong,
