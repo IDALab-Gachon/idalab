@@ -3,16 +3,24 @@ import styled from "styled-components";
 
 // import empty_img from "../images/members/members_empty.png";
 import orjeong_img from "../images/members/members_orjeong.jpg";
-import daeho_img from "../images/members/members_daeho.jpeg";
+
 import soyeop_img from "../images/members/members_soyeop.jpeg";
-import hayeong_img from "../images/members/members_hayeong.jpg";
-import hyojin_img from "../images/members/members_hyojin.jpg";
-import minji_img from "../images/members/members_minji.jpg";
-import chaerim_img from "../images/members/members_chaerim.jpeg";
+
+// 박사
+import daeho_img from "../images/members/members_daeho.jpeg";
+
+// 석사
 import taehyeong_img from "../images/members/members_taehyeong.jpeg";
 import donghyeon_kim_img from "../images/members/members_donghyeon_kim.jpg";
+import soonyong_img from "../images/members/members_soonyong.jpeg"
+import seongyoung_img from "../images/members/members_seongyoung.jpeg"
+import seungyeon_img from "../images/members/seungyeon_img"
+
+// 학부생생
 import donghyeon_lim_img from "../images/members/members_donghyeon_lim.jpeg";
 import taeheon_img from "../images/members/members_taeheon.jpeg";
+import haebin_img from "../images/members/members_haebin.jpeg"
+import yongwan_img from "../images/members/members_yongwan.jpeg"
 
 const MemberContainer = styled.div`
   width: 100%;
@@ -178,63 +186,6 @@ const Members = () => {
         <ListTitle>M.S. Students</ListTitle>
         <MemberWrapper>
           <MemberCard>
-            <MemberImg src={hayeong_img} alt="HaYoung Lee" />
-            <MemberName>HaYoung Lee</MemberName>
-            <MemberInfo>
-              M.S. Student
-              <br /> School of Computing <br />
-              Gachon University <br />
-              📧{" "}
-              <Link href="mailto:hyl980911@naver.com">hyl980911@naver.com</Link>
-            </MemberInfo>
-          </MemberCard>
-          <MemberCard>
-            <MemberImg src={chaerim_img} alt="ChaeRim Park" />
-            <MemberName>ChaeRim Park</MemberName>
-            <MemberInfo>
-              M.S. Student
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:rkwhr928@gachon.ac.kr">
-                rkwhr928@gachon.ac.kr
-              </Link>
-            </MemberInfo>
-          </MemberCard>
-          <MemberCard>
-            <MemberImg src={hyojin_img} alt="HyoJin Ko" />
-            <MemberName>HyoJin Ko</MemberName>
-            <MemberInfo>
-              M.S. Student
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:2rhgywls@naver.com">2rhgywls@naver.com</Link>
-            </MemberInfo>
-          </MemberCard>
-          <MemberCard>
-            <MemberImg src={minji_img} alt="MinJi Kim" />
-            <MemberName>MinJi Kim</MemberName>
-            <MemberInfo>
-              M.S. Student
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:rang5000@gachon.ac.kr">
-                rang5000@gachon.ac.kr
-              </Link>
-            </MemberInfo>
-          </MemberCard>
-          <MemberCard>
             <MemberImg src={taehyeong_img} alt="TaeHyeong Kwon" />
             <MemberName>TaeHyeong Kwon</MemberName>
             <MemberInfo>
@@ -261,6 +212,54 @@ const Members = () => {
               📧{" "}
               <Link href="mailto:eastlighting1@gachon.ac.kr">
                 eastlighting1@gachon.ac.kr
+              </Link>
+            </MemberInfo>
+          </MemberCard>
+          <MemberCard>
+            <MemberImg src={soonyong_img} alt="SoonYong Kim" />
+            <MemberName>SoonYong Kim</MemberName>
+            <MemberInfo>
+              M.S. Student
+              <br />
+              School of Computing
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:lksy8884@naver.com">
+                lksy8884@naver.com
+              </Link>
+            </MemberInfo>
+          </MemberCard>
+          <MemberCard>
+            <MemberImg src={seongyoung_img} alt="SeonGyoung Lee" />
+            <MemberName>SeonGyoung Lee</MemberName>
+            <MemberInfo>
+              M.S. Student
+              <br />
+              School of Computing
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:gkfl0807@gmail.com">
+                gkfl0807@gmail.com
+              </Link>
+            </MemberInfo>
+          </MemberCard>
+          <MemberCard>
+            <MemberImg src={seungyeon_img} alt="SeungYeon Sun" />
+            <MemberName>SeungYeon Sun</MemberName>
+            <MemberInfo>
+              M.S. Student
+              <br />
+              School of Computing
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:tjstmddus202@naver.com">
+                tjstmddus202@naver.com
               </Link>
             </MemberInfo>
           </MemberCard>
@@ -302,9 +301,48 @@ const Members = () => {
               </Link>
             </MemberInfo>
           </MemberCard>
+
+          <MemberCard>
+            <MemberImg src={haebin_img} alt="Haehin Han" />
+            <MemberName>Haehin Han</MemberName>
+            <MemberInfo>
+              Undergraduate RA
+              <br />
+              School of Computing
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:haebin0424@naver.com">
+                haebin0424@naver.com
+              </Link>
+            </MemberInfo>
+          </MemberCard>
+
+          <MemberCard>
+            <MemberImg src={yongwan_img} alt="YongWan Joo" />
+            <MemberName>YongWan Joo</MemberName>
+            <MemberInfo>
+              Undergraduate RA
+              <br />
+              School of Computing
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:dyddhksdl1@naver.com">
+                dyddhksdl1@naver.com
+              </Link>
+            </MemberInfo>
+          </MemberCard>
         </MemberWrapper>
         <ListTitle>Alumni</ListTitle>
         <GraduateAlumni>
+          <AlumniListItem>HaYoung Lee, MS, 2024 (ETRI)</AlumniListItem>
+          <AlumniListItem>HyoJin Ko, MS, 2024 (AIPIM)</AlumniListItem>
+          <AlumniListItem>MinJi Kim, MS, 2024 (EMRO)</AlumniListItem>
+          <AlumniListItem>ChaeRim Park, MS, 2024 ()</AlumniListItem>
+          
           <AlumniListItem>YeonSun Ahn, MS, 2021 (LINE Plus)</AlumniListItem>
           <AlumniListItem>JiHye Kim, MS, 2021 (Seegene)</AlumniListItem>
           <AlumniListItem>
