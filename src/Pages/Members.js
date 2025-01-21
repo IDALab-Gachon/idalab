@@ -14,7 +14,7 @@ import taehyeong_img from "../images/members/members_taehyeong.jpeg";
 import donghyeon_kim_img from "../images/members/members_donghyeon_kim.jpg";
 import soonyong_img from "../images/members/members_soonyong.jpeg";
 import seongyoung_img from "../images/members/members_seongyoung.jpeg";
-import seungyeon_img from "../images/members/seungyeon_img.jpeg";
+import seungyeon_img from "../images/members/members_seungyeon.jpeg";
 
 // 학부생
 import donghyeon_lim_img from "../images/members/members_donghyeon_lim.jpeg";
