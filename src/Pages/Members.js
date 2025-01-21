@@ -12,15 +12,15 @@ import daeho_img from "../images/members/members_daeho.jpeg";
 // 석사
 import taehyeong_img from "../images/members/members_taehyeong.jpeg";
 import donghyeon_kim_img from "../images/members/members_donghyeon_kim.jpg";
-import soonyong_img from "../images/members/members_soonyong.jpeg"
-import seongyoung_img from "../images/members/members_seongyoung.jpeg"
-import seungyeon_img from "../images/members/seungyeon_img.jpeg"
+import soonyong_img from "../images/members/members_soonyong.jpeg";
+import seongyoung_img from "../images/members/members_seongyoung.jpeg";
+import seungyeon_img from "../images/members/seungyeon_img.jpeg";
 
 // 학부생
 import donghyeon_lim_img from "../images/members/members_donghyeon_lim.jpeg";
 import taeheon_img from "../images/members/members_taeheon.jpeg";
-import haebin_img from "../images/members/members_haebin.jpeg"
-import yongwan_img from "../images/members/members_yongwan.jpeg"
+import haebin_img from "../images/members/members_haebin.jpeg";
+import yongwan_img from "../images/members/members_yongwan.jpeg";
 
 const MemberContainer = styled.div`
   width: 100%;
@@ -226,9 +226,7 @@ const Members = () => {
               Gachon University
               <br />
               📧{" "}
-              <Link href="mailto:lksy8884@naver.com">
-                lksy8884@naver.com
-              </Link>
+              <Link href="mailto:lksy8884@naver.com">lksy8884@naver.com</Link>
             </MemberInfo>
           </MemberCard>
           <MemberCard>
@@ -242,9 +240,7 @@ const Members = () => {
               Gachon University
               <br />
               📧{" "}
-              <Link href="mailto:gkfl0807@gmail.com">
-                gkfl0807@gmail.com
-              </Link>
+              <Link href="mailto:gkfl0807@gmail.com">gkfl0807@gmail.com</Link>
             </MemberInfo>
           </MemberCard>
           <MemberCard>
@@ -342,7 +338,7 @@ const Members = () => {
           <AlumniListItem>HyoJin Ko, MS, 2024 (AIPIM)</AlumniListItem>
           <AlumniListItem>MinJi Kim, MS, 2024 (EMRO)</AlumniListItem>
           <AlumniListItem>ChaeRim Park, MS, 2024 ()</AlumniListItem>
-          
+
           <AlumniListItem>YeonSun Ahn, MS, 2021 (LINE Plus)</AlumniListItem>
           <AlumniListItem>JiHye Kim, MS, 2021 (Seegene)</AlumniListItem>
           <AlumniListItem>
