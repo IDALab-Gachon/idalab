@@ -300,7 +300,7 @@ const Members = () => {
 
           <MemberCard>
             <MemberImg src={haebin_img} alt="Haebin Han" />
-            <MemberName>Haehin Han</MemberName>
+            <MemberName>Haebin Han</MemberName>
             <MemberInfo>
               Undergraduate RA
               <br />
