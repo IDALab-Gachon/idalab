@@ -4,6 +4,8 @@ import Modal from "../Components/Modal.js"
 
 import img_2024_1 from "../images/gallery/2024/2024_1.jpeg";
 import img_2024_2 from "../images/gallery/2024/2024_2.jpeg";
+import img_2024_3 from "../images/gallery/2024/2024_3.jpg";
+import img_2024_4 from "../images/gallery/2024/2024_4.jpg";
 
 import img_2023_1 from "../images/gallery/2023/2023_1.jpeg";
 import img_2023_2 from "../images/gallery/2023/2023_2.jpeg";
@@ -142,6 +144,8 @@ const Photo = () => {
             <PhotoWrapper>
               <PhotoImg src={img_2024_1} onClick={() => handleImageClick(img_2024_1)}/>
               <PhotoImg src={img_2024_2} onClick={() => handleImageClick(img_2024_2)}/>
+              <PhotoImg src={img_2024_3} onClick={() => handleImageClick(img_2024_3)}/>
+              <PhotoImg src={img_2024_4} onClick={() => handleImageClick(img_2024_4)}/>
             </PhotoWrapper>
             </div>
           <hr /> 

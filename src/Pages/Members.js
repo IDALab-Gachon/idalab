@@ -334,8 +334,8 @@ const Members = () => {
         </MemberWrapper>
         <ListTitle>Alumni</ListTitle>
         <GraduateAlumni>
-          <AlumniListItem>HaYoung Lee, MS, 2024 (ETRI)</AlumniListItem>
-          <AlumniListItem>HyoJin Ko, MS, 2024 (AIPIM)</AlumniListItem>
+          <AlumniListItem>HaYoung Lee, MS, 2024 (한국전자통신연구원(ETRI))</AlumniListItem>
+          <AlumniListItem>HyoJin Ko, MS, 2024 (아산생명과학연구소(ARIS))</AlumniListItem>
           <AlumniListItem>MinJi Kim, MS, 2024 (EMRO)</AlumniListItem>
           <AlumniListItem>ChaeRim Park, MS, 2024 ()</AlumniListItem>
 
@@ -344,7 +344,6 @@ const Members = () => {
           <AlumniListItem>
             SungMin Yang, MS, 2020 (Toss Payments)
           </AlumniListItem>
-          <AlumniListItem>DaeHo Kim, MS, 2019 (NHN 다이퀘스트)</AlumniListItem>
           <AlumniListItem>JeIn Song, MS, 2018 (Scatter Lab)</AlumniListItem>
           <AlumniListItem>TaeSoo Park, MS, 2017 (Zigzag)</AlumniListItem>
         </GraduateAlumni>
