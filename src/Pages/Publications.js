@@ -81,10 +81,13 @@ const Publications = () => {
               “A Synergistic Joint Model of Knowledge Graph and LLM for Enhancing XAI-based Clinical Decision Support Systems and Its Applications,” under review
             </PubListItem>
             <PubListItem>
-              “Target-guided Dialog Generation with Dynamic Knowledge Path by Commonsens Knowledge Graph and Relation Prediction,” under review
+              “Target-guided Dialog Generation with Dynamic Knowledge Path by Commonsens Knowledge Graph and Relation Prediction,” under revision
             </PubListItem>
             <PubListItem>
-              "MDCKE: A multimodal deep-context knowledge extractor that integrates contextual information," under revision.
+              HyoJin Ko, Joon Yoo, Ok-Ran Jeong,
+              "MDCKE: A multimodal deep-context knowledge extractor that integrates contextual information,",
+              Alexandria Engineering Journal, 2025. (SCIE,{" "}
+                <b>Impact Factor: 6.2</b>, JCR 2023)
             </PubListItem>
             <PubListItem>
               MinJi Kim, Joon Yoo, Ok-Ran Jeong,
