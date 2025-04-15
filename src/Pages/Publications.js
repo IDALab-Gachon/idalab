@@ -78,10 +78,13 @@ const Publications = () => {
               “AbuseChat: a knowledge-based abusive chatbot system for evaluating the abusiveness of generative AI,” under review
             </PubListItem>
             <PubListItem>
-              “A Synergistic Joint Model of Knowledge Graph and LLM for Enhancing XAI-based Clinical Decision Support Systems and Its Applications,” under review
+              “Target-guided Dialog Generation with Dynamic Knowledge Path by Commonsens Knowledge Graph and Relation Prediction,” under revision
             </PubListItem>
             <PubListItem>
-              “Target-guided Dialog Generation with Dynamic Knowledge Path by Commonsens Knowledge Graph and Relation Prediction,” under revision
+              ChaeLim Park, HaYeong Lee, SeonghHee Lee, Ok-Ran Jeong,
+              "Synergistic Joint Model of Knowledge Graph and LLM for Enhancing XAI-Based Clinical Decision Support Systems",
+              Mathematics, 2025. (SCIE,{" "}
+                <b>Impact Factor: 2.3</b>, JCR 2023)
             </PubListItem>
             <PubListItem>
               HyoJin Ko, Joon Yoo, Ok-Ran Jeong,
