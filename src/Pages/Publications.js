@@ -75,7 +75,10 @@ const Publications = () => {
           <ListTitle>International Journals (SCI(E), SCOPUS)</ListTitle>
           <PubList>
             <PubListItem>
-              “AbuseChat: a knowledge-based abusive chatbot system for evaluating the abusiveness of generative AI,” under review
+              “MedSumGraph: enhancing GraphRAG for medical QA with summarization and optimized prompts” under review
+            </PubListItem>
+            <PubListItem>
+              “AbuseChat: a knowledge-based abusive chatbot system for evaluating the abusiveness of generative AI,” under revision
             </PubListItem>
             <PubListItem>
               “Target-guided Dialog Generation with Dynamic Knowledge Path by Commonsens Knowledge Graph and Relation Prediction,” under revision
