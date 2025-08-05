@@ -617,27 +617,6 @@ const Publications = () => {
           <ListTitle>Korean Journals</ListTitle>
           <PubList>
             <PubListItem>
-              TaeHeon Seong, SoonYong Kim, DaeHo Kim and OkRan Jeong, "A Study on the Construction of a 
-              Korean Language-Oriented Knowledge Graph in the Mental Health Domain", Journal of
-              The Korea Society of Computer and information, 2025.
-            </PubListItem>
-            <PubListItem>
-              HaeBin Han, SeonGyoung Lee, SoYeop Yoo and OkRan Jeong, "A Depression Detection System
-              Using Emotion Intensity Lexicon and Medical Text Summarization", Journal of
-              The Korea Society of Computer and information, 2025.
-            </PubListItem>
-            <PubListItem>
-              YongWan Joo, DongHyun Lim, DongHyeon Kim, SeungYeon Sun and OkRan Jeong, 
-              "Empathetic Dialogue Generation Model Using Reinforcement Learning with 
-              AI-Based Feedback", Journal of The Korea Society of Computer and information, 2025.
-            </PubListItem>
-            <PubListItem>
-              TaeHeon Seong, DaeHo Kim, SeYoung Kim and OkRan Jeong, "A Study on 
-              a Question-Answering System for Supporting Nurse Decision-Making 
-              based on Generative AI and Medical Knowledge Graph", Journal of
-              The Korea Society of Computer and information, 2024.
-            </PubListItem>
-            <PubListItem>
               ChaeLim Park, SoYeop Yoo, and OkRan Jeong, "A Study on
               Conversational AI Agent based on Continual Learning", Journal of
               The Korea Society of Computer and information, Vol.28(1), 2023.
@@ -794,6 +773,27 @@ const Publications = () => {
         <div id="kor_conf">
           <ListTitle>Korean Conferences</ListTitle>
           <PubList>
+            <PubListItem>
+              TaeHeon Seong, SoonYong Kim, DaeHo Kim and OkRan Jeong, "A Study on the Construction of a 
+              Korean Language-Oriented Knowledge Graph in the Mental Health Domain", Journal of
+              The Korea Society of Computer and information, 2025.
+            </PubListItem>
+            <PubListItem>
+              HaeBin Han, SeonGyoung Lee, SoYeop Yoo and OkRan Jeong, "A Depression Detection System
+              Using Emotion Intensity Lexicon and Medical Text Summarization", Journal of
+              The Korea Society of Computer and information, 2025.
+            </PubListItem>
+            <PubListItem>
+              YongWan Joo, DongHyun Lim, DongHyeon Kim, SeungYeon Sun and OkRan Jeong, 
+              "Empathetic Dialogue Generation Model Using Reinforcement Learning with 
+              AI-Based Feedback", Journal of The Korea Society of Computer and information, 2025.
+            </PubListItem>
+            <PubListItem>
+              TaeHeon Seong, DaeHo Kim, SeYoung Kim and OkRan Jeong, "A Study on 
+              a Question-Answering System for Supporting Nurse Decision-Making 
+              based on Generative AI and Medical Knowledge Graph", Journal of
+              The Korea Society of Computer and information, 2024.
+            </PubListItem>
             <PubListItem>
               HyoJin Ko, MinJi Kim, HaYoung Lee, and Ok-Ran Jeong, "No-code AI
               based personalized healthcare framework", The 25th Korean Database
