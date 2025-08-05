@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Modal from "../Components/Modal.js"
 
+import img_2025_1 from "../images/gallery/2025/2025_1.jpeg";
+import img_2025_2 from "../images/gallery/2025/2025_2.jpeg";
+import img_2025_3 from "../images/gallery/2025/2025_3.jpg";
+import img_2025_4 from "../images/gallery/2025/2025_4.jpg";
+
 import img_2024_1 from "../images/gallery/2024/2024_1.jpeg";
 import img_2024_2 from "../images/gallery/2024/2024_2.jpeg";
 import img_2024_3 from "../images/gallery/2024/2024_3.jpg";
@@ -139,6 +144,17 @@ const Photo = () => {
       <ListContainer>
         <details open>
         <summary>More Photos After 2020</summary>
+          <div id = "2025">
+            <ListTitle>2025</ListTitle>
+            <PhotoWrapper>
+              <PhotoImg src={img_2025_1} onClick={() => handleImageClick(img_2025_1)}/>
+              <PhotoImg src={img_2025_2} onClick={() => handleImageClick(img_2025_2)}/>
+              <PhotoImg src={img_2025_3} onClick={() => handleImageClick(img_2025_3)}/>
+              <PhotoImg src={img_2025_4} onClick={() => handleImageClick(img_2025_4)}/>
+            </PhotoWrapper>
+            </div>
+          <hr /> 
+
           <div id = "2024">
             <ListTitle>2024</ListTitle>
             <PhotoWrapper>
