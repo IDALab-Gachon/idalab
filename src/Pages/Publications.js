@@ -784,7 +784,7 @@ const Publications = () => {
             <PubListItem>
               YongWan Joo, DongHyun Lim, DongHyeon Kim, SeungYeon Sun and OkRan Jeong, 
               "Empathetic Dialogue Generation Model Using Reinforcement Learning with 
-              AI-Based Feedback", Journal of The Korea Society of Computer and information, KCC 2025.
+              AI-Based Feedback", KCC 2025.
             </PubListItem>
             <PubListItem>
               TaeHeon Seong, DaeHo Kim, SeYoung Kim and OkRan Jeong, "A Study on 
