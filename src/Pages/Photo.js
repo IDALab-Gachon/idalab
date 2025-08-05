@@ -152,6 +152,7 @@ const Photo = () => {
               <PhotoImg src={img_2025_2} onClick={() => handleImageClick(img_2025_2)}/>
               <PhotoImg src={img_2025_3} onClick={() => handleImageClick(img_2025_3)}/>
               <PhotoImg src={img_2025_4} onClick={() => handleImageClick(img_2025_4)}/>
+              <PhotoImg src={img_2025_5} onClick={() => handleImageClick(img_2025_5)}/>
             </PhotoWrapper>
             </div>
           <hr /> 
