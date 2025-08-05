@@ -6,6 +6,7 @@ import img_2025_1 from "../images/gallery/2025/2025_1.jpeg";
 import img_2025_2 from "../images/gallery/2025/2025_2.jpeg";
 import img_2025_3 from "../images/gallery/2025/2025_3.jpeg";
 import img_2025_4 from "../images/gallery/2025/2025_4.jpeg";
+import img_2025_5 from "../images/gallery/2025/2025_5.jpg";
 
 import img_2024_1 from "../images/gallery/2024/2024_1.jpeg";
 import img_2024_2 from "../images/gallery/2024/2024_2.jpeg";
