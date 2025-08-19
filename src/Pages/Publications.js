@@ -617,6 +617,15 @@ const Publications = () => {
           <ListTitle>Korean Journals</ListTitle>
           <PubList>
             <PubListItem>
+              Tae-Hyeong Kwon, Dae-Ho Kim, Se-Young Kim and OkRan Jeong, "Improving Deep Learning Performance on Imbalanced Medical Data 
+Using Natural Language Data Augmentation Technique", Journal of
+              The Korea Society of Computer and information, Vol.24(1), 2025.
+            </PubListItem>
+            <PubListItem>
+              Dong-Hyeon Kim, Dae-Ho Kim, Se-Young Kim and OkRan Jeong, "Deep Learning based Automatic ICD Coding for Nursing Surveillance of Abdominal Surgery Patients", Journal of
+              The Korea Society of Computer and information, Vol.24(1), 2025.
+            </PubListItem>
+            <PubListItem>
               ChaeLim Park, SoYeop Yoo, and OkRan Jeong, "A Study on
               Conversational AI Agent based on Continual Learning", Journal of
               The Korea Society of Computer and information, Vol.28(1), 2023.
