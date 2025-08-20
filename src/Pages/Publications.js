@@ -617,12 +617,12 @@ const Publications = () => {
           <ListTitle>Korean Journals</ListTitle>
           <PubList>
             <PubListItem>
-              Tae-Hyeong Kwon, Dae-Ho Kim, Se-Young Kim and OkRan Jeong, "Improving Deep Learning Performance on Imbalanced Medical Data 
+              Tae-Hyeong Kwon, DaeHo Kim, Se-Young Kim and OkRan Jeong, "Improving Deep Learning Performance on Imbalanced Medical Data 
 Using Natural Language Data Augmentation Technique", Journal of
               The Korea Society of Computer and information, Vol.24(1), 2025.
             </PubListItem>
             <PubListItem>
-              Dong-Hyeon Kim, Dae-Ho Kim, Se-Young Kim and OkRan Jeong, "Deep Learning based Automatic ICD Coding for Nursing Surveillance of Abdominal Surgery Patients", Journal of
+              DongHyeon Kim, DaeHo Kim, Se-Young Kim and OkRan Jeong, "Deep Learning based Automatic ICD Coding for Nursing Surveillance of Abdominal Surgery Patients", Journal of
               The Korea Society of Computer and information, Vol.24(1), 2025.
             </PubListItem>
             <PubListItem>
@@ -664,7 +664,7 @@ Using Natural Language Data Augmentation Technique", Journal of
               Computing and Services(JICS), Vol. 21, No. 1, pp. 79-85, 2020.
             </PubListItem>
             <PubListItem>
-              DaeHo, Kim., and OkRan, Jeong., “A Study on Cooperative Traffic
+              DaeHo Kim., and OkRan, Jeong., “A Study on Cooperative Traffic
               Signal Control at multi-intersection,” Journal of IKEEE, Vol. 23,
               No. 4, pp.1381-1386, 2019.
             </PubListItem>
@@ -679,7 +679,7 @@ Using Natural Language Data Augmentation Technique", Journal of
               Studies, Vol. 24, No. 3, pp. 87-98, 2019.
             </PubListItem>
             <PubListItem>
-              DaoHo, Kim., JeIn, Song., SoYeop, Yoo., and OkRan, Jeong., “A
+              DaoHo Kim, JeIn Song, SoYeop, Yoo, and OkRan, Jeong., “A
               Social Travel Recommendation System using Item-based Collaborative
               Filtering,” Journal of Internet Computing and Services, Vol. 19,
               No. 3, 2018.
@@ -816,7 +816,7 @@ Using Natural Language Data Augmentation Technique", Journal of
               SEBS, 2019.
             </PubListItem>
             <PubListItem>
-              DaeHo, Kim., JiHye, Kim., and OkRan, Jeong., “A Study on the
+              DaeHo Kim, JiHye, Kim., and OkRan, Jeong., “A Study on the
               Intelligent Traffic Signal Management System,” 2019 Spring
               Conference of KISM &amp; SEBS, 2019.
             </PubListItem>
