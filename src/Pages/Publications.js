@@ -619,6 +619,10 @@ const Publications = () => {
           <ListTitle>Korean Journals</ListTitle>
           <PubList>
             <PubListItem>
+              SeYoung Kim, Chunseon Jang, MoonKyung Lee, OkRan Jeong, Eunsim Kim "Analysis of nursing notes and mapping of nursing surveillance activities for patients who underwent cholecystectomy in Korea: a retrospective descriptive study", 
+              Journal of Korean Biological Nursing Science, Vol.27(3), 2025.
+            </PubListItem>
+            <PubListItem>
               Tae-Hyeong Kwon, DaeHo Kim, Se-Young Kim and OkRan Jeong, "Improving Deep Learning Performance on Imbalanced Medical Data 
 Using Natural Language Data Augmentation Technique", Journal of
               The Korea Society of Computer and information, Vol.24(1), 2025.
