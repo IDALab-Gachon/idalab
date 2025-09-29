@@ -75,13 +75,15 @@ const Publications = () => {
           <ListTitle>International Journals (SCI(E), SCOPUS)</ListTitle>
           <PubList>
             <PubListItem>
-              “MedSumGraph: enhancing GraphRAG for medical QA with summarization and optimized prompts” under review
+              “MedSumGraph: enhancing GraphRAG for medical QA with summarization and optimized prompts” under revision
             </PubListItem>
             <PubListItem>
               “AbuseChat: a knowledge-based abusive chatbot system for evaluating the abusiveness of generative AI,” under revision
             </PubListItem>
             <PubListItem>
-              “Target-guided Dialog Generation with Dynamic Knowledge Path by Commonsens Knowledge Graph and Relation Prediction,” under revision
+              HaYeong Lee, SoYeop Yoo,  WoongKee Loh, and Ok-Ran Jeong, "Target-guided dialog generation with dynamic knowledge path by commonsense knowledge graph and relation prediction", 
+              Knowledge-Based Systems, Vol. 329, 2025. (SCIE,{" "}
+              <b>Impact Factor: 7.6</b>, JCR 2024)
             </PubListItem>
             <PubListItem>
               ChaeLim Park, HaYeong Lee, SeonghHee Lee, Ok-Ran Jeong,
