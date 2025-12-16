@@ -80,7 +80,7 @@ const Publications = () => {
             <PubListItem>
               DaeHo Kim, SoYeop Yoo and Ok-Ran Jeong, “MedSumGraph: enhancing GraphRAG for medical QA with summarization and optimized prompts”, 
               Artificial Intelligence in Medicine, Vol. 172, 2026. (SCIE,{" "}
-              <b>Impact Factor: 6.2</b>, JCR 2025)
+              <b>Impact Factor: 6.2</b>, JCR 2024)
             </PubListItem>
             <PubListItem>
               HaYeong Lee, SoYeop Yoo,  WoongKee Loh, and Ok-Ran Jeong, "Target-guided dialog generation with dynamic knowledge path by commonsense knowledge graph and relation prediction", 
