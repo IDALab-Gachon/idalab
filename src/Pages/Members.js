@@ -316,7 +316,7 @@ const Members = () => {
               </Link>
             </MemberInfo>
           </MemberCard>
-                    <MemberCard>
+          <MemberCard>
             <MemberImg src={hwirang_img} alt="HwiRang Yeo" />
             <MemberName>HwiRang Yeo</MemberName>
             <MemberInfo>
