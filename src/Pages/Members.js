@@ -20,7 +20,8 @@ import seungyeon_img from "../images/members/members_seungyeon.jpeg";
 import donghyeon_lim_img from "../images/members/members_donghyeon_lim.jpeg";
 import taeheon_img from "../images/members/members_taeheon.jpeg";
 import haebin_img from "../images/members/members_haebin.jpeg";
-import yongwan_img from "../images/members/members_yongwan.jpeg";
+import doyun_img from "../images/members/members_doyun.png";
+import hwirang_img from "../images/members/members_hwirang.jpg";
 
 const MemberContainer = styled.div`
   width: 100%;
@@ -199,22 +200,7 @@ const Members = () => {
               <Link href="mailto:kth05090@gmail.com">kth05090@gmail.com</Link>
             </MemberInfo>
           </MemberCard>
-          <MemberCard>
-            <MemberImg src={donghyeon_kim_img} alt="DongHyeon Kim" />
-            <MemberName>DongHyeon Kim</MemberName>
-            <MemberInfo>
-              M.S. Student
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:eastlighting1@gachon.ac.kr">
-                eastlighting1@gachon.ac.kr
-              </Link>
-            </MemberInfo>
-          </MemberCard>
+      
           <MemberCard>
             <MemberImg src={soonyong_img} alt="SoonYong Kim" />
             <MemberName>SoonYong Kim</MemberName>
@@ -259,16 +245,11 @@ const Members = () => {
               </Link>
             </MemberInfo>
           </MemberCard>
-        </MemberWrapper>
-        {/* <ListTitle>M.S. - B.S. Students</ListTitle>
-        <MemberWrapper></MemberWrapper> */}
-        <ListTitle>B.S. Students</ListTitle>
-        <MemberWrapper>
-          <MemberCard>
+           <MemberCard>
             <MemberImg src={taeheon_img} alt="TaeHeon Seong" />
             <MemberName>TaeHeon Seong</MemberName>
             <MemberInfo>
-              Undergraduate RA
+              M.S. Student
               <br />
               School of Computing
               <br />
@@ -285,7 +266,7 @@ const Members = () => {
             <MemberImg src={donghyeon_lim_img} alt="DongHyun Lim" />
             <MemberName>DongHyun Lim</MemberName>
             <MemberInfo>
-              Undergraduate RA
+              M.S. Student
               <br />
               School of Computing
               <br />
@@ -302,7 +283,7 @@ const Members = () => {
             <MemberImg src={haebin_img} alt="Haebin Han" />
             <MemberName>Haebin Han</MemberName>
             <MemberInfo>
-              Undergraduate RA
+              M.S. Student
               <br />
               School of Computing
               <br />
@@ -314,10 +295,14 @@ const Members = () => {
               </Link>
             </MemberInfo>
           </MemberCard>
-
+        </MemberWrapper>
+        {/* <ListTitle>M.S. - B.S. Students</ListTitle>
+        <MemberWrapper></MemberWrapper> */}
+        <ListTitle>B.S. Students</ListTitle>
+        <MemberWrapper>
           <MemberCard>
-            <MemberImg src={yongwan_img} alt="YongWan Joo" />
-            <MemberName>YongWan Joo</MemberName>
+            <MemberImg src={doyun_img} alt="DoYun Kwon" />
+            <MemberName>Doyun Kwon</MemberName>
             <MemberInfo>
               Undergraduate RA
               <br />
@@ -326,14 +311,31 @@ const Members = () => {
               Gachon University
               <br />
               📧{" "}
-              <Link href="mailto:dyddhksdl1@naver.com">
-                dyddhksdl1@naver.com
+              <Link href="mailto:keonorg@gachon.ac.kr">
+                keonorg@gachon.ac.kr
+              </Link>
+            </MemberInfo>
+          </MemberCard>
+                    <MemberCard>
+            <MemberImg src={hwirang_img} alt="HwiRang Yeo" />
+            <MemberName>HwiRang Yeo</MemberName>
+            <MemberInfo>
+              Undergraduate RA
+              <br />
+              School of Computing
+              <br />
+              Gachon University
+              <br />
+              📧{" "}
+              <Link href="mailto:julie.yeo06@gmail.com">
+                julie.yeo06@gmail.com
               </Link>
             </MemberInfo>
           </MemberCard>
         </MemberWrapper>
         <ListTitle>Alumni</ListTitle>
         <GraduateAlumni>
+          <AlumniListItem>DongHyeon Kim, MS, 2026 ()</AlumniListItem>
           <AlumniListItem>HaYoung Lee, MS, 2024 (한국전자통신연구원(ETRI))</AlumniListItem>
           <AlumniListItem>HyoJin Ko, MS, 2024 (아산생명과학연구소(ARIS))</AlumniListItem>
           <AlumniListItem>MinJi Kim, MS, 2024 (EMRO)</AlumniListItem>

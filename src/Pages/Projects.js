@@ -78,10 +78,15 @@ const Projects = () => {
         <ListTitle>Research Projects</ListTitle>
         <ProjList>
           <ProjListItem>
+            "Development of a Unified Multimodal Medical Knowledge Graph via 
+            Heterogeneous Data Latent Space Alignment and Continual Learning" National Research Foundation of Korea (NRF) (Mar.
+            2026 – )
+          </ProjListItem>
+          <ProjListItem>
             "Research and Development of the Deep Learning based Nursing
             Surveillance Decision-making System for Abdominal Surgery Patients
             using EMR data," National Research Foundation of Korea (NRF) (Sep.
-            2023 – )
+            2023 – Feb. 2026)
           </ProjListItem>
           <ProjListItem>
             "Research on Deeper Conversational AI Platform based on Continual
