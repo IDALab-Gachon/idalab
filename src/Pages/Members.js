@@ -11,7 +11,6 @@ import daeho_img from "../images/members/members_daeho.jpeg";
 
 // 석사
 import taehyeong_img from "../images/members/members_taehyeong.jpeg";
-import donghyeon_kim_img from "../images/members/members_donghyeon_kim.jpg";
 import soonyong_img from "../images/members/members_soonyong.jpeg";
 import seongyoung_img from "../images/members/members_seongyoung.jpeg";
 import seungyeon_img from "../images/members/members_seungyeon.jpeg";
@@ -200,7 +199,7 @@ const Members = () => {
               <Link href="mailto:kth05090@gmail.com">kth05090@gmail.com</Link>
             </MemberInfo>
           </MemberCard>
-      
+
           <MemberCard>
             <MemberImg src={soonyong_img} alt="SoonYong Kim" />
             <MemberName>SoonYong Kim</MemberName>
@@ -245,7 +244,7 @@ const Members = () => {
               </Link>
             </MemberInfo>
           </MemberCard>
-           <MemberCard>
+          <MemberCard>
             <MemberImg src={taeheon_img} alt="TaeHeon Seong" />
             <MemberName>TaeHeon Seong</MemberName>
             <MemberInfo>
@@ -336,8 +335,12 @@ const Members = () => {
         <ListTitle>Alumni</ListTitle>
         <GraduateAlumni>
           <AlumniListItem>DongHyeon Kim, MS, 2026 ()</AlumniListItem>
-          <AlumniListItem>HaYoung Lee, MS, 2024 (한국전자통신연구원(ETRI))</AlumniListItem>
-          <AlumniListItem>HyoJin Ko, MS, 2024 (아산생명과학연구소(ARIS))</AlumniListItem>
+          <AlumniListItem>
+            HaYoung Lee, MS, 2024 (한국전자통신연구원(ETRI))
+          </AlumniListItem>
+          <AlumniListItem>
+            HyoJin Ko, MS, 2024 (아산생명과학연구소(ARIS))
+          </AlumniListItem>
           <AlumniListItem>MinJi Kim, MS, 2024 (EMRO)</AlumniListItem>
           <AlumniListItem>ChaeRim Park, MS, 2024 ()</AlumniListItem>
 
