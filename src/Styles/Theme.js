@@ -17,7 +17,11 @@ const obj = {
   whiteBox: `border:${BOX_BORDER};
              border-radius:${BORDER_RADIUS};
              background-color:white;
-            `
+            `,
+  breakpoints: {
+    mobile: "480px",
+    tablet: "768px",
+  },
 };
 
 export default obj;

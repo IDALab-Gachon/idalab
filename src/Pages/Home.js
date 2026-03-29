@@ -12,13 +12,18 @@ const HomeContainer = styled.div`
 
 const BannerContainer = styled.div`
   width: 100%;
-  height: 300px;
   background-color: ${(props) => props.theme.lightVioletColor};
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 50px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 25px 20px;
+    text-align: center;
+  }
 `;
 
 const BannerText = styled.div`
@@ -30,6 +35,10 @@ const BannerImage = styled.div`
   justify-content: center;
   max-height: 280px;
   margin-right: 15px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const BannerTitle = styled.p`
@@ -37,12 +46,21 @@ const BannerTitle = styled.p`
   font-weigth: 800;
   padding-bottom: 10px;
   color: ${(props) => props.theme.darkVioletColor};
+
+  @media (max-width: 768px) {
+    font-size: 22px;
+  }
 `;
 
 const BannerContent = styled.p`
   font-size: 18px;
   font-weight: 400;
   padding-top: 35px;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+    padding-top: 15px;
+  }
 `;
 
 const AboutContainer = styled.div`
@@ -51,11 +69,21 @@ const AboutContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 15px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const AboutImage = styled.div`
   align-self: flex-start;
   margin-right: 10px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
 `;
 
 const AboutText = styled.div`

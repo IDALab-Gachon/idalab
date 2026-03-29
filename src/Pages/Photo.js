@@ -90,30 +90,32 @@ const PhotoWrapper = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
   ${(props) => props.theme.whiteBox};
   margin-bottom: 5px;
 `;
 
-// const PhotoCard = styled.div`
-//   justify-content: center;
-//   align-self: center;
-//   vertical-align: middle;
-//   ${props => props.theme.whiteBox};
-//   width:  80%;
-//   height: 300px;
-//   text-align: center;
-//   padding: 15px;
-//   margin-right: 15px;
-//   margin-bottom: 10px;
-// `;
-
 const PhotoImg = styled.img`
-  min-width: 180px;
-  height: 200px;
+  width: calc(25% - 20px);
+  height: 160px;
+  object-fit: cover;
   border-radius: 4px;
   margin: 10px;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: calc(33% - 12px);
+    height: 120px;
+    margin: 6px;
+  }
+
+  @media (max-width: 480px) {
+    width: calc(50% - 12px);
+    height: 100px;
+    margin: 6px;
+  }
 `;
 
 const PhotoName = styled.p`

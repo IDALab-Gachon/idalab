@@ -69,18 +69,35 @@ const MemberCard = styled.div`
   vertical-align: middle;
   ${(props) => props.theme.whiteBox};
   width: 330px;
-  height: 430px;
+  min-height: 380px;
   text-align: center;
   padding: 15px;
   margin-right: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+
+  @media (max-width: 768px) {
+    width: calc(50% - 10px);
+    min-height: unset;
+    margin-right: 10px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    margin-right: 0;
+  }
 `;
 
 const MemberImg = styled.img`
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   margin-top: 10px;
+  object-fit: cover;
+
+  @media (max-width: 768px) {
+    width: 120px;
+    height: 120px;
+  }
 `;
 
 const MemberName = styled.p`

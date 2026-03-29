@@ -28,12 +28,24 @@ const ProfCard = styled.div`
   flex-direction: row;
   justify-content: space-around;
   margin: 15px 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 15px;
+  }
 `;
 
 const ProfImg = styled.img`
   width: 30%;
   object-fit: cover;
   border-radius: 10px;
+
+  @media (max-width: 768px) {
+    width: 70%;
+    max-width: 280px;
+    border-radius: 8px;
+  }
 `;
 
 const ProfInfo = styled.div`
@@ -43,6 +55,15 @@ const ProfInfo = styled.div`
   margin-bottom: 15px;
   border-left: 3px solid ${(props) => props.theme.lightGreyColor};
   align-self: center;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    padding: 15px 5px;
+    border-left: none;
+    border-top: 3px solid ${(props) => props.theme.lightGreyColor};
+    width: 100%;
+    margin-top: 20px;
+  }
 `;
 
 const ProfName = styled.p`
@@ -51,6 +72,10 @@ const ProfName = styled.p`
   line-height: 1.5;
   padding-bottom: 10px;
   color: ${(props) => props.theme.darkVioletColor};
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 const ProfTitle = styled.p`
@@ -60,6 +85,10 @@ const ProfTitle = styled.p`
   margin-top: 10px;
   padding-bottom: 10px;
   color: ${(props) => props.theme.darkGreyColor};
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const ProfAffiliation = styled.p`
@@ -67,6 +96,10 @@ const ProfAffiliation = styled.p`
   font-weight: 500;
   line-height: 1.4;
   color: ${(props) => props.theme.darkGreyColor};
+
+  @media (max-width: 768px) {
+    font-size: 17px;
+  }
 `;
 
 const ProfContact = styled.p`
