@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-import orjeong_img from "../images/members/members_orjeong.jpg";
+import { useProfessor } from "../hooks/useProfessor";
 
 const ProfessorContainer = styled.div`
   width: 100%;
@@ -166,15 +165,20 @@ const Link = styled.a`
 `;
 
 const Professor = () => {
+  const { professor, details, loading } = useProfessor();
+
+  if (loading) return <ProfessorContainer><ListContainer>Loading...</ListContainer></ProfessorContainer>;
+  if (!professor) return <ProfessorContainer><ListContainer>No data.</ListContainer></ProfessorContainer>;
+
   return (
     <ProfessorContainer>
       <ProfessorTitle>
         <TitleText>Professor</TitleText>
       </ProfessorTitle>
       <ProfCard>
-        <ProfImg src={orjeong_img} alt="OkRan Jeong"></ProfImg>
+        <ProfImg src={professor.photo_url} alt={professor.name} />
         <ProfInfo>
-          <ProfName>Prof. OkRan Jeong</ProfName>
+          <ProfName>{professor.name}</ProfName>
           <ProfTitle>Professor</ProfTitle>
           <ProfAffiliation>
             School of Computing, <br />
@@ -183,100 +187,67 @@ const Professor = () => {
             Gachon University
           </ProfAffiliation>
           <ProfContact>
-            <span role="img" aria-label="office">
-              🏢
-            </span>{" "}
-            Office: #425, AI Building, Gachon University, Republic of Korea{" "}
-            <br />
-            <span role="img" aria-label="email">
-              📧
-            </span>{" "}
-            E-mail:{" "}
-            <Link href="mailto:orjeong@gachon.ac.kr">orjeong@gachon.ac.kr</Link>{" "}
-            <br />
-            <span role="img" aria-label="tel">
-              📞
-            </span>{" "}
+            <span role="img" aria-label="office">🏢</span>{" "}
+            Office: #425, AI Building, Gachon University, Republic of Korea <br />
+            {professor.email && (
+              <>
+                <span role="img" aria-label="email">📧</span>{" "}
+                E-mail: <Link href={`mailto:${professor.email}`}>{professor.email}</Link> <br />
+              </>
+            )}
+            <span role="img" aria-label="tel">📞</span>{" "}
             Tel: (+82)031-750-5831
           </ProfContact>
         </ProfInfo>
       </ProfCard>
-      <ListContainer>
-        <ListTitle>Bio Sketch</ListTitle>
-        <DetailText>
-          I am a professor with the School of Computing at Gachon University.
-          <br />
-          I was a research professor with the School of Information and
-          Communication Engineering at Sungkyunkwan University. Before that I
-          was a visiting scholar with the Department of Computer Science at the
-          University of Illinois at Urbana-Champaign, USA, and a post-doctoral
-          researcher with the Center for e-Business Technology at Seoul National
-          University. <br />I received a Ph.D. in computer science and
-          engineering from Ewha Womans University in 2005. My research interests
-          include Big Data, Machine Learning and Social computing technology
-        </DetailText>
-        <br />
-        <ListTitle>Research Interests</ListTitle>
-        <DetailList>
-          <DetailListItem>Intelligent Data Analysis Technology</DetailListItem>
-          <DetailInnerList>
-            <DetailListInnerItem>
-              Big data analysis and deep learning applications
-            </DetailListInnerItem>
-            <DetailListInnerItem>
-              Semantic classification and predictive modeling
-            </DetailListInnerItem>
-          </DetailInnerList>
-          <DetailListItem>
-            Conversational AI Framework Technology
-          </DetailListItem>
-          <DetailInnerList>
-            <DetailListInnerItem>
-              Auto growing knowledge graph
-            </DetailListInnerItem>
-            <DetailListInnerItem>
-              Intelligent emotional chatbot system
-            </DetailListInnerItem>
-          </DetailInnerList>
-          <DetailListItem>Social Computing Technology</DetailListItem>
-          <DetailInnerList>
-            <DetailListInnerItem>Opinion mining</DetailListInnerItem>
-            <DetailListInnerItem>Social media mining</DetailListInnerItem>
-          </DetailInnerList>
-        </DetailList>
-        <br />
-        <ListTitle>Experiences</ListTitle>
-        <DetailList>
-          <DetailListItem>
-            Visiting Researcher, Department of Computer Science,{" "}
-            <DetailListItemStrong>
-              Univ. of California, Irvine (UCI)
-            </DetailListItemStrong>{" "}
-            (Jun. 2017 – Feb. 2018)
-          </DetailListItem>
-          <DetailListItem>
-            Research Professor, School of Information & Communication
-            Engineering,{" "}
-            <DetailListItemStrong>Sungkyunkwan University</DetailListItemStrong>{" "}
-            (Jan. 2008 – Aug. 2009)
-          </DetailListItem>
-          <DetailListItem>
-            Visiting Scholar, Department of Computer Science,{" "}
-            <DetailListItemStrong>
-              Univ. of Illinois at Urbana Champaign (UIUC)
-            </DetailListItemStrong>{" "}
-            (Feb. 2007 – Dec. 2007)
-          </DetailListItem>
-          <DetailListItem>
-            Post Doctoral Researcher, Dept. of Computer Science and Engineering
-            ,{" "}
-            <DetailListItemStrong>
-              Seoul National University
-            </DetailListItemStrong>{" "}
-            (Sep. 2005 – Jan.2007)
-          </DetailListItem>
-        </DetailList>
-      </ListContainer>
+
+      {details && (
+        <ListContainer>
+          {details.bio_sketch && (
+            <>
+              <ListTitle>Bio Sketch</ListTitle>
+              <DetailText>{details.bio_sketch}</DetailText>
+              <br />
+            </>
+          )}
+
+          {details.research_interests && details.research_interests.length > 0 && (
+            <>
+              <ListTitle>Research Interests</ListTitle>
+              <DetailList>
+                {details.research_interests.map((interest, i) => (
+                  <React.Fragment key={i}>
+                    <DetailListItem>{interest.title}</DetailListItem>
+                    {interest.items && (
+                      <DetailInnerList>
+                        {interest.items.map((item, j) => (
+                          <DetailListInnerItem key={j}>{item}</DetailListInnerItem>
+                        ))}
+                      </DetailInnerList>
+                    )}
+                  </React.Fragment>
+                ))}
+              </DetailList>
+              <br />
+            </>
+          )}
+
+          {details.experiences && details.experiences.length > 0 && (
+            <>
+              <ListTitle>Experiences</ListTitle>
+              <DetailList>
+                {details.experiences.map((exp, i) => (
+                  <DetailListItem key={i}>
+                    {exp.role},{" "}
+                    <DetailListItemStrong>{exp.org}</DetailListItemStrong>{" "}
+                    ({exp.period})
+                  </DetailListItem>
+                ))}
+              </DetailList>
+            </>
+          )}
+        </ListContainer>
+      )}
     </ProfessorContainer>
   );
 };
