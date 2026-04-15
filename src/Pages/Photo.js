@@ -7,6 +7,8 @@ import img_2025_2 from "../images/gallery/2025/2025_2.jpeg";
 import img_2025_3 from "../images/gallery/2025/2025_3.jpeg";
 import img_2025_4 from "../images/gallery/2025/2025_4.jpeg";
 import img_2025_5 from "../images/gallery/2025/2025_5.jpg";
+import img_2025_6 from "../images/gallery/2025/2025_6.jpg";
+import img_2025_7 from "../images/gallery/2025/2025_7.jpg";
 import img_2025_12 from "../images/gallery/2025/2025_12.jpg";
 
 import img_2024_1 from "../images/gallery/2024/2024_1.jpeg";
@@ -155,6 +157,8 @@ const Photo = () => {
               <PhotoImg src={img_2025_4} onClick={() => handleImageClick(img_2025_4)}/>
               <PhotoImg src={img_2025_5} onClick={() => handleImageClick(img_2025_5)}/>
               <PhotoImg src={img_2025_12} onClick={() => handleImageClick(img_2025_12)}/>
+              <PhotoImg src={img_2025_6} onClick={() => handleImageClick(img_2025_6)}/>
+              <PhotoImg src={img_2025_7} onClick={() => handleImageClick(img_2025_7)}/>
             </PhotoWrapper>
             </div>
           <hr /> 
