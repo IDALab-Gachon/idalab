@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequisites
+
+- Node.js 24.18.0 (LTS)
+- npm 11.16.0
+
+If you use nvm, run `nvm use` in the project directory. Then install the
+locked dependencies with `npm ci`.
+
 ## Available Scripts
 
 In the project directory, you can run:

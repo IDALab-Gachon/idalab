@@ -1,313 +1,542 @@
-import React, { useState, useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import styled from "styled-components";
-import { usePublications, CATEGORY_ORDER } from "../hooks/usePublications";
+import {
+  CATEGORY_LABELS,
+  CATEGORY_ORDER,
+  usePublications,
+} from "../hooks/usePublications";
 
-// ── Styles ──────────────────────────────────────────────────
-const PubContainer = styled.div`
+const MONTH_LABELS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+const BADGE_SHORT = {
+  international_journal_sci: "SCIE",
+  international_journal_scopus: "SCOPUS",
+  international_conference: "International Conference",
+  domestic_journal: "Korean Journal",
+  domestic_conference: "Korean Conference",
+};
+
+const FILTERS = [
+  { key: "all", label: "All publications" },
+  ...CATEGORY_ORDER.map((key) => ({
+    key,
+    label: CATEGORY_LABELS[key],
+  })),
+];
+
+const Page = styled.div`
   width: 100%;
+`;
+
+const PageHeader = styled.header`
+  position: relative;
+  overflow: hidden;
   margin-top: 5px;
+  padding: 52px 48px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 92% 10%, rgba(118, 89, 209, 0.13), transparent 30%),
+    linear-gradient(135deg, #f6f3ff 0%, #f7fbff 100%);
+
+  @media (max-width: 600px) {
+    padding: 38px 24px;
+    border-radius: 16px;
+  }
 `;
 
-const PubTitle = styled.div`
-  border-bottom: 2px solid ${(props) => props.theme.redColor};
-  margin-bottom: 24px;
-`;
-
-const TitleText = styled.p`
-  font-size: 24px;
-  font-weight: 600;
+const Eyebrow = styled.p`
+  margin-bottom: 9px;
   color: ${(props) => props.theme.redColor};
-  padding: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 `;
 
-// Filter bar
+const PageTitle = styled.h1`
+  color: ${(props) => props.theme.darkBlueColor};
+  font-size: clamp(34px, 4.5vw, 50px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+`;
+
+const PageDescription = styled.p`
+  max-width: 100%;
+  margin-top: 14px;
+  color: ${(props) => props.theme.darkGreyColor};
+  font-size: 16px;
+  line-height: 1.75;
+`;
+
+const Content = styled.div`
+  padding: 54px 14px 0;
+
+  @media (max-width: 768px) {
+    padding: 40px 2px 0;
+  }
+`;
+
+const FilterPanel = styled.section`
+  padding: 22px;
+  border: 1px solid #e0e7ed;
+  border-radius: 14px;
+  background: #f8fafc;
+
+  @media (max-width: 520px) {
+    padding: 18px;
+  }
+`;
+
+const FilterHeading = styled.div`
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 15px;
+`;
+
+const FilterTitle = styled.h2`
+  color: ${(props) => props.theme.darkBlueColor};
+  font-size: 14px;
+  font-weight: 800;
+`;
+
+const ResultCount = styled.p`
+  color: ${(props) => props.theme.darkGreyColor};
+  font-size: 12px;
+  white-space: nowrap;
+`;
+
 const FilterBar = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 28px;
-  padding: 0 4px;
 `;
 
-const FilterBtn = styled.button`
-  padding: 6px 16px;
-  min-width: 130px;
+const FilterButton = styled.button`
+  min-height: 38px;
+  padding: 7px 13px;
+  border: 1px solid
+    ${(props) => (props.$active ? props.theme.darkBlueColor : "#d5dfe8")};
   border-radius: 20px;
-  border: 1.5px solid ${(p) => (p.$active ? p.theme.darkBlueColor : "#d0d5dd")};
-  background: ${(p) => (p.$active ? p.theme.darkBlueColor : "#fff")};
-  color: ${(p) => (p.$active ? "#fff" : "#555")};
-  font-size: 13px;
-  font-weight: ${(p) => (p.$active ? 600 : 400)};
+  background: ${(props) => (props.$active ? props.theme.darkBlueColor : "#fff")};
+  color: ${(props) => (props.$active ? "#fff" : props.theme.darkGreyColor)};
+  font-size: 12px;
+  font-weight: ${(props) => (props.$active ? 750 : 650)};
   cursor: pointer;
-  transition: all 0.15s;
-  text-align: center;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
 
   &:hover {
-    border-color: ${(p) => p.theme.darkBlueColor};
-    color: ${(p) => (p.$active ? "#fff" : p.theme.darkBlueColor)};
+    border-color: ${(props) => props.theme.darkBlueColor};
+    color: ${(props) => (props.$active ? "#fff" : props.theme.darkBlueColor)};
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(0, 53, 105, 0.2);
+    outline-offset: 2px;
   }
 `;
 
-// Year group
-const YearSection = styled.div`
-  margin-bottom: 32px;
+const FilterCount = styled.span`
+  margin-left: 5px;
+  opacity: 0.75;
+`;
+
+const Results = styled.div`
+  margin-top: 52px;
+`;
+
+const YearSection = styled.section`
+  & + & {
+    margin-top: 52px;
+  }
 `;
 
 const YearHeading = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 13px;
+  margin-bottom: 16px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #dfe6ed;
 `;
 
-const YearLabel = styled.span`
-  font-size: 20px;
-  font-weight: 700;
+const YearLabel = styled.h2`
   color: ${(props) => props.theme.darkBlueColor};
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 `;
 
-const YearLine = styled.div`
-  flex: 1;
-  height: 1px;
-  background: #e2e8f0;
-`;
-
-// Publication item
-const PubList = styled.ul`
-  list-style: none;
-  padding: 0 0 0 54px;
-  margin: 0;
-
-  @media (max-width: 600px) {
-    padding-left: 12px;
-  }
-`;
-
-const PubItem = styled.li`
-  display: flex;
-  gap: 12px;
-  padding: 14px 0;
-  border-bottom: 1px solid #f0f0f0;
-
-  &:last-child {
-    border-bottom: none;
-  }
-`;
-
-const PubContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1;
-  min-width: 0;
-`;
-
-const PubItemTitle = styled.div`
-  font-size: 15px;
-  font-weight: 700;
-  color: #1a2537;
-  line-height: 1.5;
-`;
-
-const PubAuthors = styled.div`
-  font-size: 13px;
-  font-weight: 600;
-  color: #666;
-  line-height: 1.5;
-`;
-
-const PubMeta = styled.div`
-  font-size: 13px;
-  color: #555;
-  line-height: 1.5;
-`;
-
-const DoiLink = styled.a`
+const YearCount = styled.span`
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  margin-left: 8px;
-  padding: 1px 7px;
-  border-radius: 3px;
-  border: 1px solid ${(p) => p.theme.darkBlueColor};
-  color: ${(p) => p.theme.darkBlueColor};
-  font-size: 11px;
-  font-weight: 600;
-  text-decoration: none;
-  vertical-align: middle;
-  transition: all 0.15s;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 14px;
+  background: ${(props) => props.theme.lightVioletColor};
+  color: ${(props) => props.theme.darkVioletColor};
+  font-size: 12px;
+  font-weight: 800;
+`;
+
+const PublicationList = styled.ol`
+  display: grid;
+  gap: 12px;
+`;
+
+const PublicationItem = styled.li`
+  display: grid;
+  grid-template-columns: minmax(112px, auto) minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 20px;
+  padding: 23px 24px;
+  border: 1px solid #e1e7ed;
+  border-radius: 13px;
+  background: #fff;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
 
   &:hover {
-    background: ${(p) => p.theme.darkBlueColor};
-    color: #fff;
+    border-color: #c8d4df;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 21px;
   }
 `;
 
 const CategoryBadge = styled.span`
-  flex-shrink: 0;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 600;
-  height: fit-content;
-  margin-top: 2px;
-  background: ${(p) => {
-    if (p.$cat === "international_journal_sci") return "#ebf4ff";
-    if (p.$cat === "international_journal_scopus") return "#f0fff4";
-    if (p.$cat === "international_conference") return "#fff7eb";
-    if (p.$cat === "domestic_journal") return "#fdf2f8";
-    return "#f7f8fa";
+  justify-self: start;
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: ${(props) => {
+    if (props.$category === "international_journal_sci") return "#ebf4ff";
+    if (props.$category === "international_journal_scopus") return "#eef9f2";
+    if (props.$category === "international_conference") return "#fff5e7";
+    if (props.$category === "domestic_journal") return "#fdf0f7";
+    return "#f1f3f6";
   }};
-  color: ${(p) => {
-    if (p.$cat === "international_journal_sci") return "#003569";
-    if (p.$cat === "international_journal_scopus") return "#276749";
-    if (p.$cat === "international_conference") return "#7c4a00";
-    if (p.$cat === "domestic_journal") return "#702459";
-    return "#555";
+  color: ${(props) => {
+    if (props.$category === "international_journal_sci") return "#003569";
+    if (props.$category === "international_journal_scopus") return "#276749";
+    if (props.$category === "international_conference") return "#7c4a00";
+    if (props.$category === "domestic_journal") return "#702459";
+    return props.theme.darkGreyColor;
   }};
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: center;
 `;
 
-const BADGE_SHORT = {
-  international_journal_sci: "SCIE",
-  international_journal_scopus: "SCOPUS",
-  international_conference: "Int'l Conf.",
-  domestic_journal: "Korean J.",
-  domestic_conference: "Korean Conf.",
+const PublicationContent = styled.div`
+  min-width: 0;
+`;
+
+const PublicationTitle = styled.h3`
+  color: #1a2537;
+  font-size: 16px;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  line-height: 1.55;
+`;
+
+const Authors = styled.p`
+  margin-top: 7px;
+  color: ${(props) => props.theme.darkGreyColor};
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.55;
+`;
+
+const Bibliography = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin-top: 10px;
+  color: ${(props) => props.theme.darkGreyColor};
+  font-size: 12px;
+  line-height: 1.5;
+`;
+
+const Venue = styled.cite`
+  color: ${(props) => props.theme.darkBlueColor};
+  font-style: normal;
+  font-weight: 700;
+`;
+
+const DateText = styled.span`
+  font-weight: 650;
+`;
+
+const Metric = styled.span`
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: #f0f3f6;
+  color: ${(props) => props.theme.darkGreyColor};
+  font-size: 11px;
+  font-weight: 750;
+`;
+
+const PaperLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 7px 11px;
+  border: 1px solid #d5dfe8;
+  border-radius: 8px;
+  color: ${(props) => props.theme.darkBlueColor};
+  font-size: 12px;
+  font-weight: 750;
+  white-space: nowrap;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+
+  &:hover {
+    border-color: ${(props) => props.theme.darkBlueColor};
+    background: #f5f8fb;
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(0, 53, 105, 0.2);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 720px) {
+    justify-self: start;
+  }
+`;
+
+const StatusMessage = styled.div`
+  margin-top: 28px;
+  padding: 28px;
+  border: 1px solid #e1e7ed;
+  border-radius: 12px;
+  color: ${(props) => props.theme.darkGreyColor};
+  text-align: center;
+`;
+
+const getPublicationDate = (publication) => {
+  if (!publication.year) return null;
+  const month = Number(publication.month);
+  const monthLabel =
+    month >= 1 && month <= 12 ? MONTH_LABELS[month - 1] : null;
+  return monthLabel
+    ? `${publication.year} · ${monthLabel}`
+    : String(publication.year);
 };
 
-const FILTERS = [
-  { key: "all", label: "All" },
-  { key: "international_journal_sci", label: "SCIE" },
-  { key: "international_journal_scopus", label: "SCOPUS" },
-  { key: "international_conference", label: "Int'l Conference" },
-  { key: "domestic_journal", label: "Korean Journal" },
-  { key: "domestic_conference", label: "Korean Conference" },
-];
-
-// ── Component ────────────────────────────────────────────────
 const Publications = () => {
-  const { publications, loading } = usePublications();
+  const { publications, loading, error } = usePublications();
   const [activeFilter, setActiveFilter] = useState("all");
 
-  // Flatten all publications into a single array
-  const allPubs = useMemo(() => {
-    return CATEGORY_ORDER.flatMap((cat) =>
-      (publications[cat] || []).map((p) => ({ ...p, category: cat })),
-    );
-  }, [publications]);
+  const allPublications = useMemo(
+    () =>
+      CATEGORY_ORDER.flatMap((category) =>
+        (publications[category] || []).map((publication) => ({
+          ...publication,
+          category,
+        })),
+      ).sort(
+        (publicationA, publicationB) =>
+          Number(publicationB.year || 0) - Number(publicationA.year || 0) ||
+          Number(publicationB.month || 0) - Number(publicationA.month || 0) ||
+          Number(publicationA.display_order || 0) -
+            Number(publicationB.display_order || 0),
+      ),
+    [publications],
+  );
 
-  // Apply filter
-  const filtered = useMemo(() => {
-    if (activeFilter === "all") return allPubs;
-    return allPubs.filter((p) => p.category === activeFilter);
-  }, [allPubs, activeFilter]);
+  const filteredPublications = useMemo(
+    () =>
+      activeFilter === "all"
+        ? allPublications
+        : allPublications.filter(
+            (publication) => publication.category === activeFilter,
+          ),
+    [activeFilter, allPublications],
+  );
 
-  // Group by year (descending), null/undefined year goes to "–"
-  const byYear = useMemo(() => {
-    const map = {};
-    filtered.forEach((p) => {
-      const y = p.year ?? "–";
-      if (!map[y]) map[y] = [];
-      map[y].push(p);
+  const publicationsByYear = useMemo(() => {
+    const grouped = new Map();
+
+    filteredPublications.forEach((publication) => {
+      const year = publication.year || "Year unavailable";
+      if (!grouped.has(year)) grouped.set(year, []);
+      grouped.get(year).push(publication);
     });
-    // Sort years descending; "–" goes last
-    const sorted = Object.keys(map).sort((a, b) => {
-      if (a === "–") return 1;
-      if (b === "–") return -1;
-      return Number(b) - Number(a);
-    });
-    return sorted.map((y) => ({ year: y, pubs: map[y] }));
-  }, [filtered]);
 
-  if (loading)
-    return (
-      <PubContainer>
-        <PubTitle>
-          <TitleText>PUBLICATIONS</TitleText>
-        </PubTitle>
-        <p style={{ padding: "0 4px", color: "#999" }}>Loading...</p>
-      </PubContainer>
-    );
+    return Array.from(grouped, ([year, yearPublications]) => ({
+      year,
+      publications: yearPublications,
+    }));
+  }, [filteredPublications]);
 
   return (
-    <PubContainer>
-      <PubTitle>
-        <TitleText>PUBLICATIONS</TitleText>
-      </PubTitle>
+    <Page>
+      <PageHeader>
+        <Eyebrow>Research output</Eyebrow>
+        <PageTitle>Publications</PageTitle>
+        <PageDescription>
+          Journal articles and conference papers from the Intelligent Data
+          Analytics Laboratory.
+        </PageDescription>
+      </PageHeader>
 
-      {/* Filter buttons */}
-      <FilterBar>
-        {FILTERS.map(({ key, label }) => (
-          <FilterBtn
-            key={key}
-            $active={activeFilter === key}
-            onClick={() => setActiveFilter(key)}
-          >
-            {label}
-            {key !== "all" && (
-              <span style={{ marginLeft: 5, opacity: 0.75 }}>
-                ({(publications[key] || []).length})
-              </span>
-            )}
-          </FilterBtn>
-        ))}
-      </FilterBar>
-
-      {/* Year-grouped list */}
-      {byYear.length === 0 && (
-        <p style={{ color: "#999", fontSize: 14 }}>No publications found.</p>
+      {loading && <StatusMessage>Loading publications…</StatusMessage>}
+      {!loading && error && (
+        <StatusMessage>
+          Publication information is temporarily unavailable.
+        </StatusMessage>
       )}
-      {byYear.map(({ year, pubs }) => (
-        <YearSection key={year}>
-          <YearHeading>
-            <YearLabel>{year}</YearLabel>
-            <YearLine />
-          </YearHeading>
-          <PubList>
-            {pubs.map((pub) => (
-              <PubItem key={pub.id}>
-                <CategoryBadge $cat={pub.category}>
-                  {BADGE_SHORT[pub.category]}
-                </CategoryBadge>
-                <PubContent>
-                  <PubItemTitle>
-                    {pub.title}
-                    {pub.url && (
-                      <DoiLink
-                        href={pub.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Paper ↗
-                      </DoiLink>
-                    )}
-                  </PubItemTitle>
-                  {pub.authors && <PubAuthors>{pub.authors}</PubAuthors>}
-                  <PubMeta>
-                    {pub.venue}
-                    {pub.year &&
-                      `, ${pub.year}${pub.month ? ` (${["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][pub.month - 1]})` : ""}`}
-                    .
-                    {(pub.index_type || pub.impact_factor) && (
-                      <>
-                        {" "}
-                        ({pub.index_type}
-                        {pub.impact_factor && (
-                          <>
-                            , <b>IF: {pub.impact_factor}</b>
-                          </>
-                        )}
-                        )
-                      </>
-                    )}
-                  </PubMeta>
-                </PubContent>
-              </PubItem>
-            ))}
-          </PubList>
-        </YearSection>
-      ))}
-    </PubContainer>
+      {!loading && !error && allPublications.length === 0 && (
+        <StatusMessage>No publications are available at this time.</StatusMessage>
+      )}
+
+      {!loading && !error && allPublications.length > 0 && (
+        <Content>
+          <FilterPanel aria-labelledby="publication-filter-title">
+            <FilterHeading>
+              <FilterTitle id="publication-filter-title">
+                Filter by publication type
+              </FilterTitle>
+              <ResultCount aria-live="polite">
+                {filteredPublications.length}{" "}
+                {filteredPublications.length === 1 ? "publication" : "publications"}
+              </ResultCount>
+            </FilterHeading>
+            <FilterBar role="group" aria-label="Publication type filters">
+              {FILTERS.map(({ key, label }) => {
+                const count =
+                  key === "all"
+                    ? allPublications.length
+                    : (publications[key] || []).length;
+
+                return (
+                  <FilterButton
+                    key={key}
+                    type="button"
+                    $active={activeFilter === key}
+                    onClick={() => setActiveFilter(key)}
+                    aria-pressed={activeFilter === key}
+                  >
+                    {label}
+                    <FilterCount>{count}</FilterCount>
+                  </FilterButton>
+                );
+              })}
+            </FilterBar>
+          </FilterPanel>
+
+          {publicationsByYear.length === 0 ? (
+            <StatusMessage>
+              No publications match the selected category.
+            </StatusMessage>
+          ) : (
+            <Results>
+              {publicationsByYear.map(({ year, publications: yearItems }) => (
+                <YearSection
+                  key={year}
+                  aria-labelledby={`publications-${String(year)
+                    .replace(/\s+/g, "-")
+                    .toLowerCase()}`}
+                >
+                  <YearHeading>
+                    <YearLabel
+                      id={`publications-${String(year)
+                        .replace(/\s+/g, "-")
+                        .toLowerCase()}`}
+                    >
+                      {year}
+                    </YearLabel>
+                    <YearCount
+                      aria-label={`${yearItems.length} publications in ${year}`}
+                    >
+                      {yearItems.length}
+                    </YearCount>
+                  </YearHeading>
+
+                  <PublicationList>
+                    {yearItems.map((publication) => {
+                      const publicationDate = getPublicationDate(publication);
+
+                      return (
+                        <PublicationItem key={publication.id}>
+                          <CategoryBadge $category={publication.category}>
+                            {BADGE_SHORT[publication.category]}
+                          </CategoryBadge>
+                          <PublicationContent>
+                            <PublicationTitle>
+                              {publication.title}
+                            </PublicationTitle>
+                            {publication.authors && (
+                              <Authors>{publication.authors}</Authors>
+                            )}
+                            <Bibliography>
+                              {publication.venue && (
+                                <Venue>{publication.venue}</Venue>
+                              )}
+                              {publicationDate && (
+                                <DateText>{publicationDate}</DateText>
+                              )}
+                              {publication.index_type && (
+                                <Metric>{publication.index_type}</Metric>
+                              )}
+                              {publication.impact_factor && (
+                                <Metric>
+                                  IF {publication.impact_factor}
+                                </Metric>
+                              )}
+                            </Bibliography>
+                          </PublicationContent>
+                          {publication.url && (
+                            <PaperLink
+                              href={publication.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`Open paper: ${publication.title}`}
+                            >
+                              View paper ↗
+                            </PaperLink>
+                          )}
+                        </PublicationItem>
+                      );
+                    })}
+                  </PublicationList>
+                </YearSection>
+              ))}
+            </Results>
+          )}
+        </Content>
+      )}
+    </Page>
   );
 };
 

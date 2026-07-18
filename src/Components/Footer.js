@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Footer = styled.footer`
   display: flex;
-  flow-direction: row;
+  flex-direction: row;
   justify-content: flex-end;
   align-items: flex-end;
   text-transform: uppercase;

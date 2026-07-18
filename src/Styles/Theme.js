@@ -7,7 +7,7 @@ const obj = {
   lightVioletColor: "rgba(229,233,255,0.3)",
   darkVioletColor: "#3F0099",
   blackColor: "#262626",
-  darkGreyColor: "#999",
+  darkGreyColor: "#5F6368",
   lightGreyColor: "#c7c7c7",
   redColor: "#ED4956",
   blueColor: "#3897f0",

@@ -3,7 +3,6 @@ import reset from "styled-reset";
 
 export default createGlobalStyle`
     ${reset};
-    @import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
 
     * {
         box-sizing:border-box;
@@ -29,7 +28,10 @@ export default createGlobalStyle`
         color:${props => props.theme.darkBlueColor};
         text-decoration: none;
     }
-    input:focus{
-        outline: none;
+    a, button, input, summary {
+        &:focus-visible {
+            outline: 3px solid ${props => props.theme.blueColor};
+            outline-offset: 3px;
+        }
     }
 `;

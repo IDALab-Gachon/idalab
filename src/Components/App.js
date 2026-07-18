@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import GlobalStyles from "../Styles/GlobalStyles";
@@ -21,16 +21,22 @@ import AdminGallery   from "../Pages/Admin/AdminGallery";
 import AdminProfessor from "../Pages/Admin/AdminProfessor";
 import ProtectedRoute from "./Admin/ProtectedRoute";
 
+const MainContent = styled.main`
+  min-height: 50vh;
+`;
+
 // 메인 사이트 레이아웃
 const MainSite = () => (
   <>
     <Menu theme={Theme} />
-    <Route exact path="/" component={Home} />
-    <Route path="/publications" component={Publications} />
-    <Route path="/members" component={Members} />
-    <Route path="/projects" component={Projects} />
-    <Route path="/photo" component={Photo} />
-    <Route path="/professor" component={Professor} />
+    <MainContent id="main-content" tabIndex="-1">
+      <Route exact path="/" component={Home} />
+      <Route path="/publications" component={Publications} />
+      <Route path="/members" component={Members} />
+      <Route path="/projects" component={Projects} />
+      <Route path="/photo" component={Photo} />
+      <Route path="/professor" component={Professor} />
+    </MainContent>
     <Footer theme={Theme} />
   </>
 );

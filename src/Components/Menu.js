@@ -4,6 +4,22 @@ import styled from "styled-components";
 
 import logo from "../images/logo_typo.png";
 
+const SkipLink = styled.a`
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 1000;
+  padding: 10px 14px;
+  border-radius: 4px;
+  background: ${(props) => props.theme.darkBlueColor};
+  color: #fff;
+  transform: translateY(-150%);
+
+  &:focus {
+    transform: translateY(0);
+  }
+`;
+
 const HeaderContainer = styled.header`
   background-color: ${(props) => props.theme.bgColor};
   display: flex;
@@ -83,39 +99,54 @@ const Menu = (props) => {
   };
 
   return (
-    <HeaderContainer>
-      <NavLink exact to="/" onClick={handleLinkClick}>
-        <img height="55px" src={logo} alt="IDA Lab" />
-      </NavLink>
-      <HamburgerButton
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="메뉴 열기/닫기"
-      >
-        <HamburgerLine />
-        <HamburgerLine />
-        <HamburgerLine />
-      </HamburgerButton>
-      <HeaderMenu $open={menuOpen}>
-        <HeaderLink exact to="/" activeStyle={activeStyle} onClick={handleLinkClick}>
-          HOME
-        </HeaderLink>
-        <HeaderLink exact to="/professor" activeStyle={activeStyle} onClick={handleLinkClick}>
-          PROFESSOR
-        </HeaderLink>
-        <HeaderLink exact to="/members" activeStyle={activeStyle} onClick={handleLinkClick}>
-          MEMBERS
-        </HeaderLink>
-        <HeaderLink exact to="/publications" activeStyle={activeStyle} onClick={handleLinkClick}>
-          PUBLICATIONS
-        </HeaderLink>
-        <HeaderLink exact to="/projects" activeStyle={activeStyle} onClick={handleLinkClick}>
-          PROJECTS
-        </HeaderLink>
-        <HeaderLink exact to="/photo" activeStyle={activeStyle} onClick={handleLinkClick}>
-          PHOTO
-        </HeaderLink>
-      </HeaderMenu>
-    </HeaderContainer>
+    <>
+      <SkipLink href="#main-content">Skip to main content</SkipLink>
+      <HeaderContainer>
+        <NavLink
+          exact
+          to="/"
+          onClick={handleLinkClick}
+          aria-label="IDA Lab home"
+        >
+          <img height="55px" src={logo} alt="" />
+        </NavLink>
+        <HamburgerButton
+          type="button"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          aria-controls="primary-navigation"
+        >
+          <HamburgerLine />
+          <HamburgerLine />
+          <HamburgerLine />
+        </HamburgerButton>
+        <HeaderMenu
+          id="primary-navigation"
+          aria-label="Primary navigation"
+          $open={menuOpen}
+        >
+          <HeaderLink exact to="/" activeStyle={activeStyle} onClick={handleLinkClick}>
+            HOME
+          </HeaderLink>
+          <HeaderLink exact to="/professor" activeStyle={activeStyle} onClick={handleLinkClick}>
+            PROFESSOR
+          </HeaderLink>
+          <HeaderLink exact to="/members" activeStyle={activeStyle} onClick={handleLinkClick}>
+            MEMBERS
+          </HeaderLink>
+          <HeaderLink exact to="/publications" activeStyle={activeStyle} onClick={handleLinkClick}>
+            PUBLICATIONS
+          </HeaderLink>
+          <HeaderLink exact to="/projects" activeStyle={activeStyle} onClick={handleLinkClick}>
+            PROJECTS
+          </HeaderLink>
+          <HeaderLink exact to="/photo" activeStyle={activeStyle} onClick={handleLinkClick}>
+            PHOTO
+          </HeaderLink>
+        </HeaderMenu>
+      </HeaderContainer>
+    </>
   );
 };
 
