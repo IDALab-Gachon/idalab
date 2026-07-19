@@ -28,6 +28,22 @@ const EMPTY_FORM = {
   display_order: 0,
 };
 
+export const buildMemberPayload = (form) => ({
+  name: (form.name || "").trim(),
+  role: form.role,
+  status: form.status,
+  email: (form.email || "").trim(),
+  website: (form.website || "").trim(),
+  photo_url: form.photo_url || null,
+  bio: (form.bio || "").trim(),
+  final_degree: form.final_degree || null,
+  graduation_year: form.graduation_year
+    ? parseInt(form.graduation_year, 10)
+    : null,
+  current_organization: (form.current_organization || "").trim(),
+  display_order: parseInt(form.display_order, 10) || 0,
+});
+
 // ── Styles ───────────────────────────────────────────────────
 const PageTitle    = styled.h1`font-size: 22px; font-weight: 700; margin-bottom: 24px; color: #1e2a3a;`;
 const PageHeader   = styled.div`display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 10px;`;
@@ -72,6 +88,7 @@ const AdminMembers = () => {
   const [form,       setForm]       = useState(EMPTY_FORM);
   const [editingId,  setEditingId]  = useState(null);
   const [saving,     setSaving]     = useState(false);
+  const [photoUploading, setPhotoUploading] = useState(false);
   const [tab,        setTab]        = useState("active");
   const [roleFilter, setRoleFilter] = useState("all");
   const [gradForm,   setGradForm]   = useState(null);
@@ -106,17 +123,26 @@ const AdminMembers = () => {
   };
 
   const handleSave = async () => {
-    if (!form.name) return alert("이름을 입력하세요.");
+    if (!(form.name || "").trim()) return alert("이름을 입력하세요.");
+    if (photoUploading) return alert("사진 업로드가 끝날 때까지 기다려주세요.");
+
     setSaving(true);
-    const payload = { ...form, graduation_year: form.graduation_year ? parseInt(form.graduation_year) : null, display_order: parseInt(form.display_order) || 0 };
-    if (editingId) {
-      await supabase.from("members").update(payload).eq("id", editingId);
-    } else {
-      await supabase.from("members").insert(payload);
+    try {
+      const payload = buildMemberPayload(form);
+      const { error } = editingId
+        ? await supabase.from("members").update(payload).eq("id", editingId)
+        : await supabase.from("members").insert(payload);
+
+      if (error) throw error;
+
+      await fetchMembers();
+      cancelEdit();
+      alert(editingId ? "멤버 정보가 저장되었습니다." : "새 멤버가 추가되었습니다.");
+    } catch (error) {
+      alert(`멤버 저장에 실패했습니다: ${error.message || "알 수 없는 오류"}`);
+    } finally {
+      setSaving(false);
     }
-    await fetchMembers();
-    cancelEdit();
-    setSaving(false);
   };
 
   const handleDelete = async (id, name) => {
@@ -354,11 +380,28 @@ const AdminMembers = () => {
           )}
           <div style={{ gridColumn: "1/-1" }}>
             <Label>프로필 사진</Label>
-            <ImageUploader bucket="member-photos" currentUrl={form.photo_url} onUpload={url => setField("photo_url", url)} />
+            <ImageUploader
+              bucket="member-photos"
+              currentUrl={form.photo_url}
+              onUpload={url => setField("photo_url", url)}
+              onUploadingChange={setPhotoUploading}
+            />
           </div>
         </Grid>
         <FormActions>
-          <Btn $variant="primary" onClick={handleSave} disabled={saving}>{saving ? "저장 중..." : editingId ? "저장" : "추가"}</Btn>
+          <Btn
+            $variant="primary"
+            onClick={handleSave}
+            disabled={saving || photoUploading}
+          >
+            {photoUploading
+              ? "사진 업로드 중..."
+              : saving
+                ? "저장 중..."
+                : editingId
+                  ? "저장"
+                  : "추가"}
+          </Btn>
           {editingId && <Btn onClick={cancelEdit}>취소</Btn>}
         </FormActions>
       </Section>

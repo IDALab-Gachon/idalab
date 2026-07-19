@@ -209,15 +209,8 @@ const getPeriod = ({ start_year: startYear, end_year: endYear }) => {
   return `${startYear} – ${endYear || "Present"}`;
 };
 
-const sortCategories = ([categoryA], [categoryB]) => {
-  if (categoryA === "Research Projects") return -1;
-  if (categoryB === "Research Projects") return 1;
-  return categoryA.localeCompare(categoryB);
-};
-
 const Projects = () => {
-  const { groupedProjects, loading, error } = useProjects();
-  const categories = Object.entries(groupedProjects).sort(sortCategories);
+  const { categoryGroups, loading, error } = useProjects();
 
   return (
     <Page>
@@ -234,30 +227,28 @@ const Projects = () => {
       {!loading && error && (
         <StatusMessage>Project information is temporarily unavailable.</StatusMessage>
       )}
-      {!loading && !error && categories.length === 0 && (
+      {!loading && !error && categoryGroups.length === 0 && (
         <StatusMessage>No projects are available at this time.</StatusMessage>
       )}
 
-      {!loading && !error && categories.length > 0 && (
+      {!loading && !error && categoryGroups.length > 0 && (
         <Content>
-          {categories.map(([category, projects]) => (
+          {categoryGroups.map((category) => (
             <ProjectSection
-              key={category}
-              aria-labelledby={`projects-${category.replace(/\s+/g, "-").toLowerCase()}`}
+              key={category.id}
+              aria-labelledby={`projects-${category.id}`}
             >
               <SectionHeading>
-                <SectionTitle
-                  id={`projects-${category.replace(/\s+/g, "-").toLowerCase()}`}
-                >
-                  {category}
+                <SectionTitle id={`projects-${category.id}`}>
+                  {category.name}
                 </SectionTitle>
-                <Count aria-label={`${projects.length} projects`}>
-                  {projects.length}
+                <Count aria-label={`${category.projects.length} projects`}>
+                  {category.projects.length}
                 </Count>
               </SectionHeading>
 
               <ProjectGrid>
-                {projects.map((project) => {
+                {category.projects.map((project) => {
                   const period = getPeriod(project);
                   const hasStatus = Boolean(project.start_year);
                   const isOngoing = hasStatus && !project.end_year;

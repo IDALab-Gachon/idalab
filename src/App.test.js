@@ -102,8 +102,13 @@ jest.mock('./hooks/useProfessor', () => ({
 
 jest.mock('./hooks/useProjects', () => ({
   useProjects: () => ({
-    groupedProjects: {
-      'Research Projects': [
+    categoryGroups: [
+      {
+        id: 'research-projects',
+        name: 'Research Projects',
+        display_order: 0,
+        manual_order: false,
+        projects: [
         {
           id: 1,
           title: 'Ongoing research project',
@@ -119,8 +124,9 @@ jest.mock('./hooks/useProjects', () => ({
           start_year: 2020,
           end_year: 2023,
         },
-      ],
-    },
+        ],
+      },
+    ],
     loading: false,
     error: null,
   }),

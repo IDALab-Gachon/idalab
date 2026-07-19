@@ -66,7 +66,12 @@ const UploadStatus = styled.span`
   color: ${(props) => (props.$error ? "#ed4956" : "#999")};
 `;
 
-const ImageUploader = ({ bucket, onUpload, currentUrl }) => {
+const ImageUploader = ({
+  bucket,
+  onUpload,
+  currentUrl,
+  onUploadingChange,
+}) => {
   const [uploading, setUploading] = useState(false);
   const [statusMsg, setStatusMsg] = useState("");
 
@@ -75,6 +80,7 @@ const ImageUploader = ({ bucket, onUpload, currentUrl }) => {
     if (!file) return;
 
     setUploading(true);
+    onUploadingChange?.(true);
     setStatusMsg("업로드 중...");
 
     try {
@@ -101,6 +107,7 @@ const ImageUploader = ({ bucket, onUpload, currentUrl }) => {
       setStatusMsg(`업로드 실패: ${error.message || "알 수 없는 오류"}`);
     } finally {
       setUploading(false);
+      onUploadingChange?.(false);
       e.target.value = "";
     }
   };

@@ -18,13 +18,17 @@ jest.mock("../../lib/supabase", () => ({
   },
 }));
 
-const renderUploader = (onUpload = jest.fn()) =>
+const renderUploader = (
+  onUpload = jest.fn(),
+  onUploadingChange = jest.fn()
+) =>
   render(
     <ThemeProvider theme={Theme}>
       <ImageUploader
         bucket="member-photos"
         currentUrl=""
         onUpload={onUpload}
+        onUploadingChange={onUploadingChange}
       />
     </ThemeProvider>
   );
@@ -45,7 +49,11 @@ test("exposes a native file input through the visible selection control", () => 
 
 test("uploads an image and returns its public URL", async () => {
   const onUpload = jest.fn();
-  const { container, getByRole } = renderUploader(onUpload);
+  const onUploadingChange = jest.fn();
+  const { container, getByRole } = renderUploader(
+    onUpload,
+    onUploadingChange
+  );
   const fileInput = container.querySelector('input[type="file"]');
   const file = new File(["photo"], "professor.jpg", {
     type: "image/jpeg",
@@ -66,6 +74,7 @@ test("uploads an image and returns its public URL", async () => {
   expect(onUpload).toHaveBeenCalledWith(
     "https://example.com/professor.jpg"
   );
+  expect(onUploadingChange.mock.calls).toEqual([[true], [false]]);
   expect(
     fileInput
   ).toHaveValue("");
