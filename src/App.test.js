@@ -32,6 +32,7 @@ jest.mock('./hooks/usePublications', () => ({
           index_type: 'SCIE',
           impact_factor: '3.4',
           url: 'https://example.com/journal-paper',
+          is_featured: true,
           display_order: 1,
         },
       ],
@@ -42,6 +43,7 @@ jest.mock('./hooks/usePublications', () => ({
           authors: 'IDA Lab',
           venue: 'International Conference on Data Engineering',
           year: 2024,
+          is_featured: false,
           display_order: 1,
         },
       ],
@@ -171,7 +173,7 @@ const renderPage = (page) =>
   );
 
 test('renders the laboratory homepage', () => {
-  const { getByRole } = renderPage(<Home />);
+  const { getByRole, getByText, queryByText } = renderPage(<Home />);
 
   expect(
     getByRole('heading', {
@@ -179,6 +181,15 @@ test('renders the laboratory homepage', () => {
       name: 'Intelligent Data Analytics Lab.',
     })
   ).toBeInTheDocument();
+  expect(
+    getByRole('heading', { level: 2, name: 'Featured publications' })
+  ).toBeInTheDocument();
+  expect(
+    getByText('An intelligent data analytics journal article')
+  ).toBeInTheDocument();
+  expect(
+    queryByText('A knowledge discovery conference paper')
+  ).not.toBeInTheDocument();
 });
 
 test('renders member cards by role', () => {
@@ -257,19 +268,41 @@ test('renders project status, periods, and resources', () => {
 });
 
 test('filters and renders publication records with complete metadata', () => {
-  const { getByRole, getByText, queryByText } = renderPage(<Publications />);
+  const {
+    getAllByText,
+    getByLabelText,
+    getByRole,
+    getByText,
+    queryByRole,
+    queryByText,
+  } = renderPage(<Publications />);
 
   expect(
     getByRole('heading', { level: 1, name: 'Publications' })
   ).toBeInTheDocument();
   expect(
-    getByText('An intelligent data analytics journal article')
+    getByRole('heading', { level: 2, name: 'Featured publications' })
   ).toBeInTheDocument();
+  expect(getByLabelText('Featured publication cards')).toBeInTheDocument();
+  expect(
+    getAllByText('An intelligent data analytics journal article')
+  ).toHaveLength(2);
+  expect(
+    getByRole('link', {
+      name: 'An intelligent data analytics journal article',
+    })
+  ).toHaveAttribute('href', 'https://example.com/journal-paper');
+  expect(
+    queryByRole('link', {
+      name: 'Open featured paper: An intelligent data analytics journal article',
+    })
+  ).not.toBeInTheDocument();
   expect(
     getByText('A knowledge discovery conference paper')
   ).toBeInTheDocument();
   expect(getByText('2025 · Mar')).toBeInTheDocument();
-  expect(getByText('IF 3.4')).toBeInTheDocument();
+  expect(getAllByText('SCIE')).toHaveLength(2);
+  expect(getAllByText('IF 3.4')).toHaveLength(2);
   expect(
     getByRole('link', {
       name: 'Open paper: An intelligent data analytics journal article',
@@ -280,8 +313,8 @@ test('filters and renders publication records with complete metadata', () => {
     getByRole('button', { name: /International Journals \(SCIE\)/ })
   );
   expect(
-    getByText('An intelligent data analytics journal article')
-  ).toBeInTheDocument();
+    getAllByText('An intelligent data analytics journal article')
+  ).toHaveLength(2);
   expect(
     queryByText('A knowledge discovery conference paper')
   ).not.toBeInTheDocument();

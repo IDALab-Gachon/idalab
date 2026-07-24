@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { CATEGORY_LABELS, CATEGORY_ORDER, usePublications } from "../hooks/usePublications";
 import homeBanner from "../images/home_ai.png";
 import homeImage from "../images/home_img.png";
+import { getFeaturedPublications } from "../utils/publicationOrdering";
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -497,20 +498,16 @@ const RESEARCH_AREAS = [
 const Home = () => {
   const { publications, loading, error } = usePublications();
 
-  const latestPublications = useMemo(
+  const featuredPublications = useMemo(
     () =>
-      CATEGORY_ORDER.flatMap((category) =>
-        (publications[category] || []).map((publication) => ({
-          ...publication,
-          category,
-        })),
-      )
-        .sort(
-          (a, b) =>
-            Number(b.year || 0) - Number(a.year || 0) ||
-            Number(b.month || 0) - Number(a.month || 0),
-        )
-        .slice(0, 3),
+      getFeaturedPublications(
+        CATEGORY_ORDER.flatMap((category) =>
+          (publications[category] || []).map((publication) => ({
+            ...publication,
+            category,
+          })),
+        ),
+      ),
     [publications],
   );
 
@@ -599,29 +596,29 @@ const Home = () => {
         </ResearchGrid>
       </Section>
 
-      <PublicationsSection aria-labelledby="latest-publications-title">
+      <PublicationsSection aria-labelledby="featured-publications-title">
         <SectionHeader>
           <SectionIntro>
-            <SectionLabel>Recent work</SectionLabel>
-            <SectionTitle id="latest-publications-title">
-              Latest publications
+            <SectionLabel>Selected research</SectionLabel>
+            <SectionTitle id="featured-publications-title">
+              Featured publications
             </SectionTitle>
             <SectionDescription>
-              Recent journal and conference contributions from IDA Lab.
+              Selected journal and conference contributions from IDA Lab.
             </SectionDescription>
           </SectionIntro>
           <TextLink to="/publications">View all publications</TextLink>
         </SectionHeader>
 
-        {loading && <PublicationStatus>Loading recent publications…</PublicationStatus>}
-        {!loading && (error || latestPublications.length === 0) && (
+        {loading && <PublicationStatus>Loading featured publications…</PublicationStatus>}
+        {!loading && (error || featuredPublications.length === 0) && (
           <PublicationStatus>
-            Publication records are available on the publications page.
+            Featured publications will appear here after they are selected.
           </PublicationStatus>
         )}
-        {!loading && !error && latestPublications.length > 0 && (
+        {!loading && !error && featuredPublications.length > 0 && (
           <PublicationList>
-            {latestPublications.map((publication) => (
+            {featuredPublications.map((publication) => (
               <PublicationItem key={publication.id}>
                 <PublicationYear>{publication.year || "—"}</PublicationYear>
                 <PublicationContent>
@@ -629,6 +626,9 @@ const Home = () => {
                   <PublicationMeta>
                     {CATEGORY_LABELS[publication.category]}
                     {publication.venue ? ` · ${publication.venue}` : ""}
+                    {publication.impact_factor
+                      ? ` · IF ${publication.impact_factor}`
+                      : ""}
                   </PublicationMeta>
                 </PublicationContent>
                 {publication.url && (

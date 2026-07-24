@@ -5,6 +5,7 @@ import {
   CATEGORY_ORDER,
   usePublications,
 } from "../hooks/usePublications";
+import { getFeaturedPublications } from "../utils/publicationOrdering";
 
 const MONTH_LABELS = [
   "Jan",
@@ -36,6 +37,17 @@ const FILTERS = [
     label: CATEGORY_LABELS[key],
   })),
 ];
+
+const hasDistinctIndexType = (publication) => {
+  const indexType = String(publication.index_type || "")
+    .replace(/\s+/g, "")
+    .toUpperCase();
+  const categoryBadge = String(BADGE_SHORT[publication.category] || "")
+    .replace(/\s+/g, "")
+    .toUpperCase();
+
+  return Boolean(indexType) && indexType !== categoryBadge;
+};
 
 const Page = styled.div`
   width: 100%;
@@ -88,6 +100,165 @@ const Content = styled.div`
   @media (max-width: 768px) {
     padding: 40px 2px 0;
   }
+`;
+
+const FeaturedSection = styled.section`
+  margin-bottom: 32px;
+  padding: 28px;
+  border: 1px solid #ddd9ee;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 96% 0%, rgba(118, 89, 209, 0.11), transparent 34%),
+    linear-gradient(135deg, #faf8ff 0%, #f7fbff 100%);
+
+  @media (max-width: 520px) {
+    padding: 22px 18px;
+  }
+`;
+
+const FeaturedHeader = styled.div`
+  margin-bottom: 18px;
+`;
+
+const FeaturedEyebrow = styled.p`
+  margin-bottom: 6px;
+  color: ${(props) => props.theme.redColor};
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+`;
+
+const FeaturedTitle = styled.h2`
+  color: ${(props) => props.theme.darkBlueColor};
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+`;
+
+const FeaturedDescription = styled.p`
+  margin-top: 7px;
+  color: ${(props) => props.theme.darkGreyColor};
+  font-size: 13px;
+  line-height: 1.6;
+`;
+
+const FeaturedList = styled.ol`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: 2px;
+  scroll-padding-inline: 2px;
+  scrollbar-color: #c2ccda transparent;
+  scrollbar-width: thin;
+
+  &:focus-visible {
+    outline: 3px solid rgba(0, 53, 105, 0.2);
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: none;
+    grid-auto-columns: minmax(280px, 72%);
+    grid-auto-flow: column;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scroll-snap-type: x proximity;
+  }
+
+  @media (max-width: 520px) {
+    grid-auto-columns: minmax(260px, 88%);
+  }
+`;
+
+const FeaturedCard = styled.li`
+  display: flex;
+  min-height: 220px;
+  flex-direction: column;
+  padding: 20px 20px 18px;
+  border: 1px solid #dfe4ec;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 24px rgba(34, 45, 70, 0.06);
+  scroll-snap-align: start;
+`;
+
+const FeaturedMeta = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 14px;
+`;
+
+const FeaturedYear = styled.span`
+  color: ${(props) => props.theme.darkVioletColor};
+  font-size: 13px;
+  font-weight: 800;
+`;
+
+const FeaturedPaperTitle = styled.h3`
+  display: -webkit-box;
+  overflow: hidden;
+  color: #182438;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+`;
+
+const FeaturedLinkIcon = styled.span`
+  flex: 0 0 auto;
+  color: ${(props) => props.theme.darkBlueColor};
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.5;
+  transition: transform 0.2s ease;
+`;
+
+const FeaturedTitleLink = styled.a`
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 7px;
+  border-radius: 4px;
+
+  &:hover ${FeaturedPaperTitle} {
+    color: ${(props) => props.theme.darkBlueColor};
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  &:hover ${FeaturedLinkIcon} {
+    transform: translate(2px, -2px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(0, 53, 105, 0.2);
+    outline-offset: 3px;
+  }
+`;
+
+const FeaturedAuthors = styled.p`
+  display: -webkit-box;
+  overflow: hidden;
+  margin-top: 9px;
+  color: ${(props) => props.theme.darkGreyColor};
+  font-size: 12px;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+`;
+
+const FeaturedVenue = styled.p`
+  margin-top: 12px;
+  color: ${(props) => props.theme.darkBlueColor};
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
 `;
 
 const FilterPanel = styled.section`
@@ -230,9 +401,14 @@ const PublicationItem = styled.li`
 `;
 
 const CategoryBadge = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   justify-self: start;
-  padding: 5px 9px;
+  height: 24px;
+  padding: 0 9px;
   border-radius: 6px;
+  box-sizing: border-box;
   background: ${(props) => {
     if (props.$category === "international_journal_sci") return "#ebf4ff";
     if (props.$category === "international_journal_scopus") return "#eef9f2";
@@ -251,6 +427,7 @@ const CategoryBadge = styled.span`
   font-weight: 800;
   line-height: 1.35;
   text-align: center;
+  white-space: nowrap;
 `;
 
 const PublicationContent = styled.div`
@@ -295,12 +472,18 @@ const DateText = styled.span`
 `;
 
 const Metric = styled.span`
-  padding: 2px 7px;
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 7px;
   border-radius: 5px;
+  box-sizing: border-box;
   background: #f0f3f6;
   color: ${(props) => props.theme.darkGreyColor};
   font-size: 11px;
   font-weight: 750;
+  line-height: 1.35;
+  white-space: nowrap;
 `;
 
 const PaperLink = styled.a`
@@ -384,6 +567,11 @@ const Publications = () => {
     [activeFilter, allPublications],
   );
 
+  const featuredPublications = useMemo(
+    () => getFeaturedPublications(allPublications),
+    [allPublications],
+  );
+
   const publicationsByYear = useMemo(() => {
     const grouped = new Map();
 
@@ -422,6 +610,68 @@ const Publications = () => {
 
       {!loading && !error && allPublications.length > 0 && (
         <Content>
+          {featuredPublications.length > 0 && (
+            <FeaturedSection aria-labelledby="featured-publications-title">
+              <FeaturedHeader>
+                <div>
+                  <FeaturedEyebrow>Selected research</FeaturedEyebrow>
+                  <FeaturedTitle id="featured-publications-title">
+                    Featured publications
+                  </FeaturedTitle>
+                  <FeaturedDescription>
+                    A curated selection of IDA Lab research contributions.
+                  </FeaturedDescription>
+                </div>
+              </FeaturedHeader>
+
+              <FeaturedList
+                aria-label="Featured publication cards"
+                tabIndex={0}
+              >
+                {featuredPublications.map((publication) => (
+                  <FeaturedCard key={publication.id}>
+                    <FeaturedMeta>
+                      <FeaturedYear>{publication.year || "—"}</FeaturedYear>
+                      <CategoryBadge $category={publication.category}>
+                        {BADGE_SHORT[publication.category]}
+                      </CategoryBadge>
+                      {hasDistinctIndexType(publication) && (
+                        <Metric>{publication.index_type}</Metric>
+                      )}
+                      {publication.impact_factor && (
+                        <Metric>IF {publication.impact_factor}</Metric>
+                      )}
+                    </FeaturedMeta>
+                    {publication.url ? (
+                      <FeaturedTitleLink
+                        href={publication.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FeaturedPaperTitle>
+                          {publication.title}
+                        </FeaturedPaperTitle>
+                        <FeaturedLinkIcon aria-hidden="true">
+                          ↗
+                        </FeaturedLinkIcon>
+                      </FeaturedTitleLink>
+                    ) : (
+                      <FeaturedPaperTitle>
+                        {publication.title}
+                      </FeaturedPaperTitle>
+                    )}
+                    {publication.authors && (
+                      <FeaturedAuthors>{publication.authors}</FeaturedAuthors>
+                    )}
+                    {publication.venue && (
+                      <FeaturedVenue>{publication.venue}</FeaturedVenue>
+                    )}
+                  </FeaturedCard>
+                ))}
+              </FeaturedList>
+            </FeaturedSection>
+          )}
+
           <FilterPanel aria-labelledby="publication-filter-title">
             <FilterHeading>
               <FilterTitle id="publication-filter-title">
@@ -506,7 +756,7 @@ const Publications = () => {
                               {publicationDate && (
                                 <DateText>{publicationDate}</DateText>
                               )}
-                              {publication.index_type && (
+                              {hasDistinctIndexType(publication) && (
                                 <Metric>{publication.index_type}</Metric>
                               )}
                               {publication.impact_factor && (

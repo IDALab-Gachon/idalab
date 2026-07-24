@@ -3,6 +3,10 @@ import styled from "styled-components";
 import AdminLayout from "../../Components/Admin/AdminLayout";
 import { supabase } from "../../lib/supabase";
 import { CATEGORY_LABELS, CATEGORY_ORDER } from "../../hooks/usePublications";
+import {
+  canSelectFeaturedPublication,
+  MAX_FEATURED_PUBLICATIONS,
+} from "../../utils/publicationOrdering";
 
 const MONTH_OPTIONS = [
   { value: "", label: "월 선택 (선택)" },
@@ -23,7 +27,8 @@ const MONTH_OPTIONS = [
 const EMPTY_FORM = {
   title: "", authors: "", venue: "", year: "", month: "",
   category: "international_journal_sci",
-  index_type: "", impact_factor: "", url: "", display_order: 0,
+  index_type: "", impact_factor: "", url: "", is_featured: false,
+  display_order: 0,
 };
 
 const PageTitle    = styled.h1`font-size:22px;font-weight:700;margin-bottom:24px;color:#1e2a3a;`;
@@ -43,6 +48,14 @@ const Textarea     = styled.textarea`width:100%;padding:8px 10px;border:1px soli
 const FormActions  = styled.div`display:flex;gap:10px;margin-top:20px;`;
 const Tabs         = styled.div`display:flex;gap:0;margin-bottom:16px;border-bottom:2px solid #e6e6e6;flex-wrap:wrap;`;
 const Tab          = styled.button`padding:7px 14px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:${p=>p.$active?700:400};color:${p=>p.$active?"#003569":"#666"};border-bottom:${p=>p.$active?"2px solid #003569":"2px solid transparent"};margin-bottom:-2px;`;
+const FeaturedSummary = styled.p`
+  margin: -6px 0 16px;
+  color: ${p => p.$overLimit ? "#c53030" : "#555"};
+  font-size: 13px;
+  font-weight: ${p => p.$overLimit ? 650 : 400};
+`;
+const FeaturedCheckbox = styled.input`width:18px;height:18px;cursor:pointer;accent-color:#003569;&:disabled{cursor:not-allowed;opacity:.45;}`;
+const CheckboxLabel = styled.label`display:flex;align-items:center;gap:8px;min-height:38px;font-size:14px;color:#444;`;
 
 const AdminPublications = () => {
   const [pubs,      setPubs]      = useState([]);
@@ -50,12 +63,18 @@ const AdminPublications = () => {
   const [form,      setForm]      = useState(EMPTY_FORM);
   const [editingId, setEditingId] = useState(null);
   const [saving,    setSaving]    = useState(false);
+  const [updatingFeaturedId, setUpdatingFeaturedId] = useState(null);
   const [tab,       setTab]       = useState("international_journal_sci");
 
   const formRef = useRef(null);
 
   const fetchPubs = async () => {
-    const { data } = await supabase.from("publications").select("*").order("display_order").order("year", { ascending: false });
+    const { data, error } = await supabase.from("publications").select("*").order("display_order").order("year", { ascending: false });
+    if (error) {
+      alert(`논문 목록을 불러오지 못했습니다: ${error.message}`);
+      setLoading(false);
+      return;
+    }
     setPubs(data || []);
     setLoading(false);
   };
@@ -65,7 +84,7 @@ const AdminPublications = () => {
   const setField = (k, v) => setForm(f => ({ ...f, [k]: v }));
 
   const startEdit = (p) => {
-    setForm({ ...EMPTY_FORM, ...p, year: p.year || "", month: p.month || "", impact_factor: p.impact_factor || "", index_type: p.index_type || "", url: p.url || "" });
+    setForm({ ...EMPTY_FORM, ...p, year: p.year || "", month: p.month || "", impact_factor: p.impact_factor || "", index_type: p.index_type || "", url: p.url || "", is_featured: Boolean(p.is_featured) });
     setEditingId(p.id);
     setTab(p.category);
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -79,18 +98,38 @@ const AdminPublications = () => {
   };
 
   const handleSave = async () => {
-    if (!form.title) return alert("제목을 입력하세요.");
+    if (!(form.title || "").trim()) return alert("제목을 입력하세요.");
+    const currentPublication = pubs.find(p => p.id === editingId);
+    if (
+      form.is_featured &&
+      !canSelectFeaturedPublication(pubs, currentPublication)
+    ) {
+      return alert(
+        `대표 논문은 최대 ${MAX_FEATURED_PUBLICATIONS}개까지 선택할 수 있습니다.`
+      );
+    }
+
     setSaving(true);
     const payload = {
-      ...form,
-      year:           form.year  ? parseInt(form.year)  : null,
-      month:          form.month ? parseInt(form.month) : null,
-      display_order:  parseInt(form.display_order) || 0,
+      title: (form.title || "").trim(),
+      authors: (form.authors || "").trim(),
+      venue: (form.venue || "").trim(),
+      year: form.year ? parseInt(form.year, 10) : null,
+      month: form.month ? parseInt(form.month, 10) : null,
+      category: form.category,
+      index_type: (form.index_type || "").trim(),
+      impact_factor: (form.impact_factor || "").trim(),
+      url: (form.url || "").trim(),
+      is_featured: Boolean(form.is_featured),
+      display_order: parseInt(form.display_order, 10) || 0,
     };
-    if (editingId) {
-      await supabase.from("publications").update(payload).eq("id", editingId);
-    } else {
-      await supabase.from("publications").insert(payload);
+    const { error } = editingId
+      ? await supabase.from("publications").update(payload).eq("id", editingId)
+      : await supabase.from("publications").insert(payload);
+    if (error) {
+      alert(`논문 저장에 실패했습니다: ${error.message}`);
+      setSaving(false);
+      return;
     }
     await fetchPubs();
     cancelEdit();
@@ -104,6 +143,36 @@ const AdminPublications = () => {
   };
 
   const tabPubs = pubs.filter(p => p.category === tab);
+  const featuredCount = pubs.filter(p => p.is_featured).length;
+
+  const toggleFeatured = async (publication) => {
+    const nextValue = !publication.is_featured;
+    if (nextValue && !canSelectFeaturedPublication(pubs, publication)) {
+      alert(
+        `대표 논문은 최대 ${MAX_FEATURED_PUBLICATIONS}개까지 선택할 수 있습니다.`
+      );
+      return;
+    }
+
+    setUpdatingFeaturedId(publication.id);
+    const { error } = await supabase
+      .from("publications")
+      .update({ is_featured: nextValue })
+      .eq("id", publication.id);
+
+    if (error) {
+      alert(`대표 논문 설정에 실패했습니다: ${error.message}`);
+    } else {
+      setPubs(current =>
+        current.map(item =>
+          item.id === publication.id
+            ? { ...item, is_featured: nextValue }
+            : item
+        )
+      );
+    }
+    setUpdatingFeaturedId(null);
+  };
 
   const formatYearMonth = (year, month) => {
     if (!year) return "-";
@@ -120,6 +189,14 @@ const AdminPublications = () => {
       </PageHeader>
 
       <Section>
+        <FeaturedSummary
+          $overLimit={featuredCount > MAX_FEATURED_PUBLICATIONS}
+        >
+          메인 화면 대표 논문: <strong>{featuredCount}/{MAX_FEATURED_PUBLICATIONS}</strong>
+          {" · "}선택된 논문은 연도와 Impact Factor가 높은 순서로 표시됩니다.
+          {featuredCount > MAX_FEATURED_PUBLICATIONS &&
+            ` 기존 선택에서 ${featuredCount - MAX_FEATURED_PUBLICATIONS}개를 해제해 주세요.`}
+        </FeaturedSummary>
         <Tabs>
           {CATEGORY_ORDER.map(cat => (
             <Tab key={cat} $active={tab === cat} onClick={() => setTab(cat)}>
@@ -131,11 +208,23 @@ const AdminPublications = () => {
           <div style={{ overflowX: "auto" }}>
             <Table>
               <thead>
-                <tr><Th style={{width:40}}>#</Th><Th>제목 / 저자</Th><Th>저널/학회</Th><Th>연도/월</Th><Th>INDEX</Th><Th>IF</Th><Th>액션</Th></tr>
+                <tr><Th style={{width:60}}>대표</Th><Th style={{width:40}}>#</Th><Th>제목 / 저자</Th><Th>저널/학회</Th><Th>연도/월</Th><Th>INDEX</Th><Th>IF</Th><Th>액션</Th></tr>
               </thead>
               <tbody>
                 {tabPubs.map((p) => (
                   <tr key={p.id}>
+                    <Td>
+                      <FeaturedCheckbox
+                        type="checkbox"
+                        checked={Boolean(p.is_featured)}
+                        disabled={
+                          Boolean(updatingFeaturedId) ||
+                          !canSelectFeaturedPublication(pubs, p)
+                        }
+                        onChange={() => toggleFeatured(p)}
+                        aria-label={`${p.title} 대표 논문`}
+                      />
+                    </Td>
                     <Td>{p.display_order}</Td>
                     <Td>
                       <div style={{ fontWeight: 600, marginBottom: 2 }}>{p.title}</div>
@@ -151,7 +240,7 @@ const AdminPublications = () => {
                     </Td>
                   </tr>
                 ))}
-                {tabPubs.length === 0 && <tr><Td colSpan={7} style={{ color: "#999", textAlign: "center" }}>데이터 없음</Td></tr>}
+                {tabPubs.length === 0 && <tr><Td colSpan={8} style={{ color: "#999", textAlign: "center" }}>데이터 없음</Td></tr>}
               </tbody>
             </Table>
           </div>
@@ -204,6 +293,22 @@ const AdminPublications = () => {
           <div>
             <Label>표시 순서</Label>
             <Input type="number" value={form.display_order} onChange={e => setField("display_order", e.target.value)} />
+          </div>
+          <div>
+            <Label>메인 화면</Label>
+            <CheckboxLabel>
+              <FeaturedCheckbox
+                type="checkbox"
+                checked={Boolean(form.is_featured)}
+                disabled={
+                  !form.is_featured &&
+                  !pubs.find(p => p.id === editingId)?.is_featured &&
+                  featuredCount >= MAX_FEATURED_PUBLICATIONS
+                }
+                onChange={e => setField("is_featured", e.target.checked)}
+              />
+              대표 논문으로 표시
+            </CheckboxLabel>
           </div>
         </Grid>
         <FormActions>
