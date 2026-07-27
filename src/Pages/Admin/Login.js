@@ -92,7 +92,10 @@ const Login = () => {
   const { signIn } = useAuth();
   const history    = useHistory();
   const location   = useLocation();
-  const from       = location.state?.from?.pathname || "/admin/members";
+  const fromLocation = location.state?.from;
+  const from = fromLocation
+    ? `${fromLocation.pathname}${fromLocation.search || ""}`
+    : "/admin/dashboard";
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import AdminLayout from "../../Components/Admin/AdminLayout";
+import { useAdminEditTarget } from "../../hooks/useAdminEditTarget";
 import { supabase } from "../../lib/supabase";
 import { CATEGORY_LABELS, CATEGORY_ORDER } from "../../hooks/usePublications";
 import {
@@ -89,6 +90,12 @@ const AdminPublications = () => {
     setTab(p.category);
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  useAdminEditTarget({
+    items: pubs,
+    loading,
+    onOpen: startEdit,
+  });
 
   const cancelEdit = () => { setForm(EMPTY_FORM); setEditingId(null); };
 

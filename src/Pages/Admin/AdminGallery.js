@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import AdminLayout from "../../Components/Admin/AdminLayout";
+import { useAdminEditTarget } from "../../hooks/useAdminEditTarget";
 import { supabase } from "../../lib/supabase";
 
 const EMPTY_GROUP = { year: "", label: "" };
@@ -67,6 +68,12 @@ const AdminGallery = () => {
     setEditGroupId(g.id);
     groupFormRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  useAdminEditTarget({
+    items: groups,
+    loading,
+    onOpen: startEditGroup,
+  });
 
   const cancelEditGroup = () => { setGroupForm(EMPTY_GROUP); setEditGroupId(null); };
 

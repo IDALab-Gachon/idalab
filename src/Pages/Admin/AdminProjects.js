@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components";
 import AdminLayout from "../../Components/Admin/AdminLayout";
+import { useAdminEditTarget } from "../../hooks/useAdminEditTarget";
 import { supabase } from "../../lib/supabase";
 import { compareProjectsByDefault, sortProjects } from "../../utils/projectOrdering";
 
@@ -429,6 +430,12 @@ const AdminProjects = () => {
       block: "start",
     });
   };
+
+  useAdminEditTarget({
+    items: projects,
+    loading,
+    onOpen: startEdit,
+  });
 
   const handleSave = async () => {
     const title = form.title.trim();

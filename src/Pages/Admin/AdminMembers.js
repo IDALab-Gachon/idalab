@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import AdminLayout from "../../Components/Admin/AdminLayout";
 import ImageUploader from "../../Components/Admin/ImageUploader";
+import { useAdminEditTarget } from "../../hooks/useAdminEditTarget";
 import { supabase } from "../../lib/supabase";
 
 const ROLE_LABELS = {
@@ -114,6 +115,12 @@ const AdminMembers = () => {
     setEditingId(m.id);
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  useAdminEditTarget({
+    items: members,
+    loading,
+    onOpen: startEdit,
+  });
 
   const cancelEdit = () => { setForm(EMPTY_FORM); setEditingId(null); };
 

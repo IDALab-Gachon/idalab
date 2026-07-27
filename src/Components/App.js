@@ -14,6 +14,7 @@ import Footer from "./Footer";
 
 // Admin pages
 import Login          from "../Pages/Admin/Login";
+import AdminDashboard from "../Pages/Admin/AdminDashboard";
 import AdminMembers   from "../Pages/Admin/AdminMembers";
 import AdminPublications from "../Pages/Admin/AdminPublications";
 import AdminProjects  from "../Pages/Admin/AdminProjects";
@@ -51,12 +52,13 @@ class App extends Component {
             <Switch>
               {/* Admin 라우트 */}
               <Route         path="/admin/login"        component={Login} />
+              <ProtectedRoute path="/admin/dashboard"   component={AdminDashboard} />
               <ProtectedRoute path="/admin/members"     component={AdminMembers} />
               <ProtectedRoute path="/admin/publications" component={AdminPublications} />
               <ProtectedRoute path="/admin/projects"    component={AdminProjects} />
               <ProtectedRoute path="/admin/gallery"     component={AdminGallery} />
               <ProtectedRoute path="/admin/professor"   component={AdminProfessor} />
-              <Route path="/admin" render={() => <Redirect to="/admin/members" />} />
+              <Route exact path="/admin" render={() => <Redirect to="/admin/dashboard" />} />
               {/* 메인 사이트 */}
               <Route component={MainSite} />
             </Switch>

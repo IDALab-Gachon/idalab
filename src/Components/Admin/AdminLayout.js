@@ -100,6 +100,7 @@ const Content = styled.main`
 `;
 
 const NAV_ITEMS = [
+  { to: "/admin/dashboard",    emoji: "✓",  label: "Dashboard"    },
   { to: "/admin/professor",    emoji: "🎓", label: "Professor"    },
   { to: "/admin/members",      emoji: "👥", label: "Members"      },
   { to: "/admin/publications", emoji: "📄", label: "Publications" },

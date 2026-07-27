@@ -99,6 +99,8 @@ const makeBuilder = (table) => {
 };
 
 beforeEach(() => {
+  window.history.replaceState({}, "", "/");
+  Element.prototype.scrollIntoView = jest.fn();
   supabase.__data.categories = [
     {
       id: "research",
@@ -145,6 +147,22 @@ beforeEach(() => {
   supabase.from.mockImplementation(makeBuilder);
   window.alert = jest.fn();
   window.confirm = jest.fn(() => true);
+});
+
+test("opens the requested project from a dashboard edit link", async () => {
+  window.history.replaceState(
+    {},
+    "",
+    "/admin/projects?edit=ongoing-later",
+  );
+  const { getByLabelText, getByText } = render(<AdminProjects />);
+
+  await waitFor(() =>
+    expect(getByText("프로젝트 편집")).toBeInTheDocument(),
+  );
+  expect(getByLabelText("프로젝트명 *")).toHaveValue(
+    "Ongoing later project",
+  );
 });
 
 test("manages categories and switches project ordering from automatic to manual", async () => {
