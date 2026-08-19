@@ -7,7 +7,7 @@ import { supabase } from "../../lib/supabase";
 
 const ROLE_LABELS = {
   professor:          "Professor",
-  research_professor: "Research Professor",
+  research_affiliate: "Research Affiliate",
   phd_student:        "Ph.D. Student",
   ms_student:         "M.S. Student",
   bs_student:         "B.S. Student",
@@ -16,7 +16,7 @@ const ROLE_LABELS = {
 const ROLE_FILTERS = [
   { key: "all",               label: "전체" },
   { key: "professor",         label: "Professor" },
-  { key: "research_professor",label: "Research Prof." },
+  { key: "research_affiliate",label: "Research Affiliate" },
   { key: "phd_student",       label: "Ph.D." },
   { key: "ms_student",        label: "M.S." },
   { key: "bs_student",        label: "B.S." },
