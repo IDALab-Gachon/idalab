@@ -1,384 +1,453 @@
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 import styled from "styled-components";
+import ObfuscatedEmail from "../Components/ObfuscatedEmail";
+import { useMembers } from "../hooks/useMembers";
 
-// import empty_img from "../images/members/members_empty.png";
-import orjeong_img from "../images/members/members_orjeong.jpg";
+const ROLE_SECTION_LABELS = {
+  professor: "Professor",
+  research_affiliate: "Research Affiliate",
+  phd_student: "Ph.D. Students",
+  ms_student: "M.S. Students",
+  bs_student: "B.S. Students",
+};
 
-import soyeop_img from "../images/members/members_soyeop.jpeg";
+const ROLE_CARD_LABELS = {
+  professor: "Professor",
+  research_affiliate: "Research Affiliate",
+  phd_student: "Ph.D. Student",
+  ms_student: "M.S. Student",
+  bs_student: "B.S. Student",
+};
 
-// 박사
-import daeho_img from "../images/members/members_daeho.jpeg";
-
-// 석사
-import taehyeong_img from "../images/members/members_taehyeong.jpeg";
-import soonyong_img from "../images/members/members_soonyong.jpeg";
-import seongyoung_img from "../images/members/members_seongyoung.jpeg";
-import seungyeon_img from "../images/members/members_seungyeon.jpeg";
-
-import donghyeon_lim_img from "../images/members/members_donghyeon_lim.jpeg";
-import taeheon_img from "../images/members/members_taeheon.jpeg";
-import haebin_img from "../images/members/members_haebin.jpeg";
-
-// 학부생
-import doyun_img from "../images/members/members_doyun.png";
-import hwirang_img from "../images/members/members_hwirang.jpg";
-
-const MemberContainer = styled.div`
+const Page = styled.div`
   width: 100%;
+`;
+
+const PageHeader = styled.header`
+  position: relative;
+  overflow: hidden;
   margin-top: 5px;
-  text-align: justify;
-`;
+  padding: 52px 48px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 92% 10%, rgba(118, 89, 209, 0.13), transparent 30%),
+    linear-gradient(135deg, #f6f3ff 0%, #f7fbff 100%);
 
-const MemberTitle = styled.div`
-  border-bottom: 2px solid ${(props) => props.theme.redColor};
-`;
-
-const TitleText = styled.p`
-  font-size: 24px;
-  font-weight: 600;
-  color: ${(props) => props.theme.redColor};
-  padding: 10px;
-`;
-
-const ListContainer = styled.div`
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-`;
-
-const ListTitle = styled.p`
-  font-size: 20px;
-  font-weight: 600;
-  color: ${(props) => props.theme.darkBlueColor};
-  padding-bottom: 10px;
-  padding-top: 5px;
-`;
-
-const MemberWrapper = styled.div`
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-`;
-
-const MemberCard = styled.div`
-  justify-content: center;
-  align-self: center;
-  vertical-align: middle;
-  ${(props) => props.theme.whiteBox};
-  width: 330px;
-  height: 430px;
-  text-align: center;
-  padding: 15px;
-  margin-right: 15px;
-  margin-bottom: 10px;
-`;
-
-const MemberImg = styled.img`
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  margin-top: 10px;
-`;
-
-const MemberName = styled.p`
-  padding-top: 15px;
-  font-size: 18px;
-  font-weight: 600;
-  color: ${(props) => props.theme.darkBlueColor};
-`;
-
-const MemberInfo = styled.p`
-  padding-top: 15px;
-  font-size: 16px;
-  font-weight: 400;
-  color: ${(props) => props.theme.darkGreyColor};
-`;
-
-const GraduateAlumni = styled.ul`
-  list-style: none;
-  color: ${(props) => props.theme.darkBlueColor};
-  font-size: 16px;
-  font-weight: 500;
-`;
-
-const AlumniList = styled.ul`
-  list-style: none;
-  color: ${(props) => props.theme.darkGreyColor};
-  font-size: 16px;
-`;
-
-const AlumniListItem = styled.li`
-  ::before {
-    content: "•";
-    color: ${(props) => props.theme.redColor};
-    display: inline-block;
-    width: 1em;
+  @media (max-width: 600px) {
+    padding: 38px 24px;
+    border-radius: 16px;
   }
 `;
 
-const Link = styled.a`
-  color: ${(props) => props.theme.darkBlueColor};
+const Eyebrow = styled.p`
+  margin-bottom: 9px;
+  color: ${(props) => props.theme.redColor};
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 `;
 
+const PageTitle = styled.h1`
+  color: ${(props) => props.theme.darkBlueColor};
+  font-size: clamp(34px, 4.5vw, 50px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+`;
+
+const PageDescription = styled.p`
+  max-width: 100%;
+  margin-top: 14px;
+  color: ${(props) => props.theme.darkGreyColor};
+  font-size: 16px;
+  line-height: 1.75;
+`;
+
+const Content = styled.div`
+  padding: 68px 14px 0;
+
+  @media (max-width: 768px) {
+    padding: 48px 2px 0;
+  }
+`;
+
+const MemberSection = styled.section`
+  & + & {
+    margin-top: 64px;
+  }
+`;
+
+const SectionHeading = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #dfe6ed;
+`;
+
+const SectionTitle = styled.h2`
+  color: ${(props) => props.theme.darkBlueColor};
+  font-size: 23px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+`;
+
+const Count = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 14px;
+  background: ${(props) => props.theme.lightVioletColor};
+  color: ${(props) => props.theme.darkVioletColor};
+  font-size: 12px;
+  font-weight: 800;
+`;
+
+const MemberGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px 22px;
+
+  @media (max-width: 980px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media (max-width: 720px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 14px;
+  }
+
+  @media (max-width: 350px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const MemberCard = styled.article`
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  text-align: center;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+`;
+
+const PhotoFrame = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 3 / 3.7;
+  overflow: hidden;
+  border: 1px solid #dde5ec;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #eef3f7, #f5f2fa);
+`;
+
+const MemberPhoto = styled.img`
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+`;
+
+const PhotoPlaceholder = styled.div`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 106px;
+  height: 106px;
+  border-radius: 50%;
+  background: ${(props) => props.theme.darkBlueColor};
+  color: #fff;
+  font-size: 30px;
+  font-weight: 800;
+`;
+
+const MemberBody = styled.div`
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  flex-direction: column;
+  padding: 14px 4px 0;
+`;
+
+const MemberName = styled.h3`
+  color: ${(props) => props.theme.darkBlueColor};
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.4;
+`;
+
+const ProfessorLink = styled(RouterLink)`
+  color: inherit;
+
+  &:hover {
+    color: ${(props) => props.theme.darkVioletColor};
+  }
+`;
+
+const ExternalNameLink = styled.a`
+  color: inherit;
+
+  &:hover {
+    color: ${(props) => props.theme.darkVioletColor};
+  }
+`;
+
+const RoleText = styled.p`
+  margin-top: 4px;
+  color: ${(props) => props.theme.blackColor};
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.5;
+`;
+
+const Affiliation = styled.p`
+  margin-top: 3px;
+  color: ${(props) => props.theme.darkGreyColor};
+  font-size: 12px;
+  line-height: 1.5;
+`;
+
+const EmailText = styled(ObfuscatedEmail)`
+  max-width: 100%;
+  margin-top: 8px;
+  color: ${(props) => props.theme.darkBlueColor};
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+`;
+
+const AlumniSection = styled.section`
+  margin-top: 80px;
+  padding: 42px;
+  border-radius: 18px;
+  background: #f5f7fa;
+
+  @media (max-width: 680px) {
+    margin-top: 62px;
+    padding: 30px 20px;
+  }
+`;
+
+const AlumniIntro = styled.p`
+  max-width: 650px;
+  margin: -8px 0 26px;
+  color: ${(props) => props.theme.darkGreyColor};
+  font-size: 14px;
+  line-height: 1.7;
+`;
+
+const AlumniGroupTitle = styled.h3`
+  margin-bottom: 14px;
+  color: ${(props) => props.theme.darkBlueColor};
+  font-size: 15px;
+  font-weight: 800;
+`;
+
+const AlumniList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 14px;
+
+  & + ${AlumniGroupTitle} {
+    margin-top: 34px;
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const AlumniItem = styled.li`
+  display: grid;
+  grid-template-columns: minmax(120px, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid #e3e8ed;
+  border-radius: 10px;
+  background: #fff;
+
+  @media (max-width: 420px) {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+`;
+
+const AlumniName = styled.span`
+  color: ${(props) => props.theme.blackColor};
+  font-size: 13px;
+  font-weight: 750;
+`;
+
+const AlumniMeta = styled.span`
+  color: ${(props) => props.theme.darkGreyColor};
+  font-size: 12px;
+  line-height: 1.5;
+`;
+
+const StatusMessage = styled.div`
+  margin-top: 28px;
+  padding: 28px;
+  border: 1px solid #e1e7ed;
+  border-radius: 12px;
+  color: ${(props) => props.theme.darkGreyColor};
+  text-align: center;
+`;
+
+const getInitials = (name = "") =>
+  name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+
 const Members = () => {
+  const { activeMembers, alumni, loading, error, ROLE_ORDER } = useMembers();
+
+  const graduateAlumni = alumni.filter((member) => member.final_degree);
+  const otherAlumni = alumni.filter((member) => !member.final_degree);
+
   return (
-    <MemberContainer>
-      <MemberTitle>
-        <TitleText>MEMBERS</TitleText>
-      </MemberTitle>
-      <ListContainer>
-        <ListTitle>Professor</ListTitle>
-        <MemberWrapper>
-          <MemberCard>
-            <MemberImg src={orjeong_img} alt="OkRan Jeong" />
-            <MemberName>Prof. OkRan Jeong</MemberName>
-            <MemberInfo>
-              Professor <br />
-              School of Computing <br />
-              Gachon University <br />
-              🌐{" "}
-              <Link
-                href="http://cs.gachon.ac.kr/orjeong/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                orjeong.gachon.ac.kr
-              </Link>{" "}
-              <br />
-              📧{" "}
-              <Link href="mailto:orjeong@gachon.ac.kr">
-                orjeong@gachon.ac.kr
-              </Link>
-            </MemberInfo>
-          </MemberCard>
-        </MemberWrapper>
-        <ListTitle>Research Affiliate</ListTitle>
-        <MemberWrapper>
-          <MemberCard>
-            <MemberImg src={soyeop_img} alt="SoYeop Yoo" />
-            <MemberName>SoYeop Yoo</MemberName>
-            <MemberInfo>
-              Research Affiliate
-              <br /> School of Computing <br />
-              Gachon University <br />
-              📧{" "}
-              <Link href="mailto:bbusso@gachon.ac.kr">bbusso@gachon.ac.kr</Link>
-            </MemberInfo>
-          </MemberCard>
-        </MemberWrapper>
-        <ListTitle>Ph.D. Students</ListTitle>
-        <MemberWrapper>
-          <MemberCard>
-            <MemberImg src={daeho_img} alt="DaeHo Kim" />
-            <MemberName>DaeHo Kim</MemberName>
-            <MemberInfo>
-              Ph.D. Student
-              <br /> School of Computing <br />
-              Gachon University <br />
-              📧{" "}
-              <Link href="mailto:ikimdh91@gmail.com">ikimdh91@gmail.com</Link>
-            </MemberInfo>
-          </MemberCard>
-        </MemberWrapper>
-        <ListTitle>M.S. Students</ListTitle>
-        <MemberWrapper>
-          <MemberCard>
-            <MemberImg src={taehyeong_img} alt="TaeHyeong Kwon" />
-            <MemberName>TaeHyeong Kwon</MemberName>
-            <MemberInfo>
-              M.S. Student
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:kth05090@gmail.com">kth05090@gmail.com</Link>
-            </MemberInfo>
-          </MemberCard>
-      
-          <MemberCard>
-            <MemberImg src={soonyong_img} alt="SoonYong Kim" />
-            <MemberName>SoonYong Kim</MemberName>
-            <MemberInfo>
-              M.S. Student
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:lksy8884@naver.com">lksy8884@naver.com</Link>
-            </MemberInfo>
-          </MemberCard>
-          <MemberCard>
-            <MemberImg src={seongyoung_img} alt="SeonGyoung Lee" />
-            <MemberName>SeonGyoung Lee</MemberName>
-            <MemberInfo>
-              M.S. Student
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:gkfl0807@gmail.com">gkfl0807@gmail.com</Link>
-            </MemberInfo>
-          </MemberCard>
-          <MemberCard>
-            <MemberImg src={seungyeon_img} alt="SeungYeon Sun" />
-            <MemberName>SeungYeon Sun</MemberName>
-            <MemberInfo>
-              M.S. Student
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:tjstmddus202@naver.com">
-                tjstmddus202@naver.com
-              </Link>
-            </MemberInfo>
-          </MemberCard>
-           <MemberCard>
-            <MemberImg src={taeheon_img} alt="TaeHeon Seong" />
-            <MemberName>TaeHeon Seong</MemberName>
-            <MemberInfo>
-              M.S. Student
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:seongth0319@gachon.ac.kr">
-                seongth0319@gachon.ac.kr
-              </Link>
-            </MemberInfo>
-          </MemberCard>
+    <Page>
+      <PageHeader>
+        <Eyebrow>Our people</Eyebrow>
+        <PageTitle>Members</PageTitle>
+        <PageDescription>
+          Meet the faculty and researchers working together on intelligent data
+          analytics, knowledge discovery, and machine learning at IDA Lab.
+        </PageDescription>
+      </PageHeader>
 
-          <MemberCard>
-            <MemberImg src={donghyeon_lim_img} alt="DongHyun Lim" />
-            <MemberName>DongHyun Lim</MemberName>
-            <MemberInfo>
-              M.S. Student
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:donghyun7640@gmail.com">
-                donghyun7640@gmail.com
-              </Link>
-            </MemberInfo>
-          </MemberCard>
+      {loading && <StatusMessage>Loading members…</StatusMessage>}
+      {!loading && error && (
+        <StatusMessage>Member information is temporarily unavailable.</StatusMessage>
+      )}
 
-          <MemberCard>
-            <MemberImg src={haebin_img} alt="Haebin Han" />
-            <MemberName>Haebin Han</MemberName>
-            <MemberInfo>
-              M.S. Student
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:haebin0424@naver.com">
-                haebin0424@naver.com
-              </Link>
-            </MemberInfo>
-          </MemberCard>
-        </MemberWrapper>
-        {/* <ListTitle>M.S. - B.S. Students</ListTitle>
-        <MemberWrapper></MemberWrapper> */}
-        <ListTitle>B.S. Students</ListTitle>
-        <MemberWrapper>
-          <MemberCard>
-            <MemberImg src={doyun_img} alt="DoYun Kwon" />
-            <MemberName>Doyun Kwon</MemberName>
-            <MemberInfo>
-              Undergraduate RA
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:keonorg@gachon.ac.kr">
-                keonorg@gachon.ac.kr
-              </Link>
-            </MemberInfo>
-          </MemberCard>
-          <MemberCard>
-            <MemberImg src={hwirang_img} alt="HwiRang Yeo" />
-            <MemberName>HwiRang Yeo</MemberName>
-            <MemberInfo>
-              Undergraduate RA
-              <br />
-              School of Computing
-              <br />
-              Gachon University
-              <br />
-              📧{" "}
-              <Link href="mailto:julie.yeo06@gmail.com">
-                julie.yeo06@gmail.com
-              </Link>
-            </MemberInfo>
-          </MemberCard>
-        </MemberWrapper>
-        <ListTitle>Alumni</ListTitle>
-        <GraduateAlumni>
-          <AlumniListItem>DongHyeon Kim, MS, 2026 ()</AlumniListItem>
-          <AlumniListItem>HaYoung Lee, MS, 2024 (한국전자통신연구원(ETRI))</AlumniListItem>
-          <AlumniListItem>HyoJin Ko, MS, 2024 (아산생명과학연구소(ARIS))</AlumniListItem>
-          <AlumniListItem>MinJi Kim, MS, 2024 (EMRO)</AlumniListItem>
-          <AlumniListItem>ChaeRim Park, MS, 2024 ()</AlumniListItem>
+      {!loading && !error && (
+        <Content>
+          {ROLE_ORDER.map((role) => {
+            const members = activeMembers[role] || [];
+            if (members.length === 0) return null;
 
-          <AlumniListItem>YeonSun Ahn, MS, 2021 (LINE Plus)</AlumniListItem>
-          <AlumniListItem>JiHye Kim, MS, 2021 (Seegene)</AlumniListItem>
-          <AlumniListItem>
-            SungMin Yang, MS, 2020 (Toss Payments)
-          </AlumniListItem>
-          <AlumniListItem>JeIn Song, MS, 2018 (Scatter Lab)</AlumniListItem>
-          <AlumniListItem>TaeSoo Park, MS, 2017 (Zigzag)</AlumniListItem>
-        </GraduateAlumni>
-        <br />
-        <AlumniList>
-          <AlumniListItem>ChongJae Yoo (LG Electronics)</AlumniListItem>
-          <AlumniListItem>Soojeong Choi (EMRO)</AlumniListItem>
-          <AlumniListItem>Seounhee Ma (Infobank)</AlumniListItem>
-          <AlumniListItem>Jinwoo Jo (Vueno)</AlumniListItem>
-          <AlumniListItem>SangMoon Kang (EMRO)</AlumniListItem>
-          <AlumniListItem>YoungSook Seo (E4NET)</AlumniListItem>
-          <AlumniListItem>Woori Ko (Douzone)</AlumniListItem>
-          <AlumniListItem>SangMin Byun (EMRO)</AlumniListItem>
-          <AlumniListItem>YoungNam Woo (Irontrain)</AlumniListItem>
-          <AlumniListItem>YoungGeun Kim (GNC Network)</AlumniListItem>
-          <AlumniListItem>HyunMin Kim (Wisenut)</AlumniListItem>
-          <AlumniListItem>SeungChul Park (R.O.K.A.)</AlumniListItem>
-          <AlumniListItem>JungHo Park (Cannon)</AlumniListItem>
-          <AlumniListItem>Kideok Kim (Coupang)</AlumniListItem>
-          <AlumniListItem>Jungkeun Ji (GIS)</AlumniListItem>
-          <AlumniListItem>Hyeji Shin (Douzone)</AlumniListItem>
-          <AlumniListItem>Jaesang Lim (Kakao Bank)</AlumniListItem>
-          <AlumniListItem>Hyunjoong Kim (Samsung Electronics)</AlumniListItem>
-          <AlumniListItem>Jeongwook Kim (Wisenut)</AlumniListItem>
-          <AlumniListItem>Hyunwoo Yoo (HP)</AlumniListItem>
-          <AlumniListItem>Youngyol Na (Midas IT)</AlumniListItem>
-          <AlumniListItem>Hwankyoo Yeo (TMaxSoft)</AlumniListItem>
-          <AlumniListItem>Sangwok Yoo (Keon-A IT)</AlumniListItem>
-          <AlumniListItem>Jimin Seok (Douzone)</AlumniListItem>
-          <AlumniListItem>HeeSue Lee (WEMAKEPRICE)</AlumniListItem>
-        </AlumniList>
-      </ListContainer>
-    </MemberContainer>
+            return (
+              <MemberSection key={role} aria-labelledby={`members-${role}`}>
+                <SectionHeading>
+                  <SectionTitle id={`members-${role}`}>
+                    {ROLE_SECTION_LABELS[role]}
+                  </SectionTitle>
+                  <Count aria-label={`${members.length} members`}>{members.length}</Count>
+                </SectionHeading>
+                <MemberGrid>
+                  {members.map((member) => (
+                    <MemberCard key={member.id}>
+                      <PhotoFrame>
+                        {member.photo_url ? (
+                          <MemberPhoto src={member.photo_url} alt={member.name} />
+                        ) : (
+                          <PhotoPlaceholder aria-hidden="true">
+                            {getInitials(member.name)}
+                          </PhotoPlaceholder>
+                        )}
+                      </PhotoFrame>
+                      <MemberBody>
+                        <MemberName>
+                          {member.role === "professor" ? (
+                            <ProfessorLink to="/professor">{member.name}</ProfessorLink>
+                          ) : member.website ? (
+                            <ExternalNameLink
+                              href={member.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`${member.name} website`}
+                            >
+                              {member.name} ↗
+                            </ExternalNameLink>
+                          ) : (
+                            member.name
+                          )}
+                        </MemberName>
+                        <RoleText>{ROLE_CARD_LABELS[member.role]}</RoleText>
+                        <Affiliation>
+                          School of Computing · Gachon University
+                        </Affiliation>
+                        {member.email && (
+                          <EmailText email={member.email} />
+                        )}
+                      </MemberBody>
+                    </MemberCard>
+                  ))}
+                </MemberGrid>
+              </MemberSection>
+            );
+          })}
+
+          <AlumniSection aria-labelledby="alumni-title">
+            <SectionHeading>
+              <SectionTitle id="alumni-title">Alumni</SectionTitle>
+              <Count aria-label={`${alumni.length} alumni`}>{alumni.length}</Count>
+            </SectionHeading>
+            <AlumniIntro>
+              IDA Lab alumni continue their work across research institutions,
+              industry, and technology organizations.
+            </AlumniIntro>
+
+            {graduateAlumni.length > 0 && (
+              <>
+                <AlumniGroupTitle>Degree alumni</AlumniGroupTitle>
+                <AlumniList>
+                  {graduateAlumni.map((member) => (
+                    <AlumniItem key={member.id}>
+                      <AlumniName>{member.name}</AlumniName>
+                      <AlumniMeta>
+                        {[member.final_degree, member.graduation_year]
+                          .filter(Boolean)
+                          .join(" · ")}
+                        {member.current_organization
+                          ? ` · ${member.current_organization}`
+                          : ""}
+                      </AlumniMeta>
+                    </AlumniItem>
+                  ))}
+                </AlumniList>
+              </>
+            )}
+
+            {otherAlumni.length > 0 && (
+              <>
+                <AlumniGroupTitle>Former members</AlumniGroupTitle>
+                <AlumniList>
+                  {otherAlumni.map((member) => (
+                    <AlumniItem key={member.id}>
+                      <AlumniName>{member.name}</AlumniName>
+                      <AlumniMeta>
+                        {member.current_organization || "IDA Lab alumnus"}
+                      </AlumniMeta>
+                    </AlumniItem>
+                  ))}
+                </AlumniList>
+              </>
+            )}
+          </AlumniSection>
+        </Content>
+      )}
+    </Page>
   );
 };
 

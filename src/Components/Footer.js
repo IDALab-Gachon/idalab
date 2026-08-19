@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Footer = styled.footer`
   display: flex;
-  flow-direction: row;
+  flex-direction: row;
   justify-content: flex-end;
   align-items: flex-end;
   text-transform: uppercase;
@@ -12,6 +12,14 @@ const Footer = styled.footer`
   margin-top: 50px;
   padding: 10px 15px;
   border-top: 2px solid ${(props) => props.theme.lightVioletColor};
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+    padding: 15px;
+  }
 `;
 
 const List = styled.ul`
