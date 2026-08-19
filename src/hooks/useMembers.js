@@ -3,7 +3,7 @@ import { supabase } from "../lib/supabase";
 
 const ROLE_ORDER = [
   "professor",
-  "research_affiliate",
+  "research_professor",
   "phd_student",
   "ms_student",
   "bs_student",

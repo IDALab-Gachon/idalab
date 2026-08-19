@@ -6,7 +6,7 @@ import { useMembers } from "../hooks/useMembers";
 
 const ROLE_SECTION_LABELS = {
   professor: "Professor",
-  research_affiliate: "Research Affiliate",
+  research_professor: "Research Affiliate",
   phd_student: "Ph.D. Students",
   ms_student: "M.S. Students",
   bs_student: "B.S. Students",
@@ -14,7 +14,7 @@ const ROLE_SECTION_LABELS = {
 
 const ROLE_CARD_LABELS = {
   professor: "Professor",
-  research_affiliate: "Research Affiliate",
+  research_professor: "Research Affiliate",
   phd_student: "Ph.D. Student",
   ms_student: "M.S. Student",
   bs_student: "B.S. Student",
