@@ -379,11 +379,13 @@ const AdminMembers = () => {
                 <Label>졸업년도</Label>
                 <Input type="number" value={form.graduation_year} onChange={e => setField("graduation_year", e.target.value)} placeholder="2025" />
               </div>
-              <div style={{ gridColumn: "1/-1" }}>
-                <Label>현재 소속</Label>
-                <Input value={form.current_organization} onChange={e => setField("current_organization", e.target.value)} placeholder="회사 또는 기관명" />
-              </div>
             </>
+          )}
+          {(form.status === "alumni" || form.role === "research_professor") && (
+            <div style={{ gridColumn: "1/-1" }}>
+              <Label>현재 소속</Label>
+              <Input value={form.current_organization} onChange={e => setField("current_organization", e.target.value)} placeholder="회사 또는 기관명" />
+            </div>
           )}
           <div style={{ gridColumn: "1/-1" }}>
             <Label>프로필 사진</Label>

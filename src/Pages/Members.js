@@ -385,7 +385,9 @@ const Members = () => {
                         </MemberName>
                         <RoleText>{ROLE_CARD_LABELS[member.role]}</RoleText>
                         <Affiliation>
-                          School of Computing · Gachon University
+                          {member.role === "research_professor"
+                            ? member.current_organization || "Gachon University"
+                            : "School of Computing · Gachon University"}
                         </Affiliation>
                         {member.email && (
                           <EmailText email={member.email} />
